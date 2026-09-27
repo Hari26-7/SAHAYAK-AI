@@ -1,7 +1,9 @@
 import React from 'react';
+
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { LanguageProvider } from './context/LanguageContext';
+
 import { Layout } from './components/Layout';
 
 import Dashboard from './pages/Dashboard';
@@ -23,33 +25,129 @@ export default function App() {
   return (
     <LanguageProvider>
       <AuthProvider>
-        <BrowserRouter basename="/Sahayak-AI"> 
-          <LanguageProvider>
-  <AuthProvider>
-    <BrowserRouter basename="/Sahayak-AI">
-      <Routes>
+        <BrowserRouter>
           <Routes>
+
             {/* Auth Pages without sidebar */}
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/language" element={<LanguageSelection />} />
 
             {/* Application Pages with Sidebar Layout */}
-            <Route path="/" element={<Layout><Dashboard /></Layout>} />
-            <Route path="/dashboard" element={<Layout><Dashboard /></Layout>} />
-            <Route path="/schemes" element={<Layout><Schemes /></Layout>} />
-            <Route path="/scheme-matching" element={<Layout><SchemeMatching /></Layout>} />
-            <Route path="/scheme-stacking" element={<Layout><SchemeStacking /></Layout>} />
-            <Route path="/applications" element={<Layout><Applications /></Layout>} />
-            <Route path="/documents" element={<Layout><Documents /></Layout>} />
-            <Route path="/credit-score" element={<Layout><CreditScore /></Layout>} />
-            <Route path="/eligibility-roadmap" element={<Layout><EligibilityRoadmap /></Layout>} />
-            <Route path="/face-verification" element={<Layout><FaceVerification /></Layout>} />
-            <Route path="/notifications" element={<Layout><Notifications /></Layout>} />
-            <Route path="/profile" element={<Layout><Profile /></Layout>} />
+            <Route
+              path="/"
+              element={
+                <Layout>
+                  <Dashboard />
+                </Layout>
+              }
+            />
+
+            <Route
+              path="/dashboard"
+              element={
+                <Layout>
+                  <Dashboard />
+                </Layout>
+              }
+            />
+
+            <Route
+              path="/schemes"
+              element={
+                <Layout>
+                  <Schemes />
+                </Layout>
+              }
+            />
+
+            <Route
+              path="/scheme-matching"
+              element={
+                <Layout>
+                  <SchemeMatching />
+                </Layout>
+              }
+            />
+
+            <Route
+              path="/scheme-stacking"
+              element={
+                <Layout>
+                  <SchemeStacking />
+                </Layout>
+              }
+            />
+
+            <Route
+              path="/applications"
+              element={
+                <Layout>
+                  <Applications />
+                </Layout>
+              }
+            />
+
+            <Route
+              path="/documents"
+              element={
+                <Layout>
+                  <Documents />
+                </Layout>
+              }
+            />
+
+            <Route
+              path="/credit-score"
+              element={
+                <Layout>
+                  <CreditScore />
+                </Layout>
+              }
+            />
+
+            <Route
+              path="/eligibility-roadmap"
+              element={
+                <Layout>
+                  <EligibilityRoadmap />
+                </Layout>
+              }
+            />
+
+            <Route
+              path="/face-verification"
+              element={
+                <Layout>
+                  <FaceVerification />
+                </Layout>
+              }
+            />
+
+            <Route
+              path="/notifications"
+              element={
+                <Layout>
+                  <Notifications />
+                </Layout>
+              }
+            />
+
+            <Route
+              path="/profile"
+              element={
+                <Layout>
+                  <Profile />
+                </Layout>
+              }
+            />
 
             {/* Fallback */}
-            <Route path="*" element={<Navigate to="/dashboard" replace />} />
+            <Route
+              path="*"
+              element={<Navigate to="/dashboard" replace />}
+            />
+
           </Routes>
         </BrowserRouter>
       </AuthProvider>
