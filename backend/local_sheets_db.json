@@ -1,0 +1,1309 @@
+{
+  "users": [
+    {
+      "id": "user_2bd27b1c4c",
+      "email": "entrepreneur_test@example.com",
+      "password_hash": "4dc51428db8f30402994d5f96557733377e54ff0a90c794536eae549dac50161",
+      "created_at": "2026-09-27T10:47:28.294604"
+    },
+    {
+      "id": "user_e1aa27109a",
+      "email": "hasini@gmail.com",
+      "password_hash": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+      "created_at": "2026-09-27T13:22:21.085056+00:00"
+    },
+    {
+      "id": "user_d293ea2e34",
+      "email": "demo@msme.gov.in",
+      "password_hash": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+      "created_at": "2026-09-27T13:22:50.501300+00:00"
+    },
+    {
+      "id": "user_95ae3f1507",
+      "email": "entrepreneur_sih@gmail.com",
+      "password_hash": "b0a57fae198c879c67c70e74eee957263fe1d361271923262434ec30f52c8b59",
+      "created_at": "2026-09-27T13:32:51.459236+00:00"
+    },
+    {
+      "id": "user_123a03a810",
+      "email": "hasiniini.2007@gmail.com",
+      "password_hash": "d87af9e1f49d21a6fd19a19eb1061f2f14f5c19e54ccd2e8f10e733694be95bc",
+      "created_at": "2026-09-27T13:45:14.975951+00:00"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "prof_7540c458",
+      "user_id": "user_2bd27b1c4c",
+      "full_name": "Ramesh Kumar",
+      "phone": "+91 9876543210",
+      "business_name": "Kumar Agro Innovations",
+      "business_type": "Micro",
+      "sector": "Manufacturing",
+      "sub_sector": "",
+      "investment_amount": 500000,
+      "annual_turnover": 1500000,
+      "employee_count": 5,
+      "state": "Tamil Nadu",
+      "city": "Chennai",
+      "pincode": "600001",
+      "preferred_language": "en",
+      "updated_at": "2026-09-27T12:40:51.718167+00:00"
+    },
+    {
+      "id": "prof_0d6a9846",
+      "user_id": "user_e1aa27109a",
+      "full_name": "",
+      "phone": "",
+      "business_name": "",
+      "business_type": "Micro",
+      "sector": "Manufacturing",
+      "sub_sector": "",
+      "investment_amount": 500000.0,
+      "annual_turnover": 1500000.0,
+      "employee_count": 5,
+      "state": "Tamil Nadu",
+      "city": "Chennai",
+      "pincode": "600001",
+      "preferred_language": "en",
+      "updated_at": "2026-09-27T13:22:21.085056+00:00"
+    },
+    {
+      "id": "prof_42340bd9",
+      "user_id": "user_d293ea2e34",
+      "full_name": "",
+      "phone": "",
+      "business_name": "",
+      "business_type": "Micro",
+      "sector": "Manufacturing",
+      "sub_sector": "",
+      "investment_amount": 500000.0,
+      "annual_turnover": 1500000.0,
+      "employee_count": 5,
+      "state": "Tamil Nadu",
+      "city": "Chennai",
+      "pincode": "600001",
+      "preferred_language": "en",
+      "updated_at": "2026-09-27T13:22:50.501300+00:00"
+    },
+    {
+      "id": "user_2bd27b1c4c",
+      "preferred_language": "en",
+      "dark_mode": false,
+      "updated_at": "2026-09-27T13:26:43.684Z"
+    },
+    {
+      "id": "prof_60e21369",
+      "user_id": "user_95ae3f1507",
+      "full_name": "Suresh Kumar",
+      "phone": "9840123456",
+      "business_name": "SK Engineering Works",
+      "business_type": "Micro",
+      "sector": "Manufacturing",
+      "sub_sector": "",
+      "investment_amount": 500000.0,
+      "annual_turnover": 1500000.0,
+      "employee_count": 5,
+      "state": "Tamil Nadu",
+      "city": "Chennai",
+      "pincode": "600001",
+      "preferred_language": "en",
+      "updated_at": "2026-09-27T13:32:51.459236+00:00"
+    },
+    {
+      "id": "prof_2e7b24c3",
+      "user_id": "user_123a03a810",
+      "full_name": "Hasini",
+      "phone": "9876543210",
+      "business_name": "Hasini",
+      "business_type": "Micro",
+      "sector": "Manufacturing",
+      "sub_sector": "",
+      "investment_amount": 500000.0,
+      "annual_turnover": 1500000.0,
+      "employee_count": 5,
+      "state": "Tamil Nadu",
+      "city": "Chennai",
+      "pincode": "600001",
+      "preferred_language": "en",
+      "updated_at": "2026-09-27T13:45:14.975951+00:00"
+    },
+    {
+      "id": "user_123a03a810",
+      "preferred_language": "en",
+      "full_name": "Hasini",
+      "phone": "9876543210",
+      "business_name": "Hasini Tech",
+      "business_type": "Small",
+      "sector": "Technology",
+      "sub_sector": "",
+      "investment_amount": 75000,
+      "annual_turnover": 91000,
+      "employee_count": 0,
+      "state": "",
+      "city": "",
+      "pincode": "",
+      "updated_at": "2026-09-27T13:59:48.350Z"
+    }
+  ],
+  "schemes": [
+    {
+      "id": "pmegp-001",
+      "name": "Prime Minister's Employment Generation Programme (PMEGP)",
+      "description": "Credit-linked subsidy programme aimed at generating self-employment opportunities through establishment of micro-enterprises in non-farm sector.",
+      "category": "Credit & Financial Assistance",
+      "ministry": "Ministry of MSME / KVIC",
+      "max_benefit_amount": 5000000.0,
+      "subsidy_percent": 35.0,
+      "eligibility_criteria": [
+        "Any individual above 18 years of age",
+        "At least VIII standard pass for projects costing above Rs.10 lakh in manufacturing and Rs.5 lakh in services",
+        "Only for new micro enterprise projects",
+        "Self Help Groups (SHGs) not availing other benefits"
+      ],
+      "required_documents": [
+        "Aadhaar Card",
+        "PAN Card",
+        "Project Report (DPR)",
+        "Educational Qualification Certificate",
+        "Caste/Special Category Certificate (if applicable)",
+        "Rural Area Certificate (if applicable)"
+      ],
+      "application_link": "https://www.kviconline.gov.in/pmegpeportal/",
+      "is_active": true
+    },
+    {
+      "id": "mudra-002",
+      "name": "Pradhan Mantri Mudra Yojana (PMMY)",
+      "description": "Collateral-free institutional credit up to Rs. 10 Lakhs to micro/small business enterprises in manufacturing, trading, and services.",
+      "category": "Credit & Financial Assistance",
+      "ministry": "Ministry of Finance / MSME",
+      "max_benefit_amount": 1000000.0,
+      "subsidy_percent": 0.0,
+      "eligibility_criteria": [
+        "Non-corporate, non-farm small/micro enterprises",
+        "Valid business plan for manufacturing, processing, trading, or service activities",
+        "No default record in any bank/financial institution",
+        "Shishu (up to 50k), Kishore (50k - 5L), Tarun (5L - 10L)"
+      ],
+      "required_documents": [
+        "Identity Proof (Aadhaar / Voter ID / Passport)",
+        "Residence Proof",
+        "Business Address Proof",
+        "Bank Statement (last 6 months)",
+        "Quotation / Machinery purchase estimate"
+      ],
+      "application_link": "https://www.mudra.org.in/",
+      "is_active": true
+    },
+    {
+      "id": "cgtmse-003",
+      "name": "Credit Guarantee Scheme (CGTMSE)",
+      "description": "Credit guarantee coverage up to Rs. 500 Lakhs (5 Crore) to enable collateral-free credit flow to Micro and Small Enterprises.",
+      "category": "Credit & Financial Assistance",
+      "ministry": "Ministry of MSME / SIDBI",
+      "max_benefit_amount": 50000000.0,
+      "subsidy_percent": 85.0,
+      "eligibility_criteria": [
+        "New and existing Micro and Small Enterprises",
+        "Manufacturing and Service sectors including retail trade and educational institutions",
+        "Borrower should have viable business model without third-party collateral"
+      ],
+      "required_documents": [
+        "Udyam Registration Certificate",
+        "ITR Documents for last 2 years",
+        "Audited Balance Sheet & P&L Statement",
+        "Detailed Project Report (DPR)",
+        "GST Returns"
+      ],
+      "application_link": "https://www.cgtmse.in/",
+      "is_active": true
+    },
+    {
+      "id": "pm-vishwakarma-004",
+      "name": "PM Vishwakarma Scheme",
+      "description": "Holistic support to traditional artisans and craftspeople with toolkit incentives, training stipend, and low-interest collateral-free loans.",
+      "category": "Skill & Training",
+      "ministry": "Ministry of MSME",
+      "max_benefit_amount": 300000.0,
+      "subsidy_percent": 100.0,
+      "eligibility_criteria": [
+        "Artisans working with hands and tools in 18 identified traditional trades (Carpenters, Blacksmiths, Potters, Tailors, etc.)",
+        "Minimum age of 18 years on the date of registration",
+        "Beneficiary should be engaged in the trade on the date of application",
+        "One member per family eligible"
+      ],
+      "required_documents": [
+        "Aadhaar Card",
+        "Mobile Number linked with Aadhaar",
+        "Bank Account Details",
+        "Ration Card (mandatory for family verification)"
+      ],
+      "application_link": "https://pmvishwakarma.gov.in/",
+      "is_active": true
+    },
+    {
+      "id": "zed-005",
+      "name": "MSME Sustainable (ZED) Certification Scheme",
+      "description": "Financial assistance on cost of Zero Defect Zero Effect (ZED) assessment and certification to promote quality manufacturing and environmental standards.",
+      "category": "Infrastructure & Tech",
+      "ministry": "Ministry of MSME",
+      "max_benefit_amount": 500000.0,
+      "subsidy_percent": 80.0,
+      "eligibility_criteria": [
+        "All Manufacturing MSMEs with valid Udyam Registration",
+        "Subsidy structure: Micro (80%), Small (60%), Medium (50%)",
+        "Additional 10% subsidy for Women / SC / ST / NER entrepreneurs"
+      ],
+      "required_documents": [
+        "Udyam Registration Certificate",
+        "Plant & Machinery Investment Undertaking",
+        "Electricity Bill / Factory License",
+        "Bank Statement"
+      ],
+      "application_link": "https://zed.msme.gov.in/",
+      "is_active": true
+    },
+    {
+      "id": "standup-006",
+      "name": "Stand-Up India Scheme",
+      "description": "Bank loans between Rs. 10 Lakhs and Rs. 1 Crore to at least one Scheduled Caste (SC) or Scheduled Tribe (ST) borrower and at least one woman borrower per bank branch.",
+      "category": "Credit & Financial Assistance",
+      "ministry": "Ministry of Finance",
+      "max_benefit_amount": 10000000.0,
+      "subsidy_percent": 15.0,
+      "eligibility_criteria": [
+        "SC/ST and/or Woman entrepreneurs above 18 years of age",
+        "Only for Greenfield (first-time venture) projects",
+        "In non-individual enterprises, 51% shareholding should be held by SC/ST and/or women",
+        "Manufacturing, services, agri-allied or trading sectors"
+      ],
+      "required_documents": [
+        "Identity & Address Proof",
+        "Caste Certificate (for SC/ST)",
+        "Project Report",
+        "Partnership Deed / MoA / AoA (if corporate)",
+        "Pollution clearance / licenses if applicable"
+      ],
+      "application_link": "https://www.standupmitra.in/",
+      "is_active": true
+    },
+    {
+      "id": "sfurti-007",
+      "name": "SFURTI (Fund for Regeneration of Traditional Industries)",
+      "description": "Cluster development grant to make traditional industries more productive, competitive, and sustainable through modern equipment and Common Facility Centres.",
+      "category": "Infrastructure & Tech",
+      "ministry": "Ministry of MSME",
+      "max_benefit_amount": 50000000.0,
+      "subsidy_percent": 90.0,
+      "eligibility_criteria": [
+        "Non-Government Organizations (NGOs), Institutions of Central/State Govt, SHGs, Panchayati Raj Institutions",
+        "Artisan clusters with minimum 500 artisans for regular clusters and 2500 for major clusters"
+      ],
+      "required_documents": [
+        "Detailed Project Report (DPR)",
+        "Registration Documents of Nodal Agency / Implementing Agency",
+        "Land Availability Proof for Common Facility Centre (CFC)",
+        "Artisan baseline survey list"
+      ],
+      "application_link": "https://sfurti.msme.gov.in/",
+      "is_active": true
+    }
+  ],
+  "applications": [
+    {
+      "user_id": "user_e1aa27109a",
+      "scheme_id": "pmegp-001",
+      "status": "submitted",
+      "id": "appl_b50d2a6c"
+    }
+  ],
+  "documents": [],
+  "credit_profiles": [
+    {
+      "user_id": "test_user_01",
+      "credit_score": 780,
+      "outstanding_loans": 150000.0,
+      "loan_count": 1,
+      "annual_income": 1200000.0,
+      "existing_emis": 12000.0,
+      "banking_partner": "State Bank of India",
+      "gst_registered": true,
+      "itr_filed": true,
+      "credit_rating": "Excellent",
+      "updated_at": "2026-09-27T12:50:06.766422+00:00",
+      "id": "credit_c2e704b7"
+    }
+  ],
+  "roadmaps": [
+    {
+      "id": "step_6bd3edf7",
+      "user_id": "test_user_01",
+      "step_number": 1,
+      "title": "Udyam Registration & Document Preparation",
+      "description": "Obtain your 19-digit Udyam Registration Number using Aadhaar and PAN. Ensure GST certificate and bank accounts are active.",
+      "status": "completed",
+      "completed_at": "2026-09-27T12:50:06.778382+00:00",
+      "action_link": "https://udyamregistration.gov.in/"
+    },
+    {
+      "id": "step_2ade60b9",
+      "user_id": "test_user_01",
+      "step_number": 2,
+      "title": "Credit Profiling & CIBIL Readiness",
+      "description": "Check MSME credit score, clear any overdue payments, and maintain regular bank cash-flow records.",
+      "status": "pending",
+      "completed_at": null,
+      "action_link": "/credit-score"
+    },
+    {
+      "id": "step_0913af56",
+      "user_id": "test_user_01",
+      "step_number": 3,
+      "title": "Detailed Project Report (DPR) Formulation",
+      "description": "Draft complete financial appraisal, project cost, debt-equity ratio, machinery quotations, and break-even projection.",
+      "status": "pending",
+      "completed_at": null,
+      "action_link": "/documents"
+    },
+    {
+      "id": "step_6527ff91",
+      "user_id": "test_user_01",
+      "step_number": 4,
+      "title": "AI Scheme Matching & Stacking Verification",
+      "description": "Use MSME Sahayak to identify optimal non-conflicting subsidies and collateral guarantee combinations.",
+      "status": "pending",
+      "completed_at": null,
+      "action_link": "/scheme-matching"
+    },
+    {
+      "id": "step_61d251fe",
+      "user_id": "test_user_01",
+      "step_number": 5,
+      "title": "Official Portal Application & Bank Sanction",
+      "description": "Submit digital application on national portal (PMEGP / Mudra / CGTMSE) and track bank branch processing.",
+      "status": "pending",
+      "completed_at": null,
+      "action_link": "/applications"
+    },
+    {
+      "id": "step_703ed04b",
+      "user_id": "user_2bd27b1c4c",
+      "step_number": 1,
+      "title": "Udyam Registration & Document Preparation",
+      "description": "Obtain your 19-digit Udyam Registration Number using Aadhaar and PAN. Ensure GST certificate and bank accounts are active.",
+      "status": "pending",
+      "completed_at": null,
+      "action_link": "https://udyamregistration.gov.in/"
+    },
+    {
+      "id": "step_195f3451",
+      "user_id": "user_2bd27b1c4c",
+      "step_number": 2,
+      "title": "Credit Profiling & CIBIL Readiness",
+      "description": "Check MSME credit score, clear any overdue payments, and maintain regular bank cash-flow records.",
+      "status": "pending",
+      "completed_at": null,
+      "action_link": "/credit-score"
+    },
+    {
+      "id": "step_41117fc2",
+      "user_id": "user_2bd27b1c4c",
+      "step_number": 3,
+      "title": "Detailed Project Report (DPR) Formulation",
+      "description": "Draft complete financial appraisal, project cost, debt-equity ratio, machinery quotations, and break-even projection.",
+      "status": "pending",
+      "completed_at": null,
+      "action_link": "/documents"
+    },
+    {
+      "id": "step_d01751b9",
+      "user_id": "user_2bd27b1c4c",
+      "step_number": 4,
+      "title": "AI Scheme Matching & Stacking Verification",
+      "description": "Use MSME Sahayak to identify optimal non-conflicting subsidies and collateral guarantee combinations.",
+      "status": "pending",
+      "completed_at": null,
+      "action_link": "/scheme-matching"
+    },
+    {
+      "id": "step_a886bb1f",
+      "user_id": "user_2bd27b1c4c",
+      "step_number": 5,
+      "title": "Official Portal Application & Bank Sanction",
+      "description": "Submit digital application on national portal (PMEGP / Mudra / CGTMSE) and track bank branch processing.",
+      "status": "pending",
+      "completed_at": null,
+      "action_link": "/applications"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notif_6a2de583",
+      "user_id": "test_user_01",
+      "type": "success",
+      "title": "Loan Pre-approved",
+      "message": "Your Mudra Tarun application has been verified by the automated system.",
+      "is_read": true,
+      "created_at": "2026-09-27T10:47:28.378864"
+    },
+    {
+      "id": "notif_12c1cb8d",
+      "user_id": "test_user_01",
+      "type": "success",
+      "title": "Loan Pre-approved",
+      "message": "Your Mudra Tarun application has been verified by the automated system.",
+      "is_read": true,
+      "created_at": "2026-09-27T10:48:05.704551"
+    },
+    {
+      "id": "notif_a9f2a5d5",
+      "user_id": "test_user_01",
+      "type": "success",
+      "title": "Loan Pre-approved",
+      "message": "Your Mudra Tarun application has been verified by the automated system.",
+      "is_read": true,
+      "created_at": "2026-09-27T10:53:38.582779+00:00"
+    },
+    {
+      "id": "notif_fe910732",
+      "user_id": "test_user_01",
+      "type": "success",
+      "title": "Loan Pre-approved",
+      "message": "Your Mudra Tarun application has been verified by the automated system.",
+      "is_read": true,
+      "created_at": "2026-09-27T11:01:37.416308+00:00"
+    },
+    {
+      "id": "notif_8aa07c57",
+      "user_id": "test_user_01",
+      "type": "success",
+      "title": "Loan Pre-approved",
+      "message": "Your Mudra Tarun application has been verified by the automated system.",
+      "is_read": true,
+      "created_at": "2026-09-27T11:12:02.121942+00:00"
+    },
+    {
+      "id": "notif_2f4406b9",
+      "user_id": "test_user_01",
+      "type": "success",
+      "title": "Loan Pre-approved",
+      "message": "Your Mudra Tarun application has been verified by the automated system.",
+      "is_read": true,
+      "created_at": "2026-09-27T12:38:45.986791+00:00"
+    },
+    {
+      "id": "notif_5ac40b58",
+      "user_id": "user_2bd27b1c4c",
+      "type": "success",
+      "title": "Profile Updated",
+      "message": "Your business profile has been updated successfully.",
+      "is_read": false,
+      "created_at": "2026-09-27T12:40:51.735940+00:00"
+    },
+    {
+      "id": "notif_484cccb1",
+      "user_id": "test_user_01",
+      "type": "success",
+      "title": "Loan Pre-approved",
+      "message": "Your Mudra Tarun application has been verified by the automated system.",
+      "is_read": true,
+      "created_at": "2026-09-27T12:50:06.784793+00:00"
+    },
+    {
+      "user_id": "user_123a03a810",
+      "type": "success",
+      "title": "Profile Updated",
+      "message": "Your business profile has been updated successfully.",
+      "reminder_date": "",
+      "id": "noti_de8d579e"
+    },
+    {
+      "user_id": "user_123a03a810",
+      "type": "success",
+      "title": "Document Uploaded",
+      "message": "PAN Card has been uploaded and verified.",
+      "reminder_date": "",
+      "id": "noti_2fb94cd8"
+    }
+  ],
+  "face_verifications": [],
+  "stacking_checks": [
+    {
+      "id": "stack_0c9b8e8f",
+      "user_id": "test_user_01",
+      "is_stackable": true,
+      "status": "Compatible",
+      "total_potential_benefit": 51000000.0,
+      "selected_schemes": [
+        {
+          "id": "mudra-002",
+          "name": "Pradhan Mantri Mudra Yojana (PMMY)"
+        },
+        {
+          "id": "cgtmse-003",
+          "name": "Credit Guarantee Scheme (CGTMSE)"
+        }
+      ],
+      "conflict_notes": [],
+      "recommendations": [
+        "Optimal Synergy: Combining loan assistance with CGTMSE provides up to 85% credit guarantee, enabling bank sanction without requiring third-party land or property collateral.",
+        "All selected schemes have zero policy conflicts and can be stacked seamlessly to maximize government incentives."
+      ],
+      "created_at": "2026-09-27T10:47:28.318673"
+    },
+    {
+      "id": "stack_e83244b3",
+      "user_id": "test_user_01",
+      "is_stackable": false,
+      "status": "Conflict Detected",
+      "total_potential_benefit": 6000000.0,
+      "selected_schemes": [
+        {
+          "id": "pmegp-001",
+          "name": "Prime Minister's Employment Generation Programme (PMEGP)"
+        },
+        {
+          "id": "mudra-002",
+          "name": "Pradhan Mantri Mudra Yojana (PMMY)"
+        }
+      ],
+      "conflict_notes": [
+        "Dual Credit Subsidy Rule: Government guidelines prohibit claiming simultaneous capital margin money subsidy under PMEGP and Mudra for the exact same project."
+      ],
+      "recommendations": [
+        "Recommendation: Avail PMEGP for initial capital expenditure (up to 35% margin subsidy), and apply for Mudra working capital later once production commences."
+      ],
+      "created_at": "2026-09-27T10:47:28.325250"
+    },
+    {
+      "id": "stack_24355125",
+      "user_id": "test_user_01",
+      "is_stackable": true,
+      "status": "Compatible",
+      "total_potential_benefit": 51000000.0,
+      "selected_schemes": [
+        {
+          "id": "mudra-002",
+          "name": "Pradhan Mantri Mudra Yojana (PMMY)"
+        },
+        {
+          "id": "cgtmse-003",
+          "name": "Credit Guarantee Scheme (CGTMSE)"
+        }
+      ],
+      "conflict_notes": [],
+      "recommendations": [
+        "Optimal Synergy: Combining loan assistance with CGTMSE provides up to 85% credit guarantee, enabling bank sanction without requiring third-party land or property collateral.",
+        "All selected schemes have zero policy conflicts and can be stacked seamlessly to maximize government incentives."
+      ],
+      "created_at": "2026-09-27T10:48:05.665915"
+    },
+    {
+      "id": "stack_9d15301e",
+      "user_id": "test_user_01",
+      "is_stackable": false,
+      "status": "Conflict Detected",
+      "total_potential_benefit": 6000000.0,
+      "selected_schemes": [
+        {
+          "id": "pmegp-001",
+          "name": "Prime Minister's Employment Generation Programme (PMEGP)"
+        },
+        {
+          "id": "mudra-002",
+          "name": "Pradhan Mantri Mudra Yojana (PMMY)"
+        }
+      ],
+      "conflict_notes": [
+        "Dual Credit Subsidy Rule: Government guidelines prohibit claiming simultaneous capital margin money subsidy under PMEGP and Mudra for the exact same project."
+      ],
+      "recommendations": [
+        "Recommendation: Avail PMEGP for initial capital expenditure (up to 35% margin subsidy), and apply for Mudra working capital later once production commences."
+      ],
+      "created_at": "2026-09-27T10:48:05.673493"
+    },
+    {
+      "id": "stack_e11020e8",
+      "user_id": "test_user_01",
+      "is_stackable": true,
+      "status": "Compatible",
+      "total_potential_benefit": 51000000.0,
+      "selected_schemes": [
+        {
+          "id": "mudra-002",
+          "name": "Pradhan Mantri Mudra Yojana (PMMY)"
+        },
+        {
+          "id": "cgtmse-003",
+          "name": "Credit Guarantee Scheme (CGTMSE)"
+        }
+      ],
+      "conflict_notes": [],
+      "recommendations": [
+        "Optimal Synergy: Combining loan assistance with CGTMSE provides up to 85% credit guarantee, enabling bank sanction without requiring third-party land or property collateral.",
+        "All selected schemes have zero policy conflicts and can be stacked seamlessly to maximize government incentives."
+      ],
+      "created_at": "2026-09-27T10:53:38.549685+00:00"
+    },
+    {
+      "id": "stack_6e36d692",
+      "user_id": "test_user_01",
+      "is_stackable": false,
+      "status": "Conflict Detected",
+      "total_potential_benefit": 6000000.0,
+      "selected_schemes": [
+        {
+          "id": "pmegp-001",
+          "name": "Prime Minister's Employment Generation Programme (PMEGP)"
+        },
+        {
+          "id": "mudra-002",
+          "name": "Pradhan Mantri Mudra Yojana (PMMY)"
+        }
+      ],
+      "conflict_notes": [
+        "Dual Credit Subsidy Rule: Government guidelines prohibit claiming simultaneous capital margin money subsidy under PMEGP and Mudra for the exact same project."
+      ],
+      "recommendations": [
+        "Recommendation: Avail PMEGP for initial capital expenditure (up to 35% margin subsidy), and apply for Mudra working capital later once production commences."
+      ],
+      "created_at": "2026-09-27T10:53:38.555799+00:00"
+    },
+    {
+      "id": "stack_f79d54b9",
+      "user_id": "test_user_01",
+      "is_stackable": true,
+      "status": "Compatible",
+      "total_potential_benefit": 51000000.0,
+      "selected_schemes": [
+        {
+          "id": "mudra-002",
+          "name": "Pradhan Mantri Mudra Yojana (PMMY)"
+        },
+        {
+          "id": "cgtmse-003",
+          "name": "Credit Guarantee Scheme (CGTMSE)"
+        }
+      ],
+      "conflict_notes": [],
+      "recommendations": [
+        "Optimal Synergy: Combining loan assistance with CGTMSE provides up to 85% credit guarantee, enabling bank sanction without requiring third-party land or property collateral.",
+        "All selected schemes have zero policy conflicts and can be stacked seamlessly to maximize government incentives."
+      ],
+      "created_at": "2026-09-27T11:01:37.380650+00:00"
+    },
+    {
+      "id": "stack_0ee98922",
+      "user_id": "test_user_01",
+      "is_stackable": false,
+      "status": "Conflict Detected",
+      "total_potential_benefit": 6000000.0,
+      "selected_schemes": [
+        {
+          "id": "pmegp-001",
+          "name": "Prime Minister's Employment Generation Programme (PMEGP)"
+        },
+        {
+          "id": "mudra-002",
+          "name": "Pradhan Mantri Mudra Yojana (PMMY)"
+        }
+      ],
+      "conflict_notes": [
+        "Dual Credit Subsidy Rule: Government guidelines prohibit claiming simultaneous capital margin money subsidy under PMEGP and Mudra for the exact same project."
+      ],
+      "recommendations": [
+        "Recommendation: Avail PMEGP for initial capital expenditure (up to 35% margin subsidy), and apply for Mudra working capital later once production commences."
+      ],
+      "created_at": "2026-09-27T11:01:37.387441+00:00"
+    },
+    {
+      "id": "stack_de33cb81",
+      "user_id": "test_user_01",
+      "is_stackable": true,
+      "status": "Compatible",
+      "total_potential_benefit": 51000000.0,
+      "selected_schemes": [
+        {
+          "id": "mudra-002",
+          "name": "Pradhan Mantri Mudra Yojana (PMMY)"
+        },
+        {
+          "id": "cgtmse-003",
+          "name": "Credit Guarantee Scheme (CGTMSE)"
+        }
+      ],
+      "conflict_notes": [],
+      "recommendations": [
+        "Optimal Synergy: Combining loan assistance with CGTMSE provides up to 85% credit guarantee, enabling bank sanction without requiring third-party land or property collateral.",
+        "All selected schemes have zero policy conflicts and can be stacked seamlessly to maximize government incentives."
+      ],
+      "created_at": "2026-09-27T11:12:02.106089+00:00"
+    },
+    {
+      "id": "stack_d0c28870",
+      "user_id": "test_user_01",
+      "is_stackable": false,
+      "status": "Conflict Detected",
+      "total_potential_benefit": 6000000.0,
+      "selected_schemes": [
+        {
+          "id": "pmegp-001",
+          "name": "Prime Minister's Employment Generation Programme (PMEGP)"
+        },
+        {
+          "id": "mudra-002",
+          "name": "Pradhan Mantri Mudra Yojana (PMMY)"
+        }
+      ],
+      "conflict_notes": [
+        "Dual Credit Subsidy Rule: Government guidelines prohibit claiming simultaneous capital margin money subsidy under PMEGP and Mudra for the exact same project."
+      ],
+      "recommendations": [
+        "Recommendation: Avail PMEGP for initial capital expenditure (up to 35% margin subsidy), and apply for Mudra working capital later once production commences."
+      ],
+      "created_at": "2026-09-27T11:12:02.108710+00:00"
+    },
+    {
+      "id": "stack_7e0cbc51",
+      "user_id": "test_user_01",
+      "is_stackable": true,
+      "status": "Compatible",
+      "total_potential_benefit": 51000000.0,
+      "selected_schemes": [
+        {
+          "id": "mudra-002",
+          "name": "Pradhan Mantri Mudra Yojana (PMMY)"
+        },
+        {
+          "id": "cgtmse-003",
+          "name": "Credit Guarantee Scheme (CGTMSE)"
+        }
+      ],
+      "conflict_notes": [],
+      "recommendations": [
+        "Optimal Synergy: Combining loan assistance with CGTMSE provides up to 85% credit guarantee, enabling bank sanction without requiring third-party land or property collateral.",
+        "All selected schemes have zero policy conflicts and can be stacked seamlessly to maximize government incentives."
+      ],
+      "created_at": "2026-09-27T12:38:45.951607+00:00"
+    },
+    {
+      "id": "stack_3d32ac9a",
+      "user_id": "test_user_01",
+      "is_stackable": false,
+      "status": "Conflict Detected",
+      "total_potential_benefit": 6000000.0,
+      "selected_schemes": [
+        {
+          "id": "pmegp-001",
+          "name": "Prime Minister's Employment Generation Programme (PMEGP)"
+        },
+        {
+          "id": "mudra-002",
+          "name": "Pradhan Mantri Mudra Yojana (PMMY)"
+        }
+      ],
+      "conflict_notes": [
+        "Dual Credit Subsidy Rule: Government guidelines prohibit claiming simultaneous capital margin money subsidy under PMEGP and Mudra for the exact same project."
+      ],
+      "recommendations": [
+        "Recommendation: Avail PMEGP for initial capital expenditure (up to 35% margin subsidy), and apply for Mudra working capital later once production commences."
+      ],
+      "created_at": "2026-09-27T12:38:45.958642+00:00"
+    },
+    {
+      "id": "stack_d3c969d9",
+      "user_id": "test_user_01",
+      "is_stackable": true,
+      "status": "Compatible",
+      "total_potential_benefit": 51000000.0,
+      "selected_schemes": [
+        {
+          "id": "mudra-002",
+          "name": "Pradhan Mantri Mudra Yojana (PMMY)"
+        },
+        {
+          "id": "cgtmse-003",
+          "name": "Credit Guarantee Scheme (CGTMSE)"
+        }
+      ],
+      "conflict_notes": [],
+      "recommendations": [
+        "Optimal Synergy: Combining loan assistance with CGTMSE provides up to 85% credit guarantee, enabling bank sanction without requiring third-party land or property collateral.",
+        "All selected schemes have zero policy conflicts and can be stacked seamlessly to maximize government incentives."
+      ],
+      "created_at": "2026-09-27T12:50:06.753456+00:00"
+    },
+    {
+      "id": "stack_8cf4aaf2",
+      "user_id": "test_user_01",
+      "is_stackable": false,
+      "status": "Conflict Detected",
+      "total_potential_benefit": 6000000.0,
+      "selected_schemes": [
+        {
+          "id": "pmegp-001",
+          "name": "Prime Minister's Employment Generation Programme (PMEGP)"
+        },
+        {
+          "id": "mudra-002",
+          "name": "Pradhan Mantri Mudra Yojana (PMMY)"
+        }
+      ],
+      "conflict_notes": [
+        "Dual Credit Subsidy Rule: Government guidelines prohibit claiming simultaneous capital margin money subsidy under PMEGP and Mudra for the exact same project."
+      ],
+      "recommendations": [
+        "Recommendation: Avail PMEGP for initial capital expenditure (up to 35% margin subsidy), and apply for Mudra working capital later once production commences."
+      ],
+      "created_at": "2026-09-27T12:50:06.759825+00:00"
+    }
+  ],
+  "roadmap_steps": [
+    {
+      "step": "Udyam Registration",
+      "status": "pending",
+      "detail": "Register your business",
+      "order_index": 1,
+      "user_id": "user_2bd27b1c4c",
+      "id": "road_cd88c541"
+    },
+    {
+      "step": "Aadhaar & PAN Linked",
+      "status": "pending",
+      "detail": "Link identity documents",
+      "order_index": 2,
+      "user_id": "user_2bd27b1c4c",
+      "id": "road_b4721a4d"
+    },
+    {
+      "step": "GST Registration",
+      "status": "pending",
+      "detail": "Upload GST certificate",
+      "order_index": 3,
+      "user_id": "user_2bd27b1c4c",
+      "id": "road_66aeac70"
+    },
+    {
+      "step": "Bank Statements (6 months)",
+      "status": "pending",
+      "detail": "Upload bank statements",
+      "order_index": 4,
+      "user_id": "user_2bd27b1c4c",
+      "id": "road_86e0fa1f"
+    },
+    {
+      "step": "ITR Filing",
+      "status": "pending",
+      "detail": "File ITR for last 2 years",
+      "order_index": 5,
+      "user_id": "user_2bd27b1c4c",
+      "id": "road_43078d44"
+    },
+    {
+      "step": "Business Plan Submission",
+      "status": "pending",
+      "detail": "Prepare and upload business plan",
+      "order_index": 6,
+      "user_id": "user_2bd27b1c4c",
+      "id": "road_c2bb7269"
+    },
+    {
+      "step": "Credit Bureau Check",
+      "status": "pending",
+      "detail": "Auto-check once documents complete",
+      "order_index": 7,
+      "user_id": "user_2bd27b1c4c",
+      "id": "road_eeb785f3"
+    },
+    {
+      "step": "Lender Matching",
+      "status": "locked",
+      "detail": "Unlocks after all steps complete",
+      "order_index": 8,
+      "user_id": "user_2bd27b1c4c",
+      "id": "road_6f9ca464"
+    },
+    {
+      "step": "Udyam Registration",
+      "status": "pending",
+      "detail": "Register your business",
+      "order_index": 1,
+      "user_id": "user_123a03a810",
+      "id": "road_c8f34243"
+    },
+    {
+      "step": "Aadhaar & PAN Linked",
+      "status": "pending",
+      "detail": "Link identity documents",
+      "order_index": 2,
+      "user_id": "user_123a03a810",
+      "id": "road_68c233d6"
+    },
+    {
+      "step": "GST Registration",
+      "status": "pending",
+      "detail": "Upload GST certificate",
+      "order_index": 3,
+      "user_id": "user_123a03a810",
+      "id": "road_dbb1c877"
+    },
+    {
+      "step": "Bank Statements (6 months)",
+      "status": "pending",
+      "detail": "Upload bank statements",
+      "order_index": 4,
+      "user_id": "user_123a03a810",
+      "id": "road_28dbd97f"
+    },
+    {
+      "step": "ITR Filing",
+      "status": "pending",
+      "detail": "File ITR for last 2 years",
+      "order_index": 5,
+      "user_id": "user_123a03a810",
+      "id": "road_6cee0a09"
+    },
+    {
+      "step": "Business Plan Submission",
+      "status": "pending",
+      "detail": "Prepare and upload business plan",
+      "order_index": 6,
+      "user_id": "user_123a03a810",
+      "id": "road_5bc3acf5"
+    },
+    {
+      "step": "Credit Bureau Check",
+      "status": "pending",
+      "detail": "Auto-check once documents complete",
+      "order_index": 7,
+      "user_id": "user_123a03a810",
+      "id": "road_1876aa5f"
+    },
+    {
+      "step": "Lender Matching",
+      "status": "locked",
+      "detail": "Unlocks after all steps complete",
+      "order_index": 8,
+      "user_id": "user_123a03a810",
+      "id": "road_d21b6d09"
+    }
+  ],
+  "support_bundle": [
+    {
+      "support_type": "training",
+      "title": "Entrepreneurship Training",
+      "description": "Free online courses on business management.",
+      "action_url": "",
+      "is_active": true,
+      "user_id": "user_2bd27b1c4c",
+      "id": "supp_1ac0661c"
+    },
+    {
+      "support_type": "mentor",
+      "title": "Mentor Connect",
+      "description": "Connect with experienced mentors in your sector.",
+      "action_url": "",
+      "is_active": true,
+      "user_id": "user_2bd27b1c4c",
+      "id": "supp_3c210efa"
+    },
+    {
+      "support_type": "market",
+      "title": "Market Access",
+      "description": "Access government procurement portals.",
+      "action_url": "",
+      "is_active": true,
+      "user_id": "user_2bd27b1c4c",
+      "id": "supp_90240242"
+    },
+    {
+      "support_type": "financial",
+      "title": "Financial Literacy",
+      "description": "Learn about credit, loans, and financial planning.",
+      "action_url": "",
+      "is_active": true,
+      "user_id": "user_2bd27b1c4c",
+      "id": "supp_de6f089d"
+    },
+    {
+      "user_id": "user_123a03a810",
+      "support_type": "stacking",
+      "title": "Stand-Up India Scheme + SFURTI (Fund for Regeneration of Traditional Industries)",
+      "description": "You can combine these 2 schemes for up to \u20b910,00,000 in total benefits.",
+      "is_active": true,
+      "id": "supp_b195eaf8"
+    }
+  ],
+  "journey_steps": [
+    {
+      "step": "Entrepreneur",
+      "status": "completed",
+      "detail": "Profile created",
+      "order_index": 1,
+      "icon": "user",
+      "user_id": "user_2bd27b1c4c",
+      "id": "jour_67f88293"
+    },
+    {
+      "step": "AI Profile",
+      "status": "completed",
+      "detail": "Business profile set up",
+      "order_index": 2,
+      "icon": "brain",
+      "user_id": "user_2bd27b1c4c",
+      "id": "jour_465ec041"
+    },
+    {
+      "step": "Scheme Matching",
+      "status": "current",
+      "detail": "Find matching schemes",
+      "order_index": 3,
+      "icon": "layers",
+      "user_id": "user_2bd27b1c4c",
+      "id": "jour_048b43c4"
+    },
+    {
+      "step": "Eligibility",
+      "status": "pending",
+      "detail": "Complete eligibility roadmap",
+      "order_index": 4,
+      "icon": "check",
+      "user_id": "user_2bd27b1c4c",
+      "id": "jour_7d1ec7f5"
+    },
+    {
+      "step": "Credit Readiness",
+      "status": "pending",
+      "detail": "Improve your credit score",
+      "order_index": 5,
+      "icon": "credit",
+      "user_id": "user_2bd27b1c4c",
+      "id": "jour_b65d8e2a"
+    },
+    {
+      "step": "Financing",
+      "status": "locked",
+      "detail": "Apply for funding",
+      "order_index": 6,
+      "icon": "bank",
+      "user_id": "user_2bd27b1c4c",
+      "id": "jour_7c6e0f95"
+    },
+    {
+      "step": "Entrepreneur",
+      "status": "completed",
+      "detail": "Profile created",
+      "order_index": 1,
+      "icon": "user",
+      "user_id": "user_123a03a810",
+      "id": "jour_4d31f5d4"
+    },
+    {
+      "step": "AI Profile",
+      "status": "completed",
+      "detail": "Business profile set up",
+      "order_index": 2,
+      "icon": "brain",
+      "user_id": "user_123a03a810",
+      "id": "jour_3c36c1c8"
+    },
+    {
+      "step": "Scheme Matching",
+      "status": "current",
+      "detail": "Find matching schemes",
+      "order_index": 3,
+      "icon": "layers",
+      "user_id": "user_123a03a810",
+      "id": "jour_80ad255d"
+    },
+    {
+      "step": "Eligibility",
+      "status": "pending",
+      "detail": "Complete eligibility roadmap",
+      "order_index": 4,
+      "icon": "check",
+      "user_id": "user_123a03a810",
+      "id": "jour_53293534"
+    },
+    {
+      "step": "Credit Readiness",
+      "status": "pending",
+      "detail": "Improve your credit score",
+      "order_index": 5,
+      "icon": "credit",
+      "user_id": "user_123a03a810",
+      "id": "jour_c04c0bfe"
+    },
+    {
+      "step": "Financing",
+      "status": "locked",
+      "detail": "Apply for funding",
+      "order_index": 6,
+      "icon": "bank",
+      "user_id": "user_123a03a810",
+      "id": "jour_efa42645"
+    }
+  ],
+  "credit_scores": [
+    {
+      "user_id": "user_123a03a810",
+      "overall_score": 55,
+      "max_score": 100,
+      "rating": "Fair",
+      "trend": "+8% since last month",
+      "last_updated": "2026-09-27",
+      "factors": [
+        {
+          "id": "business-stability",
+          "label": "Business Stability",
+          "score": 75,
+          "maxScore": 100,
+          "weight": 15,
+          "status": "good",
+          "icon": "building",
+          "summary": "Based on your business profile data."
+        },
+        {
+          "id": "revenue-consistency",
+          "label": "Revenue Consistency",
+          "score": 31,
+          "maxScore": 100,
+          "weight": 20,
+          "status": "fair",
+          "icon": "trending-up",
+          "summary": "Annual turnover: \u20b991,000."
+        },
+        {
+          "id": "documentation-readiness",
+          "label": "Documentation Readiness",
+          "score": 40,
+          "maxScore": 100,
+          "weight": 15,
+          "status": "fair",
+          "icon": "file-text",
+          "summary": "Upload documents to improve this score."
+        },
+        {
+          "id": "repayment-capacity",
+          "label": "Repayment Capacity",
+          "score": 58,
+          "maxScore": 100,
+          "weight": 20,
+          "status": "fair",
+          "icon": "wallet",
+          "summary": "Based on your income and expenses."
+        },
+        {
+          "id": "existing-liabilities",
+          "label": "Existing Liabilities",
+          "score": 90,
+          "maxScore": 100,
+          "weight": 10,
+          "status": "excellent",
+          "icon": "shield",
+          "summary": "No existing loans detected."
+        },
+        {
+          "id": "business-experience",
+          "label": "Business Experience",
+          "score": 40,
+          "maxScore": 100,
+          "weight": 10,
+          "status": "good",
+          "icon": "award",
+          "summary": "0 employees registered."
+        }
+      ],
+      "score_explanation": {
+        "calculation": "Weighted aggregate of 6 factors."
+      },
+      "recommendations": [
+        {
+          "title": "Complete GST Registration",
+          "impact": "+8% readiness",
+          "detail": "GST registration is required by most lenders.",
+          "priority": "high"
+        },
+        {
+          "title": "File ITR for Last 2 Years",
+          "impact": "+10% readiness",
+          "detail": "Income tax returns are primary proof of income.",
+          "priority": "high"
+        },
+        {
+          "title": "Maintain Consistent Bank Balance",
+          "impact": "+5% readiness",
+          "detail": "Keep minimum balance of \u20b925,000.",
+          "priority": "medium"
+        }
+      ],
+      "id": "cred_24f4f82a"
+    }
+  ],
+  "need_dna": [
+    {
+      "primary_need": "Working Capital",
+      "secondary_need": "Equipment Purchase",
+      "urgency": "medium",
+      "preferred_amount": "",
+      "timeline": "3-6 months",
+      "risk_tolerance": "low",
+      "factors": [
+        {
+          "label": "Primary Need",
+          "value": "Working Capital",
+          "weight": "40%"
+        },
+        {
+          "label": "Urgency",
+          "value": "medium",
+          "weight": "25%"
+        },
+        {
+          "label": "Risk Tolerance",
+          "value": "low",
+          "weight": "20%"
+        },
+        {
+          "label": "Timeline",
+          "value": "3-6 months",
+          "weight": "15%"
+        }
+      ],
+      "user_id": "user_123a03a810",
+      "id": "need_c3e7488a"
+    }
+  ],
+  "feedback": [
+    {
+      "user_id": "user_123a03a810",
+      "scheme_name": "Scheme1",
+      "rating": 5,
+      "feedback_text": "Good",
+      "disbursed_amount": "100000",
+      "disbursed_date": "2026-09-30",
+      "id": "feed_3da6fdd3"
+    }
+  ],
+  "sahayak_twin": [
+    {
+      "user_id": "user_123a03a810",
+      "role": "bot",
+      "message": "Hello! I am Sahayak AI, your personal guide for government schemes and MSME financing. Ask me about schemes, eligibility, documents, or credit readiness!",
+      "id": "saha_396adf9a"
+    },
+    {
+      "user_id": "user_123a03a810",
+      "role": "user",
+      "message": "hello",
+      "id": "saha_ad593272"
+    },
+    {
+      "user_id": "user_123a03a810",
+      "role": "bot",
+      "message": "I am Sahayak AI, your guide for government schemes and financing. Ask me about schemes, eligibility, documents, or credit readiness!",
+      "id": "saha_33219aa9"
+    }
+  ]
+}

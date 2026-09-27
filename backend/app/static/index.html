@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MSME Sahayak AI - SIH 2026 Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header>
+    <div class="logo-area">
+      <div class="logo-icon">M</div>
+      <div>
+        <div class="logo-title">MSME Sahayak AI</div>
+        <div class="logo-subtitle">SIH 2026 Model • Google Sheets DB</div>
+      </div>
+    </div>
+
+    <nav class="nav-links">
+      <button class="nav-btn active" data-tab="dashboard">📊 Dashboard</button>
+      <button class="nav-btn" data-tab="schemes">📜 Schemes</button>
+      <button class="nav-btn" data-tab="matcher">🎯 AI Matcher</button>
+      <button class="nav-btn" data-tab="stacking">⚡ Stacking</button>
+      <button class="nav-btn" data-tab="roadmap">🗺️ Roadmap</button>
+      <button class="nav-btn" data-tab="credit">💳 Credit Health</button>
+      <button class="nav-btn" data-tab="applications">📁 Applications</button>
+      <button class="nav-btn" data-tab="sheets">📑 Google Sheet</button>
+    </nav>
+
+    <a id="sheetBadgeLink" href="https://docs.google.com/spreadsheets/d/1rfT9LvjYD1FJQyqsVASVshZllne8lt1lEODQTgLqoIY/edit?usp=sharing" target="_blank" class="sheet-badge">
+      <span class="pulse-dot"></span>
+      <span id="sheetBadgeText">Google Sheet DB</span>
+    </a>
+  </header>
+
+  <!-- Main Content Area -->
+  <main>
+
+    <!-- 1. DASHBOARD TAB -->
+    <section id="tabDashboard" class="tab-view active">
+      <div class="section-header">
+        <h1 class="section-title">Welcome, Entrepreneur!</h1>
+        <p class="section-desc">AI-powered government scheme matching, stacking intelligence, and compliance roadmap for Indian MSMEs.</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon" style="background: rgba(99, 102, 241, 0.15); color: #818cf8;">S</div>
+          <div>
+            <div class="stat-value" id="statSchemes">7</div>
+            <div class="stat-label">Government Schemes</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">A</div>
+          <div>
+            <div class="stat-value" id="statApps">0</div>
+            <div class="stat-label">Applications</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;">R</div>
+          <div>
+            <div class="stat-value" id="statRoadmap">0/5</div>
+            <div class="stat-label">Milestones Done</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background: rgba(239, 68, 68, 0.15); color: #f87171;">G</div>
+          <div>
+            <div class="stat-value" style="font-size: 20px;" id="statSheetStatus">Connected</div>
+            <div class="stat-label">Sheets DB Mode</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Eligibility Roadmap Progress</h3>
+          <button class="btn btn-secondary" onclick="switchTab('roadmap')">View All Steps →</button>
+        </div>
+        <div class="match-bar" style="height: 12px; margin-bottom: 10px;">
+          <div class="match-fill" id="dashboardProgressBar" style="width: 20%;"></div>
+        </div>
+        <p style="font-size: 13px; color: #94a3b8;" id="dashboardProgressText">1 of 5 milestone steps completed</p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Quick Actions</h3>
+        </div>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <button class="btn btn-primary" onclick="switchTab('matcher')">🎯 Run AI Scheme Matcher</button>
+          <button class="btn btn-secondary" onclick="switchTab('stacking')">⚡ Check Scheme Stacking</button>
+          <button class="btn btn-secondary" onclick="switchTab('credit')">💳 Check Credit Rating</button>
+          <a class="btn btn-secondary" href="/docs" target="_blank">📖 Swagger API Docs</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. SCHEMES CATALOG TAB -->
+    <section id="tabSchemes" class="tab-view">
+      <div class="section-header">
+        <h1 class="section-title">Government MSME Schemes Catalog</h1>
+        <p class="section-desc">Explore central government credit, subsidy, and tech upgradation schemes.</p>
+      </div>
+
+      <div class="card" style="margin-bottom: 24px;">
+        <div class="form-row" style="margin: 0;">
+          <div class="form-group" style="margin: 0;">
+            <input type="text" id="schemeSearchInput" class="form-input" placeholder="Search by name, ministry, keyword...">
+          </div>
+          <div class="form-group" style="margin: 0;">
+            <select id="schemeCategoryFilter" class="form-select">
+              <option value="">All Categories</option>
+              <option value="Credit & Financial Assistance">Credit & Financial Assistance</option>
+              <option value="Infrastructure & Tech">Infrastructure & Tech</option>
+              <option value="Skill & Training">Skill & Training</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div id="schemesGrid" class="schemes-grid">
+        <!-- Rendered via JS -->
+      </div>
+    </section>
+
+    <!-- 3. AI SCHEME MATCHER TAB -->
+    <section id="tabMatcher" class="tab-view">
+      <div class="section-header">
+        <h1 class="section-title">AI Scheme Matching Engine</h1>
+        <p class="section-desc">Enter your business profile to evaluate exact eligibility and receive personalized subsidy recommendations.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title" style="margin-bottom: 18px;">Business Profile Input</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Enterprise Type</label>
+            <select id="matchBusinessType" class="form-select">
+              <option value="Micro">Micro Enterprise (Inv &le; 1 Cr, Turnover &le; 5 Cr)</option>
+              <option value="Small">Small Enterprise (Inv &le; 10 Cr, Turnover &le; 50 Cr)</option>
+              <option value="Medium">Medium Enterprise (Inv &le; 50 Cr)</option>
+              <option value="Proprietorship">Sole Proprietorship</option>
+              <option value="Self Help Group">Self Help Group (SHG)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Industry Sector</label>
+            <select id="matchSector" class="form-select">
+              <option value="Manufacturing">Manufacturing (Machinery, Engineering, Food, Textiles)</option>
+              <option value="Services">Services (IT, Healthcare, Logistics, Education)</option>
+              <option value="Trade">Trade / Retail / Wholesale</option>
+              <option value="Handicrafts">Handicrafts & Traditional Artisans</option>
+              <option value="Agriculture">Agri-Allied & Agro Processing</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Investment Amount (₹)</label>
+            <input type="number" id="matchInvestment" class="form-input" value="800000" placeholder="e.g. 800000">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Annual Turnover (₹)</label>
+            <input type="number" id="matchTurnover" class="form-input" value="2500000" placeholder="e.g. 2500000">
+          </div>
+          <div class="form-group">
+            <label class="form-label">State / UT</label>
+            <select id="matchState" class="form-select">
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Other">Other States</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" id="btnRunMatch">🎯 Match Eligible Schemes</button>
+      </div>
+
+      <div id="matchResultsContainer">
+        <!-- Rendered via JS -->
+      </div>
+    </section>
+
+    <!-- 4. SCHEME STACKING TAB -->
+    <section id="tabStacking" class="tab-view">
+      <div class="section-header">
+        <h1 class="section-title">Multi-Scheme Stacking Intelligence</h1>
+        <p class="section-desc">Select 2 or more schemes to verify government policy compliance, double-subsidy restrictions, and combined synergy.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title" style="margin-bottom: 14px;">Select Schemes to Evaluate Stacking:</h3>
+        <div id="stackingSelectorList">
+          <!-- Rendered via JS -->
+        </div>
+        <button class="btn btn-primary" id="btnCheckStacking" style="margin-top: 14px;">⚡ Run Stacking & Conflict Check</button>
+      </div>
+
+      <div id="stackingResultCard" style="display: none;" class="card">
+        <!-- Rendered via JS -->
+      </div>
+    </section>
+
+    <!-- 5. ROADMAP TAB -->
+    <section id="tabRoadmap" class="tab-view">
+      <div class="section-header">
+        <h1 class="section-title">MSME Eligibility & Compliance Roadmap</h1>
+        <p class="section-desc">Step-by-step milestone tracker from Udyam registration to bank disbursement.</p>
+      </div>
+
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <h3 class="card-title">Overall Roadmap Completion</h3>
+          <span id="roadmapProgressBadge" style="font-size: 14px; font-weight: 700; color: #818cf8;">20% Complete</span>
+        </div>
+        <div class="match-bar" style="height: 12px; margin-bottom: 24px;">
+          <div class="match-fill" id="roadmapProgressBar" style="width: 20%;"></div>
+        </div>
+
+        <div id="roadmapStepsList">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CREDIT HEALTH TAB -->
+    <section id="tabCredit" class="tab-view">
+      <div class="section-header">
+        <h1 class="section-title">MSME Credit Health & CIBIL Readiness</h1>
+        <p class="section-desc">Appraise your borrowing power, calculate rating tiers, and identify pre-approved lending limits.</p>
+      </div>
+
+      <div class="card">
+        <div class="form-row">
+          <div class="form-group" style="flex: 2;">
+            <label class="form-label">CIBIL / Credit Score: <span id="creditScoreDisplay" style="color: #6366f1; font-weight: 800; font-size: 18px;">750</span></label>
+            <input type="range" id="creditScoreSlider" min="300" max="900" value="750" style="width: 100%; accent-color: #6366f1; margin: 12px 0;">
+            <div style="display: flex; justify-content: space-between; font-size: 12px; color: #64748b;">
+              <span>300 (Poor)</span>
+              <span>550 (Fair)</span>
+              <span>650 (Good)</span>
+              <span>750+ (Excellent)</span>
+            </div>
+          </div>
+          <div class="form-group" style="flex: 1; display: flex; align-items: center; justify-content: center;">
+            <div style="text-align: center; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-sm); width: 100%;">
+              <div style="font-size: 12px; color: #94a3b8; text-transform: uppercase;">Rating Tier</div>
+              <div id="creditRatingBadge" style="font-size: 22px; font-weight: 800; color: #34d399; margin: 6px 0;">Excellent</div>
+              <div style="font-size: 11px; color: #94a3b8;">High Loan Approval Ratio</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Outstanding Loans (₹)</label>
+            <input type="number" id="creditOutstanding" class="form-input" value="150000">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Existing Monthly EMIs (₹)</label>
+            <input type="number" id="creditEMIs" class="form-input" value="12000">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Primary Banking Partner</label>
+            <input type="text" id="creditBank" class="form-input" value="State Bank of India">
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 20px; margin-bottom: 20px;">
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer;">
+            <input type="checkbox" id="creditGST" checked style="accent-color: #6366f1;"> GST Registered
+          </label>
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer;">
+            <input type="checkbox" id="creditITR" checked style="accent-color: #6366f1;"> Last 2 Years ITR Filed
+          </label>
+        </div>
+
+        <button class="btn btn-primary" id="btnSaveCredit">💾 Save Credit Profile to Google Sheet</button>
+      </div>
+    </section>
+
+    <!-- 7. APPLICATIONS TAB -->
+    <section id="tabApplications" class="tab-view">
+      <div class="section-header">
+        <h1 class="section-title">Scheme Applications Tracker</h1>
+        <p class="section-desc">Manage submitted digital applications and reference numbers.</p>
+      </div>
+
+      <div class="card">
+        <div id="applicationsTableContainer">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. GOOGLE SHEETS DB TAB -->
+    <section id="tabSheets" class="tab-view">
+      <div class="section-header">
+        <h1 class="section-title">Google Sheets Database Engine</h1>
+        <p class="section-desc">Live synchronization status, schema definitions, and cloud spreadsheet controls.</p>
+      </div>
+
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <div>
+            <h3 class="card-title" id="sheetDetailTitle">Google Sheet: MSME_Sahayak_Database</h3>
+            <p style="font-size: 13px; color: #94a3b8;" id="sheetDetailId">ID: 1rfT9LvjYD1FJQyqsVASVshZllne8lt1lEODQTgLqoIY</p>
+          </div>
+          <div style="display: flex; gap: 10px;">
+            <button class="btn btn-primary" id="btnSyncSheets">🔄 Force Cloud Sync</button>
+            <a href="https://docs.google.com/spreadsheets/d/1rfT9LvjYD1FJQyqsVASVshZllne8lt1lEODQTgLqoIY/edit?usp=sharing" target="_blank" class="btn btn-secondary">Open in Google Sheets ↗</a>
+          </div>
+        </div>
+
+        <div class="stats-grid" id="sheetsTableCountsGrid">
+          <!-- Rendered via JS -->
+        </div>
+
+        <div style="background: rgba(15, 23, 42, 0.8); padding: 18px; border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.08); font-size: 13px;">
+          <div style="font-weight: 700; color: #818cf8; margin-bottom: 6px;">How Google Sheets Works as the Database:</div>
+          <p style="color: #94a3b8; line-height: 1.6;">
+            All operations (user registrations, scheme applications, credit profiles, milestones, and audit records) are stored in dedicated worksheet tabs within your Google Spreadsheet. 
+            The backend features zero-latency in-memory mirror caching, ensuring instantaneous UI updates while maintaining persistent records directly in your Google Sheet.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="toast"></div>
+
+  <footer>
+    Smart India Hackathon (SIH 2026) • MSME Sahayak AI Platform • Powered by Python FastAPI & Google Sheets Database
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
