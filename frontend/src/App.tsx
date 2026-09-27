@@ -23,7 +23,7 @@ export default function App() {
   return (
     <LanguageProvider>
       <AuthProvider>
-        <BrowserRouter>
+        <BrowserRouter basename="/Sahayak-AI">
           <Routes>
             {/* Auth Pages without sidebar */}
             <Route path="/login" element={<Login />} />
