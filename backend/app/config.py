@@ -29,8 +29,8 @@ class Settings(BaseSettings):
     GOOGLE_APPS_SCRIPT_URL: str = os.getenv("GOOGLE_APPS_SCRIPT_URL", "")
     
     # Local Storage & Fallback
-    UPLOAD_DIR: str = str(BASE_DIR / "uploads")
-    LOCAL_DB_FILE: str = str(BASE_DIR / "local_sheets_db.json")
+    UPLOAD_DIR: str = "/tmp/uploads" if os.getenv("VERCEL") else str(BASE_DIR / "uploads")
+    LOCAL_DB_FILE: str = "/tmp/local_sheets_db.json" if os.getenv("VERCEL") else str(BASE_DIR / "local_sheets_db.json")
     
     class Config:
         env_file = str(BASE_DIR / ".env")
@@ -39,4 +39,7 @@ class Settings(BaseSettings):
 settings = Settings()
 
 # Ensure uploads directory exists
-os.makedirs(settings.UPLOAD_DIR, exist_ok=True)
+try:
+    os.makedirs(settings.UPLOAD_DIR, exist_ok=True)
+except OSError:
+    pass

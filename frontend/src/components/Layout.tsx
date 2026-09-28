@@ -1,111 +1,319 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../context/LanguageContext';
+import { useTheme } from '../context/ThemeContext';
+import { VoiceAssistant, HeaderVoiceControls } from './VoiceAssistant';
 
 export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user, profile, signOut } = useAuth();
   const { language, setLanguage, t } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
   const location = useLocation();
   const navigate = useNavigate();
+  const [fontSizeOffset, setFontSizeOffset] = useState<number>(0);
+
+  const adjustFontSize = (delta: number) => {
+    setFontSizeOffset((prev) => {
+      const next = prev + delta;
+      if (next < -2 || next > 4) return prev;
+      document.documentElement.style.fontSize = `${16 + next}px`;
+      return next;
+    });
+  };
 
   const navItems = [
-    { label: t('welcome') + ' (Dashboard)', path: '/dashboard', icon: '📊' },
-    { label: t('schemes'), path: '/schemes', icon: '📜' },
-    { label: t('findSchemes'), path: '/scheme-matching', icon: '🎯' },
-    { label: t('schemeStacking'), path: '/scheme-stacking', icon: '⚡' },
-    { label: t('eligibilityRoadmap'), path: '/eligibility-roadmap', icon: '🗺️' },
-    { label: t('applications'), path: '/applications', icon: '📁' },
-    { label: t('documents'), path: '/documents', icon: '📄' },
-    { label: t('creditScore'), path: '/credit-score', icon: '💳' },
-    { label: t('faceVerification'), path: '/face-verification', icon: '👤' },
-    { label: t('notifications'), path: '/notifications', icon: '🔔' },
-    { label: t('profile'), path: '/profile', icon: '⚙️' },
+    { label: t('welcome') + ' (Dashboard)', path: '/dashboard', icon: '📊', group: 'Overview' },
+    { label: t('schemes'), path: '/schemes', icon: '📜', group: 'Schemes & Grants' },
+    { label: t('findSchemes'), path: '/scheme-matching', icon: '🎯', group: 'Schemes & Grants' },
+    { label: t('schemeStacking'), path: '/scheme-stacking', icon: '⚡', group: 'Schemes & Grants' },
+    { label: t('eligibilityRoadmap'), path: '/eligibility-roadmap', icon: '🗺️', group: 'Roadmap & Process' },
+    { label: t('applications'), path: '/applications', icon: '📁', group: 'Roadmap & Process' },
+    { label: 'Verification Vault', path: '/documents', icon: '🛡️', group: 'India Stack' },
+    { label: t('creditScore'), path: '/credit-score', icon: '💳', group: 'India Stack' },
+    { label: t('notifications'), path: '/notifications', icon: '🔔', group: 'User Settings' },
+    { label: t('profile'), path: '/profile', icon: '⚙️', group: 'User Settings' },
   ];
 
   return (
-    <div className="app-shell">
-      {/* Top Header */}
-      <header className="app-header">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-          <div className="header-logo-icon">M</div>
-          <div>
-            <div style={{ fontSize: '18px', fontWeight: 800, color: '#fff', letterSpacing: '-0.02em' }}>
-              {t('appName')}
+    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 transition-colors duration-200">
+      {/* 1. Tricolor Top Accent Strip (Saffron, White, Green) */}
+      <div className="h-1.5 w-full bg-gradient-to-r from-[#FF9933] via-white to-[#138808]"></div>
+
+      {/* 2. Top Gov Header (Official National Ministry Bar) */}
+      <div className="bg-[#002855] text-white border-b border-[#003875] text-xs py-1.5 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+          {/* Official Emblem & Ministry Titles */}
+          <div className="flex items-center gap-3">
+            {/* Mock State Emblem of India Placeholder */}
+            <div className="w-8 h-8 rounded-full bg-white/10 border border-white/20 p-1 flex items-center justify-center shrink-0 shadow-sm">
+              <svg viewBox="0 0 100 100" className="w-6 h-6 fill-amber-300">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="4" />
+                <circle cx="50" cy="50" r="8" fill="currentColor" />
+                <path d="M50 10 L50 90 M10 50 L90 50 M22 22 L78 78 M22 78 L78 22" stroke="currentColor" strokeWidth="3" />
+              </svg>
             </div>
-            <div style={{ fontSize: '11px', color: '#94a3b8' }}>
-              SIH 2026 Model • React + Python + Google Sheets
+            <div>
+              <div className="font-semibold tracking-wide text-slate-100 flex items-center gap-1.5 text-[11px] sm:text-xs">
+                <span>भारत सरकार</span>
+                <span className="text-amber-400">|</span>
+                <span>Government of India</span>
+              </div>
+              <div className="text-[10px] sm:text-[11px] text-blue-200 font-medium">
+                सूक्ष्म, लघु और मध्यम उद्यम मंत्रालय | Ministry of Micro, Small & Medium Enterprises
+              </div>
             </div>
           </div>
-        </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-          {/* Language selector */}
-          <div className="lang-switcher">
-            <button className={`lang-pill ${language === 'en' ? 'active' : ''}`} onClick={() => setLanguage('en')}>EN</button>
-            <button className={`lang-pill ${language === 'ta' ? 'active' : ''}`} onClick={() => setLanguage('ta')}>தமிழ்</button>
-            <button className={`lang-pill ${language === 'hi' ? 'active' : ''}`} onClick={() => setLanguage('hi')}>हिन्दी</button>
-          </div>
+          {/* Accessibility, SIH Tag & Official Indicators */}
+          <div className="flex items-center gap-3 text-[11px] text-slate-200">
+            {/* SIH Badge */}
+            <div className="hidden lg:flex items-center gap-1.5 bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded border border-amber-400/30 font-semibold text-[10px]">
+              <span>🇮🇳</span> SIH 2026
+            </div>
 
-          {/* Google Sheets DB Link */}
-          <a
-            href="https://docs.google.com/spreadsheets/d/1rfT9LvjYD1FJQyqsVASVshZllne8lt1lEODQTgLqoIY/edit?usp=sharing"
-            target="_blank"
-            rel="noreferrer"
-            className="sheet-live-badge"
-          >
-            <span className="live-dot"></span>
-            Google Sheet DB
-          </a>
-
-          {user ? (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <Link to="/profile" style={{ textDecoration: 'none', color: '#cbd5e1', fontSize: '13px', fontWeight: 600 }}>
-                {profile?.full_name || 'Entrepreneur'}
-              </Link>
+            {/* Font Size Accessibility Controls */}
+            <div className="hidden sm:flex items-center bg-black/20 rounded border border-white/10 px-1.5 py-0.5 gap-1">
               <button
-                className="btn btn-secondary"
-                style={{ padding: '6px 12px', fontSize: '12px' }}
-                onClick={async () => {
-                  await signOut();
-                  navigate('/login');
-                }}
+                onClick={() => adjustFontSize(-1)}
+                className="hover:text-amber-300 px-1 font-bold"
+                title="Decrease Text Size"
               >
-                Sign Out
+                A-
+              </button>
+              <button
+                onClick={() => {
+                  setFontSizeOffset(0);
+                  document.documentElement.style.fontSize = '16px';
+                }}
+                className="hover:text-amber-300 px-1 font-bold"
+                title="Standard Text Size"
+              >
+                A
+              </button>
+              <button
+                onClick={() => adjustFontSize(1)}
+                className="hover:text-amber-300 px-1 font-bold"
+                title="Increase Text Size"
+              >
+                A+
               </button>
             </div>
-          ) : (
-            <Link to="/login" className="btn btn-primary" style={{ padding: '8px 16px', fontSize: '13px' }}>
-              Sign In
-            </Link>
-          )}
+
+            {/* Screen Reader Trigger */}
+            <span className="hidden md:inline-block text-slate-300 text-[10px] border-l border-white/20 pl-3">
+              GIGW 3.0 Compliant
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* 3. Main Application Header */}
+      <header className="sticky top-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm transition-colors duration-200">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-3 flex items-center justify-between gap-4">
+          {/* Logo & Portal Identity */}
+          <Link to="/dashboard" className="flex items-center gap-3 text-decoration-none group">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#002855] to-blue-700 dark:from-blue-600 dark:to-indigo-600 text-white flex items-center justify-center font-extrabold text-xl shadow-md group-hover:shadow-blue-500/30 transition-all">
+              <span className="text-amber-300 font-serif">स</span>
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="text-base sm:text-lg font-black tracking-tight text-gov-navy dark:text-blue-400">
+                  {t('appName')}
+                </span>
+                <span className="hidden sm:inline-block text-[10px] font-bold px-1.5 py-0.5 rounded bg-blue-100 text-blue-800 dark:bg-blue-900/60 dark:text-blue-200 border border-blue-200 dark:border-blue-700">
+                  NATIONAL PORTAL
+                </span>
+              </div>
+              <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium hidden sm:block">
+                Unified MSME Copilot • AI-Powered Schemes & Subsidies
+              </div>
+            </div>
+          </Link>
+
+          {/* Action Center: Voice Assistant, Theme Toggle, Language Switcher, Google Sheet Badge & User */}
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            {/* Header Voice Assistant Controls */}
+            <HeaderVoiceControls />
+
+            {/* Theme Toggle Button (Light / Dark) */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-amber-300 hover:border-gov-navy dark:hover:border-blue-400 transition-all shadow-sm"
+              title={theme === 'dark' ? 'Switch to Official Light Mode' : 'Switch to Slate Dark Mode'}
+              aria-label="Toggle Theme"
+            >
+              {theme === 'dark' ? (
+                <span className="text-base leading-none">☀️</span>
+              ) : (
+                <span className="text-base leading-none">🌙</span>
+              )}
+            </button>
+
+            {/* Language Switcher */}
+            <div className="flex bg-slate-100 dark:bg-slate-800 p-0.5 rounded-lg border border-slate-200 dark:border-slate-700">
+              <button
+                className={`px-2 py-1 text-xs font-bold rounded-md transition-all ${
+                  language === 'en'
+                    ? 'bg-gov-navy text-white dark:bg-blue-600 shadow-sm'
+                    : 'text-slate-600 dark:text-slate-300 hover:text-gov-navy'
+                }`}
+                onClick={() => setLanguage('en')}
+              >
+                EN
+              </button>
+              <button
+                className={`px-2 py-1 text-xs font-bold rounded-md transition-all ${
+                  language === 'ta'
+                    ? 'bg-gov-navy text-white dark:bg-blue-600 shadow-sm'
+                    : 'text-slate-600 dark:text-slate-300 hover:text-gov-navy'
+                }`}
+                onClick={() => setLanguage('ta')}
+              >
+                தமிழ்
+              </button>
+              <button
+                className={`px-2 py-1 text-xs font-bold rounded-md transition-all ${
+                  language === 'hi'
+                    ? 'bg-gov-navy text-white dark:bg-blue-600 shadow-sm'
+                    : 'text-slate-600 dark:text-slate-300 hover:text-gov-navy'
+                }`}
+                onClick={() => setLanguage('hi')}
+              >
+                हिन्दी
+              </button>
+            </div>
+
+            {/* Live Google Sheets Status */}
+            <a
+              href="https://docs.google.com/spreadsheets/d/1rfT9LvjYD1FJQyqsVASVshZllne8lt1lEODQTgLqoIY/edit?usp=sharing"
+              target="_blank"
+              rel="noreferrer"
+              className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700/60 hover:bg-emerald-100 transition"
+              title="Inspect Live SIH Google Sheets Database"
+            >
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>Sheets DB Live</span>
+            </a>
+
+            {/* User Profile / Auth Action */}
+            {user ? (
+              <div className="flex items-center gap-2 pl-1 border-l border-slate-200 dark:border-slate-800">
+                <Link
+                  to="/profile"
+                  className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition text-decoration-none"
+                >
+                  <div className="w-7 h-7 rounded-full bg-blue-100 text-gov-navy dark:bg-blue-900/60 dark:text-blue-300 font-bold text-xs flex items-center justify-center border border-blue-300 dark:border-blue-700">
+                    {(profile?.full_name || 'H').charAt(0)}
+                  </div>
+                  <div className="hidden xl:block text-left">
+                    <div className="text-xs font-bold text-slate-800 dark:text-slate-200 leading-tight">
+                      {profile?.full_name || 'Hari Haran'}
+                    </div>
+                    <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1">
+                      <span>✓</span> Udyam Registered
+                    </div>
+                  </div>
+                </Link>
+
+                <button
+                  onClick={async () => {
+                    await signOut();
+                    navigate('/login');
+                  }}
+                  className="px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition"
+                  title="Sign Out from Portal"
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <Link
+                to="/login"
+                className="px-4 py-2 text-xs font-bold rounded-lg bg-gov-navy hover:bg-[#001f42] dark:bg-blue-600 dark:hover:bg-blue-700 text-white shadow-sm transition"
+              >
+                Sign In
+              </Link>
+            )}
+          </div>
         </div>
       </header>
 
-      {/* Main Body with Sidebar + Content */}
-      <div className="app-body">
-        <aside className="app-sidebar">
-          <nav className="sidebar-nav">
-            {navItems.map((item) => {
-              const isActive = location.pathname === item.path;
-              return (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`sidebar-link ${isActive ? 'active' : ''}`}
-                >
-                  <span style={{ fontSize: '18px' }}>{item.icon}</span>
-                  <span>{item.label}</span>
-                </Link>
-              );
-            })}
-          </nav>
+      {/* 4. Main Body with Official Sidebar & Workspace */}
+      <div className="flex-1 flex max-w-7xl w-full mx-auto">
+        {/* Sidebar Navigation */}
+        <aside className="w-64 shrink-0 hidden md:block py-6 px-3 border-r border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50">
+          <div className="sticky top-24 space-y-6">
+            {/* Quick Status Box */}
+            <div className="p-3 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-850 border border-blue-100 dark:border-slate-700">
+              <div className="flex items-center justify-between text-[11px] font-bold text-blue-900 dark:text-blue-300 mb-1">
+                <span>MSME SINGLE WINDOW</span>
+                <span className="text-[10px] px-1.5 py-0.2 bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 rounded font-semibold">
+                  ACTIVE
+                </span>
+              </div>
+              <p className="text-[11px] text-slate-600 dark:text-slate-400">
+                Registered under Udyam Registration Portal
+              </p>
+            </div>
+
+            {/* Nav Links */}
+            <nav className="space-y-1">
+              {navItems.map((item) => {
+                const isActive = location.pathname === item.path;
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className={`flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-bold transition-all ${
+                      isActive
+                        ? 'bg-gov-navy text-white dark:bg-blue-600 dark:text-white shadow-md'
+                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-gov-navy dark:hover:text-slate-200'
+                    }`}
+                  >
+                    <span className="text-base">{item.icon}</span>
+                    <span className="truncate">{item.label}</span>
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
         </aside>
 
-        <main className="app-main-content">
+        {/* Main Content Area */}
+        <main className="flex-1 min-w-0 p-4 sm:p-6 md:p-8">
           {children}
         </main>
       </div>
+
+      {/* 5. Official Indian Gov Portal Footer */}
+      <footer className="mt-auto border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-xs py-6 px-4 md:px-8 text-slate-500 dark:text-slate-400">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="font-bold text-slate-700 dark:text-slate-300">
+              MSME Sahayak AI • SIH 2026 Model
+            </div>
+            <span>•</span>
+            <div>Ministry of Micro, Small & Medium Enterprises, Govt. of India</div>
+          </div>
+          <div className="flex flex-wrap items-center gap-4 text-[11px]">
+            <a href="https://msme.gov.in" target="_blank" rel="noreferrer" className="hover:underline">
+              Official MSME Portal
+            </a>
+            <a href="https://udyamregistration.gov.in" target="_blank" rel="noreferrer" className="hover:underline">
+              Udyam Registration
+            </a>
+            <a href="https://www.jansamarth.in" target="_blank" rel="noreferrer" className="hover:underline">
+              JanSamarth Portal
+            </a>
+            <span className="text-slate-400 dark:text-slate-600">|</span>
+            <span>GIGW Compliant</span>
+          </div>
+        </div>
+      </footer>
+
+      {/* 6. Sahayak Voice Copilot Floating Interactive Widget */}
+      <VoiceAssistant />
     </div>
   );
 };

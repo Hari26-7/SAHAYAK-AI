@@ -117,11 +117,7 @@ export default function App() {
 
             <Route
               path="/face-verification"
-              element={
-                <Layout>
-                  <FaceVerification />
-                </Layout>
-              }
+              element={<Navigate to="/documents" replace />}
             />
 
             <Route

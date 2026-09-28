@@ -29,6 +29,12 @@
       "email": "hasiniini.2007@gmail.com",
       "password_hash": "d87af9e1f49d21a6fd19a19eb1061f2f14f5c19e54ccd2e8f10e733694be95bc",
       "created_at": "2026-09-27T13:45:14.975951+00:00"
+    },
+    {
+      "id": "user_80e7296aed",
+      "email": "haririi2609@gmail.com",
+      "password_hash": "4794cb9bfe1072745cf37d636a1a821476e3e6bf42fab306c7b627c9e071531e",
+      "created_at": "2026-09-28T13:17:19.888705+00:00"
     }
   ],
   "profiles": [
@@ -144,6 +150,24 @@
       "city": "",
       "pincode": "",
       "updated_at": "2026-09-27T13:59:48.350Z"
+    },
+    {
+      "id": "prof_ac6a3052",
+      "user_id": "user_80e7296aed",
+      "full_name": "Hari Haran",
+      "phone": "6382125589",
+      "business_name": "grocery shop",
+      "business_type": "Micro",
+      "sector": "Manufacturing",
+      "sub_sector": "",
+      "investment_amount": 500000.0,
+      "annual_turnover": 1500000.0,
+      "employee_count": 5,
+      "state": "Tamil Nadu",
+      "city": "Chennai",
+      "pincode": "600001",
+      "preferred_language": "en",
+      "updated_at": "2026-09-28T13:17:19.897418+00:00"
     }
   ],
   "schemes": [
@@ -316,6 +340,30 @@
       "scheme_id": "pmegp-001",
       "status": "submitted",
       "id": "appl_b50d2a6c"
+    },
+    {
+      "id": "app_44dd4f16",
+      "user_id": "user_80e7296aed",
+      "scheme_id": "pm-vishwakarma-004",
+      "scheme_name": "PM Vishwakarma Scheme",
+      "application_reference": "MSME-202609-737ACE",
+      "status": "Submitted",
+      "applied_date": "2026-09-28T13:52:01.831943+00:00",
+      "applied_via": "MSME Sahayak AI",
+      "business_name": "",
+      "notes": "Digital application queued for ministry verification."
+    },
+    {
+      "id": "app_4066c1bd",
+      "user_id": "user_80e7296aed",
+      "scheme_id": "zed-005",
+      "scheme_name": "MSME Sustainable (ZED) Certification Scheme",
+      "application_reference": "MSME-202609-BD358F",
+      "status": "Submitted",
+      "applied_date": "2026-09-28T13:52:11.103692+00:00",
+      "applied_via": "MSME Sahayak AI",
+      "business_name": "",
+      "notes": "Digital application queued for ministry verification."
     }
   ],
   "documents": [],
@@ -435,6 +483,56 @@
       "status": "pending",
       "completed_at": null,
       "action_link": "/applications"
+    },
+    {
+      "id": "step_5424f166",
+      "user_id": "user_80e7296aed",
+      "step_number": 1,
+      "title": "Udyam Registration & Document Preparation",
+      "description": "Obtain your 19-digit Udyam Registration Number using Aadhaar and PAN. Ensure GST certificate and bank accounts are active.",
+      "status": "pending",
+      "completed_at": null,
+      "action_link": "https://udyamregistration.gov.in/"
+    },
+    {
+      "id": "step_b613526e",
+      "user_id": "user_80e7296aed",
+      "step_number": 2,
+      "title": "Credit Profiling & CIBIL Readiness",
+      "description": "Check MSME credit score, clear any overdue payments, and maintain regular bank cash-flow records.",
+      "status": "pending",
+      "completed_at": null,
+      "action_link": "/credit-score"
+    },
+    {
+      "id": "step_9585b21a",
+      "user_id": "user_80e7296aed",
+      "step_number": 3,
+      "title": "Detailed Project Report (DPR) Formulation",
+      "description": "Draft complete financial appraisal, project cost, debt-equity ratio, machinery quotations, and break-even projection.",
+      "status": "pending",
+      "completed_at": null,
+      "action_link": "/documents"
+    },
+    {
+      "id": "step_3c7f3069",
+      "user_id": "user_80e7296aed",
+      "step_number": 4,
+      "title": "AI Scheme Matching & Stacking Verification",
+      "description": "Use MSME Sahayak to identify optimal non-conflicting subsidies and collateral guarantee combinations.",
+      "status": "pending",
+      "completed_at": null,
+      "action_link": "/scheme-matching"
+    },
+    {
+      "id": "step_ed3f34cd",
+      "user_id": "user_80e7296aed",
+      "step_number": 5,
+      "title": "Official Portal Application & Bank Sanction",
+      "description": "Submit digital application on national portal (PMEGP / Mudra / CGTMSE) and track bank branch processing.",
+      "status": "pending",
+      "completed_at": null,
+      "action_link": "/applications"
     }
   ],
   "notifications": [
@@ -525,9 +623,45 @@
       "message": "PAN Card has been uploaded and verified.",
       "reminder_date": "",
       "id": "noti_2fb94cd8"
+    },
+    {
+      "id": "notif_b5ef9fde",
+      "user_id": "user_2bd27b1c4c",
+      "type": "success",
+      "title": "Face Verification Successful",
+      "message": "Confidence: 94%, Liveness: Passed",
+      "is_read": false,
+      "created_at": "2026-09-28T06:32:31.533673+00:00"
+    },
+    {
+      "id": "notif_60a9f877",
+      "user_id": "user_80e7296aed",
+      "type": "info",
+      "title": "Application Submitted",
+      "message": "Your application for PM Vishwakarma Scheme has been submitted. Reference: MSME-202609-737ACE",
+      "is_read": false,
+      "created_at": "2026-09-28T13:52:01.840551+00:00"
+    },
+    {
+      "id": "notif_09e3a49a",
+      "user_id": "user_80e7296aed",
+      "type": "info",
+      "title": "Application Submitted",
+      "message": "Your application for MSME Sustainable (ZED) Certification Scheme has been submitted. Reference: MSME-202609-BD358F",
+      "is_read": false,
+      "created_at": "2026-09-28T13:52:11.110162+00:00"
     }
   ],
-  "face_verifications": [],
+  "face_verifications": [
+    {
+      "id": "face_f03240d7",
+      "user_id": "user_2bd27b1c4c",
+      "status": "failed",
+      "confidence_score": 0.0,
+      "verified_at": "2026-09-28T06:32:31.481152+00:00",
+      "remarks": "Face detection failed: image quality too low or blurred."
+    }
+  ],
   "stacking_checks": [
     {
       "id": "stack_0c9b8e8f",
