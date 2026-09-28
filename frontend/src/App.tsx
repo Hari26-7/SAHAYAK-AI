@@ -71,6 +71,15 @@ export default function App() {
             />
 
             <Route
+              path="/sahayak-ai"
+              element={
+                <Layout>
+                  <SchemeMatching />
+                </Layout>
+              }
+            />
+
+            <Route
               path="/scheme-stacking"
               element={
                 <Layout>
