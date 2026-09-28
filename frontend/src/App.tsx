@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { LanguageProvider } from './context/LanguageContext';
+import { ThemeProvider } from './context/ThemeContext';
 
 import { Layout } from './components/Layout';
 
@@ -23,8 +24,9 @@ import Register from './pages/Register';
 
 export default function App() {
   return (
-    <LanguageProvider>
-      <AuthProvider>
+    <ThemeProvider>
+      <LanguageProvider>
+        <AuthProvider>
         <BrowserRouter>
           <Routes>
 
@@ -157,5 +159,6 @@ export default function App() {
         </BrowserRouter>
       </AuthProvider>
     </LanguageProvider>
-  );
+  </ThemeProvider>
+);
 }

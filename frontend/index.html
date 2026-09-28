@@ -11,7 +11,7 @@
     <script>
       (function() {
         try {
-          var t = localStorage.getItem('sih_msme_theme') || localStorage.getItem('theme');
+          var t = localStorage.getItem('theme') || localStorage.getItem('sih_msme_theme');
           if (t === 'dark' || (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
           } else {
