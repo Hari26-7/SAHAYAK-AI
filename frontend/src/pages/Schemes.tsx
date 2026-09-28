@@ -128,7 +128,7 @@ export default function Schemes() {
           </button>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {filtered.map((scheme) => {
             const matchScore = scheme.matchPercentage || scheme.match_score || 95;
             const ministryName = scheme.ministry || 'Ministry of MSME';
@@ -136,7 +136,7 @@ export default function Schemes() {
             return (
               <div
                 key={scheme.id}
-                className="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700 p-6 flex flex-col justify-between hover:shadow-lg transition-all"
+                className="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700 p-4 md:p-6 flex flex-col justify-between hover:shadow-lg transition-all"
               >
                 <div>
                   {/* Visual Badges: Match Percentage and Ministry Name */}

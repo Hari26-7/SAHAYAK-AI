@@ -41,34 +41,34 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
       <div className="h-1.5 w-full bg-gradient-to-r from-[#FF9933] via-white to-[#138808]"></div>
 
       {/* 2. Top Gov Header (Official National Ministry Bar) */}
-      <div className="bg-[#002855] text-white border-b border-[#003875] text-xs py-1.5 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-          {/* Official Emblem & Ministry Titles */}
-          <div className="flex items-center gap-3">
+      <div className="bg-[#002855] text-white border-b border-[#003875] text-xs py-1.5 px-3 sm:px-4 md:px-8">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
+          {/* Official Emblem & Ministry Titles with scaling and truncation */}
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             {/* Mock State Emblem of India Placeholder */}
-            <div className="w-8 h-8 rounded-full bg-white/10 border border-white/20 p-1 flex items-center justify-center shrink-0 shadow-sm">
-              <svg viewBox="0 0 100 100" className="w-6 h-6 fill-amber-300">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/10 border border-white/20 p-1 flex items-center justify-center shrink-0 shadow-sm">
+              <svg viewBox="0 0 100 100" className="w-5 h-5 sm:w-6 sm:h-6 fill-amber-300">
                 <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="4" />
                 <circle cx="50" cy="50" r="8" fill="currentColor" />
                 <path d="M50 10 L50 90 M10 50 L90 50 M22 22 L78 78 M22 78 L78 22" stroke="currentColor" strokeWidth="3" />
               </svg>
             </div>
-            <div>
-              <div className="font-semibold tracking-wide text-slate-100 flex items-center gap-1.5 text-[11px] sm:text-xs">
-                <span>भारत सरकार</span>
+            <div className="min-w-0">
+              <div className="font-semibold tracking-wide text-slate-100 flex items-center gap-1.5 text-xs md:text-sm truncate">
+                <span className="truncate">भारत सरकार</span>
                 <span className="text-amber-400">|</span>
-                <span>Government of India</span>
+                <span className="truncate">Government of India</span>
               </div>
-              <div className="text-[10px] sm:text-[11px] text-blue-200 font-medium">
+              <div className="text-[10px] sm:text-[11px] text-blue-200 font-medium truncate">
                 सूक्ष्म, लघु और मध्यम उद्यम मंत्रालय | Ministry of Micro, Small & Medium Enterprises
               </div>
             </div>
           </div>
 
           {/* Accessibility, SIH Tag & Official Indicators */}
-          <div className="flex items-center gap-3 text-[11px] text-slate-200">
+          <div className="flex items-center gap-2 sm:gap-3 text-[11px] text-slate-200 shrink-0">
             {/* SIH Badge */}
-            <div className="hidden lg:flex items-center gap-1.5 bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded border border-amber-400/30 font-semibold text-[10px]">
+            <div className="hidden sm:flex items-center gap-1.5 bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded border border-amber-400/30 font-semibold text-[10px]">
               <span>🇮🇳</span> SIH 2026
             </div>
 
@@ -110,50 +110,50 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 
       {/* 3. Main Application Header */}
       <header className="sticky top-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm transition-colors duration-200">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-3 flex items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-8 py-2.5 sm:py-3 flex flex-wrap md:flex-nowrap items-center justify-between gap-2 sm:gap-4">
           {/* Logo & Portal Identity */}
-          <Link to="/dashboard" className="flex items-center gap-3 text-decoration-none group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#002855] to-blue-700 dark:from-blue-600 dark:to-indigo-600 text-white flex items-center justify-center font-extrabold text-xl shadow-md group-hover:shadow-blue-500/30 transition-all">
+          <Link to="/dashboard" className="flex items-center gap-2 sm:gap-3 text-decoration-none group min-w-0">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-[#002855] to-blue-700 dark:from-blue-600 dark:to-indigo-600 text-white flex items-center justify-center font-extrabold text-lg sm:text-xl shadow-md group-hover:shadow-blue-500/30 transition-all shrink-0">
               <span className="text-amber-300 font-serif">स</span>
             </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="text-base sm:text-lg font-black tracking-tight text-gov-navy dark:text-blue-400">
+            <div className="min-w-0">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <span className="text-sm sm:text-base md:text-lg font-black tracking-tight text-gov-navy dark:text-blue-400 truncate">
                   {t('appName')}
                 </span>
-                <span className="hidden sm:inline-block text-[10px] font-bold px-1.5 py-0.5 rounded bg-blue-100 text-blue-800 dark:bg-blue-900/60 dark:text-blue-200 border border-blue-200 dark:border-blue-700">
+                <span className="hidden sm:inline-block text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 rounded bg-blue-100 text-blue-800 dark:bg-blue-900/60 dark:text-blue-200 border border-blue-200 dark:border-blue-700">
                   NATIONAL PORTAL
                 </span>
               </div>
-              <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium hidden sm:block">
+              <div className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 font-medium hidden md:block truncate">
                 Unified MSME Copilot • AI-Powered Schemes & Subsidies
               </div>
             </div>
           </Link>
 
           {/* Action Center: Voice Assistant, Theme Toggle, Language Switcher, Google Sheet Badge & User */}
-          <div className="flex items-center gap-2.5 sm:gap-3">
+          <div className="flex flex-wrap items-center justify-end gap-1.5 sm:gap-2">
             {/* Header Voice Assistant Controls */}
             <HeaderVoiceControls />
 
             {/* Theme Toggle Button (Light / Dark) */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-amber-300 hover:border-gov-navy dark:hover:border-blue-400 transition-all shadow-sm"
+              className="p-1.5 sm:p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-amber-300 hover:border-gov-navy dark:hover:border-blue-400 transition-all shadow-sm"
               title={theme === 'dark' ? 'Switch to Official Light Mode' : 'Switch to Slate Dark Mode'}
               aria-label="Toggle Theme"
             >
               {theme === 'dark' ? (
-                <span className="text-base leading-none">☀️</span>
+                <span className="text-sm sm:text-base leading-none">☀️</span>
               ) : (
-                <span className="text-base leading-none">🌙</span>
+                <span className="text-sm sm:text-base leading-none">🌙</span>
               )}
             </button>
 
             {/* Language Switcher */}
             <div className="flex bg-slate-100 dark:bg-slate-800 p-0.5 rounded-lg border border-slate-200 dark:border-slate-700">
               <button
-                className={`px-2 py-1 text-xs font-bold rounded-md transition-all ${
+                className={`px-1.5 sm:px-2 py-0.5 sm:py-1 text-[11px] sm:text-xs font-bold rounded-md transition-all ${
                   language === 'en'
                     ? 'bg-gov-navy text-white dark:bg-blue-600 shadow-sm'
                     : 'text-slate-600 dark:text-slate-300 hover:text-gov-navy'
@@ -163,7 +163,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
                 EN
               </button>
               <button
-                className={`px-2 py-1 text-xs font-bold rounded-md transition-all ${
+                className={`px-1.5 sm:px-2 py-0.5 sm:py-1 text-[11px] sm:text-xs font-bold rounded-md transition-all ${
                   language === 'ta'
                     ? 'bg-gov-navy text-white dark:bg-blue-600 shadow-sm'
                     : 'text-slate-600 dark:text-slate-300 hover:text-gov-navy'
@@ -173,7 +173,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
                 தமிழ்
               </button>
               <button
-                className={`px-2 py-1 text-xs font-bold rounded-md transition-all ${
+                className={`px-1.5 sm:px-2 py-0.5 sm:py-1 text-[11px] sm:text-xs font-bold rounded-md transition-all ${
                   language === 'hi'
                     ? 'bg-gov-navy text-white dark:bg-blue-600 shadow-sm'
                     : 'text-slate-600 dark:text-slate-300 hover:text-gov-navy'
@@ -189,7 +189,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
               href="https://docs.google.com/spreadsheets/d/1rfT9LvjYD1FJQyqsVASVshZllne8lt1lEODQTgLqoIY/edit?usp=sharing"
               target="_blank"
               rel="noreferrer"
-              className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700/60 hover:bg-emerald-100 transition"
+              className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700/60 hover:bg-emerald-100 transition"
               title="Inspect Live SIH Google Sheets Database"
             >
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -198,10 +198,11 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 
             {/* User Profile / Auth Action */}
             {user ? (
-              <div className="flex items-center gap-2 pl-1 border-l border-slate-200 dark:border-slate-800">
+              <div className="flex items-center gap-1.5 sm:gap-2 pl-1 border-l border-slate-200 dark:border-slate-800">
                 <Link
                   to="/profile"
-                  className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition text-decoration-none"
+                  className="flex items-center gap-1.5 px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition text-decoration-none"
+                  title="Profile"
                 >
                   <div className="w-7 h-7 rounded-full bg-blue-100 text-gov-navy dark:bg-blue-900/60 dark:text-blue-300 font-bold text-xs flex items-center justify-center border border-blue-300 dark:border-blue-700">
                     {(profile?.full_name || 'H').charAt(0)}
@@ -221,16 +222,17 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
                     await signOut();
                     navigate('/login');
                   }}
-                  className="px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition"
+                  className="px-2 sm:px-2.5 py-1 sm:py-1.5 text-xs font-semibold rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition"
                   title="Sign Out from Portal"
                 >
-                  Logout
+                  <span className="hidden sm:inline">Logout</span>
+                  <span className="sm:hidden">🚪</span>
                 </button>
               </div>
             ) : (
               <Link
                 to="/login"
-                className="px-4 py-2 text-xs font-bold rounded-lg bg-gov-navy hover:bg-[#001f42] dark:bg-blue-600 dark:hover:bg-blue-700 text-white shadow-sm transition"
+                className="px-3 sm:px-4 py-1.5 sm:py-2 text-xs font-bold rounded-lg bg-gov-navy hover:bg-[#001f42] dark:bg-blue-600 dark:hover:bg-blue-700 text-white shadow-sm transition"
               >
                 Sign In
               </Link>
@@ -241,8 +243,8 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 
       {/* 4. Main Body with Official Sidebar & Workspace */}
       <div className="flex-1 flex max-w-7xl w-full mx-auto">
-        {/* Sidebar Navigation */}
-        <aside className="w-64 shrink-0 hidden md:block py-6 px-3 border-r border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50">
+        {/* Sidebar Navigation - hidden on mobile (hidden md:flex) */}
+        <aside className="w-64 shrink-0 hidden md:flex flex-col py-6 px-3 border-r border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50">
           <div className="sticky top-24 space-y-6">
             {/* Quick Status Box */}
             <div className="p-3 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-850 border border-blue-100 dark:border-slate-700">
@@ -280,13 +282,61 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
           </div>
         </aside>
 
-        {/* Main Content Area */}
-        <main className="flex-1 min-w-0 p-4 sm:p-6 md:p-8">
+        {/* Main Content Area - with pb-20 md:pb-6 to prevent content cutoff behind bottom nav */}
+        <main className="flex-1 min-w-0 p-4 sm:p-6 md:p-8 pb-20 md:pb-6">
           {children}
         </main>
       </div>
 
-      {/* 5. Official Indian Gov Portal Footer */}
+      {/* 5. Mobile Bottom Navigation Bar (fixed bottom-0 w-full bg-white dark:bg-slate-900 border-t flex justify-around p-3 md:hidden z-50) */}
+      <nav className="fixed bottom-0 left-0 right-0 w-full bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 flex justify-around items-center p-3 md:hidden z-50 shadow-lg">
+        <Link
+          to="/dashboard"
+          className={`flex flex-col items-center gap-1 text-center py-1 px-3 rounded-lg transition-colors ${
+            location.pathname === '/dashboard'
+              ? 'text-gov-navy dark:text-blue-400 font-bold'
+              : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+          }`}
+        >
+          <span className="text-xl leading-none">🏠</span>
+          <span className="text-[10px] font-semibold">Home</span>
+        </Link>
+        <Link
+          to="/schemes"
+          className={`flex flex-col items-center gap-1 text-center py-1 px-3 rounded-lg transition-colors ${
+            location.pathname.startsWith('/scheme')
+              ? 'text-gov-navy dark:text-blue-400 font-bold'
+              : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+          }`}
+        >
+          <span className="text-xl leading-none">📜</span>
+          <span className="text-[10px] font-semibold">Schemes</span>
+        </Link>
+        <Link
+          to="/documents"
+          className={`flex flex-col items-center gap-1 text-center py-1 px-3 rounded-lg transition-colors ${
+            location.pathname === '/documents'
+              ? 'text-gov-navy dark:text-blue-400 font-bold'
+              : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+          }`}
+        >
+          <span className="text-xl leading-none">🛡️</span>
+          <span className="text-[10px] font-semibold">Vault</span>
+        </Link>
+        <Link
+          to="/profile"
+          className={`flex flex-col items-center gap-1 text-center py-1 px-3 rounded-lg transition-colors ${
+            location.pathname === '/profile'
+              ? 'text-gov-navy dark:text-blue-400 font-bold'
+              : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+          }`}
+        >
+          <span className="text-xl leading-none">👤</span>
+          <span className="text-[10px] font-semibold">Profile</span>
+        </Link>
+      </nav>
+
+      {/* 6. Official Indian Gov Portal Footer */}
       <footer className="mt-auto border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-xs py-6 px-4 md:px-8 text-slate-500 dark:text-slate-400">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
@@ -312,7 +362,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
         </div>
       </footer>
 
-      {/* 6. Sahayak Voice Copilot Floating Interactive Widget */}
+      {/* 7. Sahayak Voice Copilot Floating Interactive Widget */}
       <VoiceAssistant />
     </div>
   );

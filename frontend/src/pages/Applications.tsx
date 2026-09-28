@@ -87,7 +87,7 @@ export default function Applications() {
       </div>
 
       {showApplyForm && (
-        <div className="card" style={{ marginBottom: '24px' }}>
+        <div className="card p-4 md:p-6" style={{ marginBottom: '24px' }}>
           <h3 className="card-title" style={{ marginBottom: '16px' }}>New Application</h3>
           <div className="form-group">
             <label className="form-label">{t('schemeName')}</label>
@@ -110,46 +110,48 @@ export default function Applications() {
           <h3>{t('noApplications')}</h3>
         </div>
       ) : (
-        <div className="card">
-          <table className="table">
-            <thead>
-              <tr>
-                <th>{t('applicationReference')}</th>
-                <th>{t('schemeName')}</th>
-                <th>{t('applicationStatus')}</th>
-                <th>{t('submittedAt')}</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {applications.map((app) => (
-                <tr key={app.id}>
-                  <td style={{ fontFamily: 'monospace', fontSize: '13px' }}>{app.application_reference}</td>
-                  <td>{app.scheme_name}</td>
-                  <td>
-                    <span className={`badge badge-${app.status}`}>{t(app.status as any) || app.status}</span>
-                  </td>
-                  <td style={{ fontSize: '13px', color: 'var(--color-neutral-500)' }}>
-                    {app.submitted_at ? new Date(app.submitted_at).toLocaleDateString() : '-'}
-                  </td>
-                  <td>
-                    <div style={{ display: 'flex', gap: '8px' }}>
-                      <button className="btn btn-outline" style={{ padding: '4px 12px', fontSize: '12px' }} onClick={() => setViewApp(app)}>{t('view')}</button>
-                      {app.status === 'draft' && (
-                        <button className="btn btn-danger" style={{ padding: '4px 12px', fontSize: '12px' }} onClick={() => handleWithdraw(app.id)}>{t('delete')}</button>
-                      )}
-                    </div>
-                  </td>
+        <div className="card p-4 md:p-6">
+          <div className="overflow-x-auto">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>{t('applicationReference')}</th>
+                  <th>{t('schemeName')}</th>
+                  <th>{t('applicationStatus')}</th>
+                  <th>{t('submittedAt')}</th>
+                  <th>Actions</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {applications.map((app) => (
+                  <tr key={app.id}>
+                    <td style={{ fontFamily: 'monospace', fontSize: '13px' }}>{app.application_reference}</td>
+                    <td>{app.scheme_name}</td>
+                    <td>
+                      <span className={`badge badge-${app.status}`}>{t(app.status as any) || app.status}</span>
+                    </td>
+                    <td style={{ fontSize: '13px', color: 'var(--color-neutral-500)' }}>
+                      {app.submitted_at ? new Date(app.submitted_at).toLocaleDateString() : '-'}
+                    </td>
+                    <td>
+                      <div style={{ display: 'flex', gap: '8px' }}>
+                        <button className="btn btn-outline" style={{ padding: '4px 12px', fontSize: '12px' }} onClick={() => setViewApp(app)}>{t('view')}</button>
+                        {app.status === 'draft' && (
+                          <button className="btn btn-danger" style={{ padding: '4px 12px', fontSize: '12px' }} onClick={() => handleWithdraw(app.id)}>{t('delete')}</button>
+                        )}
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
 
       {viewApp && (
         <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 200 }} onClick={() => setViewApp(null)}>
-          <div className="card" style={{ maxWidth: '550px', width: '90%', maxHeight: '80vh', overflowY: 'auto' }} onClick={(e) => e.stopPropagation()}>
+          <div className="card p-4 md:p-6" style={{ maxWidth: '550px', width: '90%', maxHeight: '80vh', overflowY: 'auto' }} onClick={(e) => e.stopPropagation()}>
             <div className="card-header">
               <h3 className="card-title">{viewApp.scheme_name}</h3>
               <button className="btn btn-secondary" style={{ padding: '4px 12px' }} onClick={() => setViewApp(null)}>{t('close')}</button>

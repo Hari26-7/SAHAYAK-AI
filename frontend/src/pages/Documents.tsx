@@ -317,11 +317,11 @@ export default function Documents() {
       </div>
 
       {/* 2. Responsive Side-by-Side Grid (1 Col on mobile, 2 Cols on desktop) */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8 items-start">
         {/* ======================================================== */}
         {/* LEFT COLUMN: 1. Official Document Upload */}
         {/* ======================================================== */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-8 flex flex-col justify-between h-full space-y-6">
+        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-4 md:p-6 lg:p-8 flex flex-col justify-between h-full space-y-6">
           <div>
             {/* Header */}
             <div className="border-b border-slate-100 dark:border-slate-700/80 pb-4 mb-5">
@@ -417,7 +417,7 @@ export default function Documents() {
         {/* ======================================================== */}
         {/* RIGHT COLUMN: 2. Live Face Authentication */}
         {/* ======================================================== */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-8 flex flex-col justify-between h-full space-y-6">
+        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-4 md:p-6 lg:p-8 flex flex-col justify-between h-full space-y-6">
           <div>
             {/* Header */}
             <div className="border-b border-slate-100 dark:border-slate-700/80 pb-4 mb-5">
@@ -559,7 +559,7 @@ export default function Documents() {
       {/* ======================================================== */}
       {/* 3. Encrypted Vault Records Table */}
       {/* ======================================================== */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-8 space-y-6">
+      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-4 md:p-6 lg:p-8 space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-700/80 pb-4">
           <div>
             <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -679,7 +679,7 @@ export default function Documents() {
       )}
 
       {toast && (
-        <div className="fixed bottom-6 left-6 z-50 p-3.5 rounded-xl bg-slate-900 text-white text-xs font-bold shadow-2xl border border-slate-700">
+        <div className="fixed bottom-20 md:bottom-6 left-4 md:left-6 z-50 p-3.5 rounded-xl bg-slate-900 text-white text-xs font-bold shadow-2xl border border-slate-700">
           {toast.msg}
         </div>
       )}

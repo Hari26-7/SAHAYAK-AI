@@ -138,11 +138,11 @@ export default function SchemeMatching() {
       </div>
 
       {/* CSS Grid Scheme Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
         {matches.map(({ scheme, score, reasons }) => (
           <div
             key={scheme.id}
-            className="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700 p-6 flex flex-col justify-between hover:shadow-lg transition-all"
+            className="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700 p-4 md:p-6 flex flex-col justify-between hover:shadow-lg transition-all"
           >
             <div>
               {/* Badges: Match Percentage and Ministry Name */}

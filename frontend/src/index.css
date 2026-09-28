@@ -529,6 +529,24 @@ html.dark .btn-outline:hover {
   background: rgba(255, 255, 255, 0.08);
 }
 
+.btn-danger {
+  background: #dc2626;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background: #b91c1c;
+}
+
+html.dark .btn-danger {
+  background: #ef4444;
+  color: #fff;
+}
+
+html.dark .btn-danger:hover {
+  background: #dc2626;
+}
+
 /* Auth Screens */
 .auth-container, .lang-container {
   min-height: 100vh;
@@ -618,6 +636,171 @@ html.dark .spinner {
   to { transform: rotate(360deg); }
 }
 
+/* Tables */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th {
+  padding: 12px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.table td {
+  padding: 12px 14px;
+  font-size: 13px;
+  color: #334155;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+html.dark .table th {
+  color: #94a3b8;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+html.dark .table td {
+  color: #e2e8f0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+html.dark .table tr:hover td {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.badge-draft, .badge-pending {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+}
+
+.badge-submitted, .badge-in_progress {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.badge-approved, .badge-completed, .badge-verified {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+}
+
+.badge-rejected, .badge-failed {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+
+html.dark .badge-draft, html.dark .badge-pending {
+  background: rgba(148, 163, 184, 0.15);
+  color: #cbd5e1;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+html.dark .badge-submitted, html.dark .badge-in_progress {
+  background: rgba(59, 130, 246, 0.15);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+html.dark .badge-approved, html.dark .badge-completed, html.dark .badge-verified {
+  background: rgba(16, 185, 129, 0.15);
+  color: #6ee7b7;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+html.dark .badge-rejected, html.dark .badge-failed {
+  background: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* Empty State */
+.empty-state {
+  padding: 48px 24px;
+  text-align: center;
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  border: 1px dashed #cbd5e1;
+  color: #64748b;
+}
+
+html.dark .empty-state {
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  color: #94a3b8;
+}
+
+/* Toasts */
+.toast {
+  position: fixed;
+  bottom: 80px;
+  left: 16px;
+  z-index: 100;
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 768px) {
+  .toast {
+    bottom: 24px;
+    left: 24px;
+  }
+}
+
+.toast-success {
+  background: #065f46;
+  color: #ecfdf5;
+  border: 1px solid #059669;
+}
+
+.toast-error {
+  background: #991b1b;
+  color: #fef2f2;
+  border: 1px solid #dc2626;
+}
+
+.toast-info {
+  background: #1e3a8a;
+  color: #eff6ff;
+  border: 1px solid #2563eb;
+}
+
+/* Form row 3 */
+.form-row-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 640px) {
+  .form-row, .form-row-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .app-header {
@@ -628,31 +811,7 @@ html.dark .spinner {
     flex-direction: column;
   }
 
-  .app-sidebar {
-    width: 100%;
-    padding: 8px 12px;
-    border-right: none;
-    border-bottom: 1px solid #e2e8f0;
-    overflow-x: auto;
-    position: sticky;
-    top: 55px;
-    z-index: 90;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  html.dark .app-sidebar {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .sidebar-nav {
-    flex-direction: row;
-    position: static;
-    gap: 8px;
-    width: max-content;
-  }
-
   .app-main-content {
-    padding: 20px 14px 40px;
+    padding: 16px 12px 80px;
   }
 }

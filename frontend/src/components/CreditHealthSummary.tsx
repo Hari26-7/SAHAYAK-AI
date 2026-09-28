@@ -65,7 +65,7 @@ export const CreditHealthSummary: React.FC<CreditHealthSummaryProps> = ({
   const debtServiceRatio = turnover > 0 ? Math.round((annualEMI / turnover) * 100) : 0;
 
   return (
-    <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 shadow-sm mb-6 space-y-6">
+    <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 md:p-6 shadow-sm mb-6 space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-700/80 pb-4">
         <div>
           <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
@@ -85,7 +85,7 @@ export const CreditHealthSummary: React.FC<CreditHealthSummaryProps> = ({
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 items-center">
         {/* Visual Gauge Bar */}
         <div className="md:col-span-1 flex flex-col items-center justify-center p-4 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700/60 text-center">
           <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
@@ -115,7 +115,7 @@ export const CreditHealthSummary: React.FC<CreditHealthSummaryProps> = ({
         </div>
 
         {/* Financial Metrics Summary */}
-        <div className="md:col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-3">
+        <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-700/60">
             <div className="text-[11px] font-semibold text-slate-500 dark:text-slate-400">
               Total Outstanding Debt

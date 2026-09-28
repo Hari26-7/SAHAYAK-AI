@@ -213,7 +213,7 @@ export default function CreditScore() {
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Card 1: Credit Information */}
-        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 shadow-sm mb-6 space-y-6">
+        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 md:p-6 shadow-sm mb-6 space-y-6">
           <div className="border-b border-slate-100 dark:border-slate-700/80 pb-3 flex items-center justify-between">
             <div>
               <h2 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -226,7 +226,7 @@ export default function CreditScore() {
             <div>{getScoreBadge(currentScore)}</div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {/* Field 1: Credit Score */}
             <div>
               <div className="flex items-center justify-between mb-1">
@@ -317,7 +317,7 @@ export default function CreditScore() {
         </div>
 
         {/* Card 2: Financial Details & Turnover */}
-        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 shadow-sm mb-6 space-y-6">
+        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 md:p-6 shadow-sm mb-6 space-y-6">
           <div className="border-b border-slate-100 dark:border-slate-700/80 pb-3">
             <h2 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <span>📈</span> Annual Turnover & Operational Cash Flows
@@ -327,7 +327,7 @@ export default function CreditScore() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {/* Field 5: Annual Business Turnover */}
             <div>
               <label className="text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5 mb-1">

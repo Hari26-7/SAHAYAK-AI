@@ -139,7 +139,7 @@ export default function Dashboard() {
   return (
     <div className="space-y-6">
       {/* 1. Official Government Citizen Header & Enterprise Profile Banner */}
-      <div className="relative overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm p-5 sm:p-7">
+      <div className="relative overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm p-4 md:p-6">
         {/* Subtle decorative background gradient */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-50/60 dark:from-blue-900/10 to-transparent rounded-full pointer-events-none -mr-20 -mt-20"></div>
 
@@ -168,7 +168,7 @@ export default function Dashboard() {
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800/60">
                 Micro (Manufacturing)
               </span>
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-semibold bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-semibold bg-purple-50 dark:purple-950/40 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60">
                 🔒 DigiLocker KYC Verified
               </span>
             </div>
@@ -192,11 +192,11 @@ export default function Dashboard() {
       </div>
 
       {/* 2. Key Metrics Stats Cards (Material Design & Soft Shadows / Distinct Dark Borders) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
         {/* Card 1: Available Schemes */}
         <Link
           to="/schemes"
-          className="group block p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-gov-navy dark:hover:border-blue-500 transition-all text-decoration-none"
+          className="group block p-4 md:p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-gov-navy dark:hover:border-blue-500 transition-all text-decoration-none"
         >
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
@@ -219,7 +219,7 @@ export default function Dashboard() {
         {/* Card 2: Active Applications */}
         <Link
           to="/applications"
-          className="group block p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-gov-navy dark:hover:border-blue-500 transition-all text-decoration-none"
+          className="group block p-4 md:p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-gov-navy dark:hover:border-blue-500 transition-all text-decoration-none"
         >
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
@@ -242,7 +242,7 @@ export default function Dashboard() {
         {/* Card 3: DigiLocker Documents */}
         <Link
           to="/documents"
-          className="group block p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-gov-navy dark:hover:border-blue-500 transition-all text-decoration-none"
+          className="group block p-4 md:p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-gov-navy dark:hover:border-blue-500 transition-all text-decoration-none"
         >
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
@@ -265,7 +265,7 @@ export default function Dashboard() {
         {/* Card 4: Roadmap Step Progress */}
         <Link
           to="/eligibility-roadmap"
-          className="group block p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-gov-navy dark:hover:border-blue-500 transition-all text-decoration-none"
+          className="group block p-4 md:p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-gov-navy dark:hover:border-blue-500 transition-all text-decoration-none"
         >
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
@@ -287,7 +287,7 @@ export default function Dashboard() {
       </div>
 
       {/* 3. Interactive Voice Search Bar & Scheme Filter Section */}
-      <div className="p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+      <div className="p-4 md:p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
           <div>
             <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -365,14 +365,14 @@ export default function Dashboard() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {filteredSchemes.map((scheme) => {
             const isApplied = appliedSchemes[scheme.id];
 
             return (
               <div
                 key={scheme.id}
-                className="flex flex-col justify-between p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all relative overflow-hidden"
+                className="flex flex-col justify-between p-4 md:p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all relative overflow-hidden"
               >
                 {/* Match Ribbon */}
                 <div className="absolute top-0 right-0">
@@ -457,9 +457,9 @@ export default function Dashboard() {
       </div>
 
       {/* 5. Eligibility Roadmap Progress & Quick Actions Hub */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
         {/* Left 2 Cols: Eligibility Roadmap Progress */}
-        <div className="lg:col-span-2 p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+        <div className="lg:col-span-2 p-4 md:p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -523,7 +523,7 @@ export default function Dashboard() {
         </div>
 
         {/* Right 1 Col: Quick India Stack Actions */}
-        <div className="p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4">
+        <div className="p-4 md:p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4">
           <div>
             <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <span>⚡</span> India Stack Quick Actions

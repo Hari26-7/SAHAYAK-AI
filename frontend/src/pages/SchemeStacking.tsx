@@ -313,7 +313,7 @@ export default function SchemeStacking() {
       </div>
 
       {/* 3. Interactive Selectable Scheme Cards Grid (2-Column Layout) */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 p-6 space-y-4">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 p-4 md:p-6 space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
           <div>
             <h2 className="text-base font-bold text-slate-900 dark:text-white">
@@ -441,7 +441,7 @@ export default function SchemeStacking() {
             </div>
           </div>
 
-          <div className="p-6 space-y-5">
+          <div className="p-4 md:p-6 space-y-5">
             {/* Core Official Guidelines Verdict Highlight */}
             <div className="p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
               <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">

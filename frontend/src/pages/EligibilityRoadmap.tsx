@@ -140,7 +140,7 @@ export default function EligibilityRoadmap() {
       </div>
 
       {/* Progress Card */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700 p-6">
+      <div className="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700 p-4 md:p-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
           <div>
             <div className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
@@ -172,7 +172,7 @@ export default function EligibilityRoadmap() {
       </div>
 
       {/* Vertical Stepper Component */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700 p-6 sm:p-8">
+      <div className="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700 p-4 md:p-6">
         <div className="relative border-l-2 border-blue-200 dark:border-blue-800 ml-4 space-y-8">
           {steps.map((step) => {
             const isCompleted = step.status === 'completed';
@@ -283,7 +283,7 @@ export default function EligibilityRoadmap() {
       </div>
 
       {toast && (
-        <div className="fixed bottom-6 left-6 z-50 p-3 rounded-xl bg-slate-900 text-white text-xs font-bold shadow-2xl border border-slate-700">
+        <div className="fixed bottom-20 md:bottom-6 left-4 md:left-6 z-50 p-3 rounded-xl bg-slate-900 text-white text-xs font-bold shadow-2xl border border-slate-700">
           {toast.msg}
         </div>
       )}

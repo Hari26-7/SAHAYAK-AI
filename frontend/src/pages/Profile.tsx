@@ -71,7 +71,7 @@ export default function Profile() {
     <div>
       <h1 style={{ fontSize: '24px', fontWeight: 700, marginBottom: '24px' }}>{t('profile')}</h1>
       <form onSubmit={handleSubmit}>
-        <div className="card" style={{ marginBottom: '24px' }}>
+        <div className="card p-4 md:p-6" style={{ marginBottom: '24px' }}>
           <h3 className="card-title" style={{ marginBottom: '20px' }}>Personal Information</h3>
           <div className="form-row">
             <div className="form-group">
@@ -85,7 +85,7 @@ export default function Profile() {
           </div>
         </div>
 
-        <div className="card" style={{ marginBottom: '24px' }}>
+        <div className="card p-4 md:p-6" style={{ marginBottom: '24px' }}>
           <h3 className="card-title" style={{ marginBottom: '20px' }}>Business Information</h3>
           <div className="form-row">
             <div className="form-group">
@@ -129,7 +129,7 @@ export default function Profile() {
           </div>
         </div>
 
-        <div className="card" style={{ marginBottom: '24px' }}>
+        <div className="card p-4 md:p-6" style={{ marginBottom: '24px' }}>
           <h3 className="card-title" style={{ marginBottom: '20px' }}>Location</h3>
           <div className="form-row-3">
             <div className="form-group">

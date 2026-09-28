@@ -10,48 +10,51 @@ export const HeaderVoiceControls: React.FC = () => {
   const { play, pause, stop, isSpeaking, isPaused } = useVoiceAssistant();
 
   return (
-    <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-blue-50 dark:bg-slate-800 border border-blue-200 dark:border-slate-700 shadow-sm">
+    <div className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-1 rounded-xl bg-blue-50 dark:bg-slate-800 border border-blue-200 dark:border-slate-700 shadow-sm">
       <span className="text-xs font-bold text-gov-navy dark:text-blue-400 flex items-center gap-1">
         <span>🔊</span>
-        <span className="hidden sm:inline">Sahayak Voice:</span>
+        <span className="hidden md:inline">Sahayak Voice:</span>
       </span>
 
       <div className="flex items-center gap-1">
         {/* Play Button */}
         <button
           onClick={() => play(undefined, language)}
-          className={`px-2 py-0.5 rounded text-[11px] font-bold transition-all ${
+          className={`px-1.5 sm:px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-bold transition-all ${
             isSpeaking
               ? 'bg-emerald-600 text-white shadow-sm animate-pulse'
               : 'bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-600 border border-slate-200 dark:border-slate-600'
           }`}
           title="Read Current Page Aloud"
         >
-          ▶ Play
+          <span>▶</span>
+          <span className="hidden md:inline ml-1">Play</span>
         </button>
 
         {/* Pause Button */}
         <button
           onClick={pause}
           disabled={!isSpeaking}
-          className={`px-2 py-0.5 rounded text-[11px] font-bold transition-all ${
+          className={`px-1.5 sm:px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-bold transition-all ${
             isPaused
               ? 'bg-amber-600 text-white'
               : 'bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-600 border border-slate-200 dark:border-slate-600 disabled:opacity-40 disabled:cursor-not-allowed'
           }`}
           title="Pause Reading"
         >
-          ⏸ Pause
+          <span>⏸</span>
+          <span className="hidden md:inline ml-1">Pause</span>
         </button>
 
         {/* Stop Button */}
         <button
           onClick={stop}
           disabled={!isSpeaking && !isPaused}
-          className="px-2 py-0.5 rounded text-[11px] font-bold bg-white dark:bg-slate-700 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 border border-slate-200 dark:border-slate-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+          className="px-1.5 sm:px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-bold bg-white dark:bg-slate-700 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 border border-slate-200 dark:border-slate-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
           title="Stop Reading"
         >
-          ⏹ Stop
+          <span>⏹</span>
+          <span className="hidden md:inline ml-1">Stop</span>
         </button>
       </div>
     </div>
@@ -79,10 +82,10 @@ export const VoiceAssistant: React.FC = () => {
 
   return (
     <>
-      {/* Floating Bottom-Right Button */}
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
+      {/* Floating Bottom-Right Button: bottom-20 on mobile to clear bottom nav, bottom-6 on desktop */}
+      <div className="fixed bottom-20 md:bottom-6 right-4 md:right-6 z-40 flex flex-col items-end gap-2">
         {isOpen && (
-          <div className="w-80 p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-2xl mb-2 animate-in fade-in slide-in-from-bottom-2 space-y-3">
+          <div className="w-[calc(100vw-2rem)] sm:w-80 p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-2xl mb-2 animate-in fade-in slide-in-from-bottom-2 space-y-3">
             <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-2">
               <div className="flex items-center gap-2">
                 <span className="text-lg">🔊</span>
@@ -170,7 +173,7 @@ export const VoiceAssistant: React.FC = () => {
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`flex items-center gap-2 px-4 py-3 rounded-full font-bold shadow-xl border transition-all transform hover:scale-105 active:scale-95 ${
+          className={`flex items-center gap-2 px-3 sm:px-4 py-2.5 sm:py-3 rounded-full font-bold shadow-xl border transition-all transform hover:scale-105 active:scale-95 ${
             isOpen
               ? 'bg-gov-navy dark:bg-blue-600 text-white border-blue-400'
               : isSpeaking
@@ -179,9 +182,9 @@ export const VoiceAssistant: React.FC = () => {
           }`}
           title="Sahayak Voice Assistant"
         >
-          <span className="text-xl">🔊</span>
-          <span className="text-xs tracking-wide uppercase">Sahayak Voice</span>
-          <span className="text-[10px] px-1.5 py-0.5 rounded bg-blue-100 dark:bg-blue-900/60 text-blue-800 dark:text-blue-300 font-extrabold">
+          <span className="text-lg sm:text-xl">🔊</span>
+          <span className="text-xs tracking-wide uppercase hidden sm:inline">Sahayak Voice</span>
+          <span className="text-[9px] sm:text-[10px] px-1.5 py-0.5 rounded bg-blue-100 dark:bg-blue-900/60 text-blue-800 dark:text-blue-300 font-extrabold">
             AI
           </span>
         </button>
