@@ -6,8 +6,8 @@
   --color-primary-50: #eef2ff;
   --color-primary-100: #e0e7ff;
   --color-primary-200: #c7d2fe;
-  --color-primary-600: #002855;
-  --color-primary-700: #001a38;
+  --color-primary-600: #0B3B60;
+  --color-primary-700: #082b47;
   --color-accent-100: #ecfdf5;
   --color-accent-600: #059669;
   --color-warning-100: #fffbeb;
@@ -23,7 +23,7 @@
   --color-neutral-600: #475569;
   --color-neutral-800: #1e293b;
   --color-neutral-900: #0f172a;
-  --font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-family: 'Inter', 'Noto Sans Devanagari', 'Noto Sans Tamil', 'Roboto', system-ui, -apple-system, sans-serif;
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
@@ -63,24 +63,24 @@ html:not(.dark) .sidebar-link {
 }
 
 html:not(.dark) .sidebar-link:hover {
-  color: #002855;
+  color: #0B3B60;
   background: #f1f5f9;
 }
 
 html:not(.dark) .sidebar-link.active {
   color: #ffffff;
-  background: #002855;
-  box-shadow: 0 2px 6px rgba(0, 40, 85, 0.2);
+  background: #0B3B60;
+  box-shadow: 0 2px 6px rgba(11, 59, 96, 0.2);
 }
 
 html:not(.dark) .stat-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px 0 rgba(0, 40, 85, 0.06), 0 1px 2px -1px rgba(0, 40, 85, 0.04);
+  box-shadow: 0 1px 3px 0 rgba(11, 59, 96, 0.06), 0 1px 2px -1px rgba(11, 59, 96, 0.04);
 }
 
 html:not(.dark) .stat-value {
-  color: #002855;
+  color: #0B3B60;
 }
 
 html:not(.dark) .stat-label {
@@ -90,11 +90,11 @@ html:not(.dark) .stat-label {
 html:not(.dark) .card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px 0 rgba(0, 40, 85, 0.06), 0 1px 2px -1px rgba(0, 40, 85, 0.04);
+  box-shadow: 0 1px 3px 0 rgba(11, 59, 96, 0.06), 0 1px 2px -1px rgba(11, 59, 96, 0.04);
 }
 
 html:not(.dark) .card-title {
-  color: #002855;
+  color: #0B3B60;
 }
 
 html:not(.dark) .form-input, 
@@ -132,7 +132,7 @@ html:not(.dark) .lang-pill {
 }
 
 html:not(.dark) .lang-pill.active {
-  background: #002855;
+  background: #0B3B60;
   color: #ffffff;
 }
 
@@ -249,7 +249,7 @@ html.dark .lang-pill.active {
 .header-logo-icon {
   width: 42px;
   height: 42px;
-  background: linear-gradient(135deg, #002855, #00509d);
+  background: linear-gradient(135deg, #0B3B60, #00509d);
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
@@ -257,7 +257,7 @@ html.dark .lang-pill.active {
   font-weight: 800;
   font-size: 20px;
   color: #fff;
-  box-shadow: 0 2px 10px rgba(0, 40, 85, 0.3);
+  box-shadow: 0 2px 10px rgba(11, 59, 96, 0.3);
 }
 
 .lang-switcher {
@@ -424,7 +424,7 @@ html.dark .sheet-live-badge {
 }
 
 .match-fill {
-  background: linear-gradient(90deg, #002855, #138808);
+  background: linear-gradient(90deg, #0B3B60, #138808);
   height: 100%;
   border-radius: 9999px;
   transition: width 0.5s ease;
@@ -464,8 +464,8 @@ html.dark .match-fill {
 }
 
 .form-input:focus, .form-select:focus, .form-textarea:focus {
-  border-color: #002855;
-  box-shadow: 0 0 0 3px rgba(0, 40, 85, 0.15);
+  border-color: #0B3B60;
+  box-shadow: 0 0 0 3px rgba(11, 59, 96, 0.15);
 }
 
 html.dark .form-input:focus, 
@@ -492,13 +492,13 @@ html.dark .form-textarea:focus {
 }
 
 .btn-primary {
-  background: #002855;
+  background: #0B3B60;
   color: #fff;
-  box-shadow: 0 2px 10px rgba(0, 40, 85, 0.25);
+  box-shadow: 0 2px 10px rgba(11, 59, 96, 0.25);
 }
 
 .btn-primary:hover {
-  background: #001a38;
+  background: #082b47;
 }
 
 html.dark .btn-primary {
@@ -554,7 +554,7 @@ html.dark .btn-danger:hover {
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background: radial-gradient(circle at top, #002855, #0b0f19);
+  background: radial-gradient(circle at top, #0B3B60, #0b0f19);
 }
 
 .auth-card, .lang-card {
@@ -596,7 +596,7 @@ html.dark .btn-danger:hover {
 }
 
 .auth-link {
-  color: #002855;
+  color: #0B3B60;
   text-decoration: none;
   font-size: 13px;
   font-weight: 600;
@@ -621,8 +621,8 @@ html.dark .auth-link {
 .spinner {
   width: 36px;
   height: 36px;
-  border: 3px solid rgba(0, 40, 85, 0.15);
-  border-top-color: #002855;
+  border: 3px solid rgba(11, 59, 96, 0.15);
+  border-top-color: #0B3B60;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }

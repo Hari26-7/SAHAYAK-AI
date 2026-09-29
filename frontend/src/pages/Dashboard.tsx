@@ -82,8 +82,15 @@ export default function Dashboard() {
     };
   }, [user]);
 
-  // Categories list for tabs
-  const categories = ['All', 'Capital Subsidy', 'Credit & Finance', 'Quality & Technology', 'Rural & Traditional', 'Incentive & Growth'];
+  // Categories list with dynamic translation keys
+  const categoryOptions = [
+    { id: 'All', labelKey: 'catAll' },
+    { id: 'Capital Subsidy', labelKey: 'catCapitalSubsidy' },
+    { id: 'Credit & Finance', labelKey: 'catCreditFinance' },
+    { id: 'Quality & Technology', labelKey: 'catQualityTech' },
+    { id: 'Rural & Traditional', labelKey: 'catRuralTraditional' },
+    { id: 'Incentive & Growth', labelKey: 'catIncentiveGrowth' },
+  ];
 
   // Filter schemes based on search query and category
   const filteredSchemes = useMemo(() => {
@@ -101,7 +108,7 @@ export default function Dashboard() {
         scheme.tamilName.toLowerCase().includes(q) ||
         scheme.description.toLowerCase().includes(q) ||
         scheme.maxSubsidy.toLowerCase().includes(q) ||
-        scheme.tags.some((t) => t.toLowerCase().includes(q));
+        scheme.tags.some((tItem) => tItem.toLowerCase().includes(q));
 
       return matchesCategory && matchesSearch;
     });
@@ -129,8 +136,10 @@ export default function Dashboard() {
     return (
       <div className="flex items-center justify-center min-h-[50vh]">
         <div className="flex flex-col items-center gap-3">
-          <div className="w-10 h-10 border-4 border-gov-navy/20 border-t-gov-navy dark:border-blue-500/20 dark:border-t-blue-400 rounded-full animate-spin"></div>
-          <span className="text-xs font-semibold text-slate-500">Loading Citizen Dashboard...</span>
+          <div className="w-10 h-10 border-4 border-[#0B3B60]/20 border-t-[#0B3B60] dark:border-blue-500/20 dark:border-t-blue-400 rounded-full animate-spin"></div>
+          <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+            {t('loadingCitizenDashboard')}
+          </span>
         </div>
       </div>
     );
@@ -139,17 +148,17 @@ export default function Dashboard() {
   return (
     <div className="space-y-6">
       {/* 1. Official Government Citizen Header & Enterprise Profile Banner */}
-      <div className="relative overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm p-4 md:p-6">
+      <div className="relative overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm p-5 md:p-7">
         {/* Subtle decorative background gradient */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-50/60 dark:from-blue-900/10 to-transparent rounded-full pointer-events-none -mr-20 -mt-20"></div>
 
         <div className="relative flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-          <div className="space-y-2">
+          <div className="space-y-2.5">
             {/* National Portal Breadcrumb Tag */}
-            <div className="flex items-center gap-2 text-[11px] font-bold text-gov-navy dark:text-blue-400 uppercase tracking-wider">
-              <span>सूक्ष्म, लघु और मध्यम उद्यम मंत्रालय</span>
-              <span>•</span>
-              <span>MINISTRY OF MSME, GOVT. OF INDIA</span>
+            <div className="flex items-center gap-2 text-[11px] font-bold text-[#0B3B60] dark:text-blue-400 uppercase tracking-wider">
+              <span>{t('ministryOfMsme')}</span>
+              <span className="text-amber-500">•</span>
+              <span>{t('govtOfIndia')}</span>
             </div>
 
             {/* Welcome Greeting */}
@@ -159,59 +168,59 @@ export default function Dashboard() {
 
             {/* Enterprise Credentials Badge Bar */}
             <div className="flex flex-wrap items-center gap-2 pt-1">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 shadow-xs">
                 🏢 <span className="font-bold">{businessName}</span>
               </span>
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60">
-                ✓ Udyam: <span className="font-mono font-bold">UDYAM-TN-02-0049281</span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60 shadow-xs">
+                <span className="font-bold text-emerald-600">✓</span> {t('udyam')}: <span className="font-mono font-bold">UDYAM-TN-02-0049281</span>
               </span>
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800/60">
-                Micro (Manufacturing)
+              <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-50 dark:bg-blue-950/40 text-[#0B3B60] dark:text-blue-300 border border-blue-200 dark:border-blue-800/60 shadow-xs">
+                {t('microManufacturing')}
               </span>
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-semibold bg-purple-50 dark:purple-950/40 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60">
-                🔒 DigiLocker KYC Verified
+              <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-purple-50 dark:purple-950/40 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60 shadow-xs">
+                {t('digiLockerKycVerified')}
               </span>
             </div>
           </div>
 
           {/* Right Action: National MSME Single Window Clearance Status */}
           <div className="flex flex-col sm:flex-row lg:flex-col items-start lg:items-end gap-3 shrink-0">
-            <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700/80 text-left lg:text-right">
-              <div className="text-[10px] font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider">
-                Priority Sector Lending (PSL)
+            <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700/80 text-left lg:text-right shadow-xs">
+              <div className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                {t('prioritySectorLending')}
               </div>
-              <div className="text-lg font-black text-gov-navy dark:text-blue-400">
-                Tier-1 Micro Priority
+              <div className="text-lg font-black text-[#0B3B60] dark:text-blue-400 mt-0.5">
+                {t('tier1Priority')}
               </div>
-              <div className="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1 justify-start lg:justify-end">
-                <span>●</span> Eligible for up to 35% Capital Subsidy
+              <div className="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1 justify-start lg:justify-end mt-0.5">
+                <span className="text-emerald-500 font-bold">●</span> {t('capitalSubsidyEligible')}
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* 2. Key Metrics Stats Cards (Material Design & Soft Shadows / Distinct Dark Borders) */}
+      {/* 2. Key Metrics Stats Cards - Upgraded with bg-white rounded-xl shadow-sm border border-slate-200 p-6 */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-        {/* Card 1: Available Schemes */}
+        {/* Card 1: Matched Schemes */}
         <Link
           to="/schemes"
-          className="group block p-4 md:p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-gov-navy dark:hover:border-blue-500 transition-all text-decoration-none"
+          className="group block bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-6 hover:shadow-md hover:border-[#0B3B60] dark:hover:border-blue-500 transition-all text-decoration-none"
         >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
-              Matched Schemes
+            <span className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">
+              {t('matchedSchemes')}
             </span>
-            <div className="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/40 text-gov-navy dark:text-blue-300 flex items-center justify-center font-bold text-lg group-hover:scale-110 transition-transform">
+            <div className="w-11 h-11 rounded-xl bg-blue-50 dark:bg-blue-900/40 text-[#0B3B60] dark:text-blue-300 flex items-center justify-center font-bold text-xl group-hover:scale-110 transition-transform shadow-xs">
               📜
             </div>
           </div>
-          <div className="mt-3">
-            <div className="text-3xl font-black text-gov-navy dark:text-white">
+          <div className="mt-4">
+            <div className="text-3xl font-black text-[#0B3B60] dark:text-white">
               {stats.schemes}
             </div>
-            <p className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold mt-1">
-              ✓ 10 Verified National Schemes
+            <p className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold mt-1.5 flex items-center gap-1">
+              <span>✓</span> {t('verifiedNationalSchemes')}
             </p>
           </div>
         </Link>
@@ -219,45 +228,45 @@ export default function Dashboard() {
         {/* Card 2: Active Applications */}
         <Link
           to="/applications"
-          className="group block p-4 md:p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-gov-navy dark:hover:border-blue-500 transition-all text-decoration-none"
+          className="group block bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-6 hover:shadow-md hover:border-[#0B3B60] dark:hover:border-blue-500 transition-all text-decoration-none"
         >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
-              Active Applications
+            <span className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">
+              {t('activeApplications')}
             </span>
-            <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 flex items-center justify-center font-bold text-lg group-hover:scale-110 transition-transform">
+            <div className="w-11 h-11 rounded-xl bg-emerald-50 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 flex items-center justify-center font-bold text-xl group-hover:scale-110 transition-transform shadow-xs">
               📁
             </div>
           </div>
-          <div className="mt-3">
-            <div className="text-3xl font-black text-gov-navy dark:text-white">
+          <div className="mt-4">
+            <div className="text-3xl font-black text-[#0B3B60] dark:text-white">
               {stats.applications}
             </div>
-            <p className="text-xs text-blue-600 dark:text-blue-400 font-semibold mt-1">
-              Under Bank & KVIC Review
+            <p className="text-xs text-blue-600 dark:text-blue-400 font-semibold mt-1.5">
+              {t('underReview')}
             </p>
           </div>
         </Link>
 
-        {/* Card 3: DigiLocker Documents */}
+        {/* Card 3: DigiLocker Records */}
         <Link
           to="/documents"
-          className="group block p-4 md:p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-gov-navy dark:hover:border-blue-500 transition-all text-decoration-none"
+          className="group block bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-6 hover:shadow-md hover:border-[#0B3B60] dark:hover:border-blue-500 transition-all text-decoration-none"
         >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
-              DigiLocker Records
+            <span className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">
+              {t('digiLockerRecords')}
             </span>
-            <div className="w-10 h-10 rounded-lg bg-amber-50 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 flex items-center justify-center font-bold text-lg group-hover:scale-110 transition-transform">
+            <div className="w-11 h-11 rounded-xl bg-amber-50 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 flex items-center justify-center font-bold text-xl group-hover:scale-110 transition-transform shadow-xs">
               📄
             </div>
           </div>
-          <div className="mt-3">
-            <div className="text-3xl font-black text-gov-navy dark:text-white">
+          <div className="mt-4">
+            <div className="text-3xl font-black text-[#0B3B60] dark:text-white">
               {stats.documents}
             </div>
-            <p className="text-xs text-amber-600 dark:text-amber-400 font-semibold mt-1">
-              Aadhaar, PAN & Udyam Synced
+            <p className="text-xs text-amber-600 dark:text-amber-400 font-semibold mt-1.5">
+              {t('documentsSynced')}
             </p>
           </div>
         </Link>
@@ -265,50 +274,50 @@ export default function Dashboard() {
         {/* Card 4: Roadmap Step Progress */}
         <Link
           to="/eligibility-roadmap"
-          className="group block p-4 md:p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-gov-navy dark:hover:border-blue-500 transition-all text-decoration-none"
+          className="group block bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-6 hover:shadow-md hover:border-[#0B3B60] dark:hover:border-blue-500 transition-all text-decoration-none"
         >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
-              Clearance Readiness
+            <span className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">
+              {t('clearanceReadiness')}
             </span>
-            <div className="w-10 h-10 rounded-lg bg-purple-50 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 flex items-center justify-center font-bold text-lg group-hover:scale-110 transition-transform">
+            <div className="w-11 h-11 rounded-xl bg-purple-50 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 flex items-center justify-center font-bold text-xl group-hover:scale-110 transition-transform shadow-xs">
               ⚡
             </div>
           </div>
-          <div className="mt-3">
-            <div className="text-3xl font-black text-gov-navy dark:text-white">
+          <div className="mt-4">
+            <div className="text-3xl font-black text-[#0B3B60] dark:text-white">
               {Math.round((stats.roadmapCompleted / stats.roadmapTotal) * 100)}%
             </div>
-            <p className="text-xs text-purple-600 dark:text-purple-400 font-semibold mt-1">
-              {stats.roadmapCompleted} of {stats.roadmapTotal} Stages Completed
+            <p className="text-xs text-purple-600 dark:text-purple-400 font-semibold mt-1.5">
+              {stats.roadmapCompleted} of {stats.roadmapTotal} {t('stagesCompleted')}
             </p>
           </div>
         </Link>
       </div>
 
       {/* 3. Interactive Voice Search Bar & Scheme Filter Section */}
-      <div className="p-4 md:p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+      <div className="p-5 md:p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
           <div>
             <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-              <span>🎯</span> MSME Schemes & Subsidies Navigator
+              <span>🎯</span> {t('schemesNavigator')}
             </h2>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
-              Search by scheme name, subsidy percentage, or speak via the Sahayak Voice Copilot
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+              {t('searchSubtitle')}
             </p>
           </div>
 
           {/* Voice Search Feedback Pill */}
           {searchQuery && (
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 text-xs">
-              <span className="text-amber-600 dark:text-amber-400 font-semibold">
-                Filter: "{searchQuery}"
+              <span className="text-amber-700 dark:text-amber-400 font-semibold">
+                {t('filter')}: "{searchQuery}"
               </span>
               <button
                 onClick={() => setSearchQuery('')}
                 className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-xs font-bold"
               >
-                ✕ Clear
+                ✕ {t('clear')}
               </button>
             </div>
           )}
@@ -323,29 +332,29 @@ export default function Dashboard() {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search schemes (e.g., 'PMEGP 35% subsidy', 'CGTMSE', 'Food Processing', 'Women')..."
-            className="w-full pl-10 pr-24 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/80 text-slate-900 dark:text-white text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-gov-navy dark:focus:ring-blue-500 transition"
+            placeholder={t('searchPlaceholder')}
+            className="w-full pl-10 pr-28 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/80 text-slate-900 dark:text-white text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#0B3B60] dark:focus:ring-blue-500 transition shadow-inner"
           />
           <div className="absolute inset-y-0 right-0 pr-2 flex items-center">
-            <span className="text-[10px] font-bold text-slate-400 bg-slate-200 dark:bg-slate-700 px-2 py-1 rounded">
-              VOICE ENABLED
+            <span className="text-[10px] font-bold text-[#0B3B60] dark:text-blue-300 bg-blue-100 dark:bg-blue-900/60 px-2.5 py-1 rounded border border-blue-200 dark:border-blue-700">
+              {t('voiceEnabled')}
             </span>
           </div>
         </div>
 
-        {/* Category Pills */}
+        {/* Category Pills - Dynamically translated and functional */}
         <div className="flex flex-wrap gap-2 pt-1">
-          {categories.map((cat) => (
+          {categoryOptions.map((cat) => (
             <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                selectedCategory === cat
-                  ? 'bg-gov-navy text-white dark:bg-blue-600 dark:text-white shadow-sm'
-                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+              key={cat.id}
+              onClick={() => setSelectedCategory(cat.id)}
+              className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all shadow-xs ${
+                selectedCategory === cat.id
+                  ? 'bg-[#0B3B60] text-white dark:bg-blue-600 dark:text-white shadow-sm ring-1 ring-[#0B3B60]'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
               }`}
             >
-              {cat}
+              {t(cat.labelKey)}
             </button>
           ))}
         </div>
@@ -354,14 +363,14 @@ export default function Dashboard() {
       {/* 4. Expanded 10 Schemes Catalog Grid */}
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <div className="text-sm font-bold text-slate-700 dark:text-slate-300">
-            Showing {filteredSchemes.length} of {MOCK_GOV_SCHEMES.length} Recommended Schemes
+          <div className="text-sm font-bold text-slate-800 dark:text-slate-200">
+            {t('showingSchemes')} {filteredSchemes.length} of {MOCK_GOV_SCHEMES.length} {t('recommendedSchemes')}
           </div>
           <Link
             to="/scheme-matching"
-            className="text-xs font-semibold text-gov-navy dark:text-blue-400 hover:underline flex items-center gap-1"
+            className="text-xs font-bold text-[#0B3B60] dark:text-blue-400 hover:underline flex items-center gap-1"
           >
-            Run Advanced AI Matching Engine →
+            {t('runAiMatcher')}
           </Link>
         </div>
 
@@ -372,19 +381,19 @@ export default function Dashboard() {
             return (
               <div
                 key={scheme.id}
-                className="flex flex-col justify-between p-4 md:p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all relative overflow-hidden"
+                className="flex flex-col justify-between p-5 md:p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-[#0B3B60]/40 dark:hover:border-blue-500/50 transition-all relative overflow-hidden"
               >
                 {/* Match Ribbon */}
                 <div className="absolute top-0 right-0">
-                  <div className="bg-gradient-to-l from-emerald-600 to-teal-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg shadow-sm">
-                    {scheme.matchPercentage}% Match
+                  <div className="bg-gradient-to-l from-emerald-600 to-teal-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg shadow-xs">
+                    {scheme.matchPercentage}% {t('match')}
                   </div>
                 </div>
 
                 <div>
                   {/* Category & Nodal Agency Header */}
                   <div className="flex flex-wrap items-center gap-2 mb-2 pr-20">
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-100 text-blue-800 dark:bg-blue-900/60 dark:text-blue-300">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-100 text-[#0B3B60] dark:bg-blue-900/60 dark:text-blue-300 border border-blue-200 dark:border-blue-700">
                       {scheme.shortCode}
                     </span>
                     <span className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">
@@ -392,7 +401,7 @@ export default function Dashboard() {
                     </span>
                   </div>
 
-                  {/* Scheme Title */}
+                  {/* Scheme Title in Active Language */}
                   <h3 className="text-base font-bold text-slate-900 dark:text-white leading-snug mb-2">
                     {getSchemeTitle(scheme)}
                   </h3>
@@ -403,9 +412,9 @@ export default function Dashboard() {
                   </p>
 
                   {/* Maximum Subsidy / Financial Benefit Box */}
-                  <div className="p-3 rounded-lg bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/50 mb-3">
+                  <div className="p-3 rounded-lg bg-amber-50/90 dark:bg-amber-950/30 border border-amber-200/90 dark:border-amber-800/50 mb-3 shadow-xs">
                     <div className="text-[10px] font-bold uppercase text-amber-800 dark:text-amber-300">
-                      Maximum Subsidy & Benefit:
+                      {t('maximumSubsidyBenefit')}
                     </div>
                     <div className="text-xs font-bold text-amber-950 dark:text-amber-100 mt-0.5">
                       {scheme.maxSubsidy}
@@ -414,8 +423,8 @@ export default function Dashboard() {
 
                   {/* Key Eligibility Criteria */}
                   <div className="space-y-1 mb-4">
-                    <div className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
-                      Key Eligibility:
+                    <div className="text-[11px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">
+                      {t('keyEligibility')}
                     </div>
                     <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-1 pl-1">
                       {scheme.keyEligibility.slice(0, 3).map((item, idx) => (
@@ -434,9 +443,9 @@ export default function Dashboard() {
                     href={scheme.portalUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-xs font-semibold text-slate-500 dark:text-slate-400 hover:text-gov-navy dark:hover:text-blue-400 flex items-center gap-1"
+                    className="text-xs font-semibold text-slate-500 dark:text-slate-400 hover:text-[#0B3B60] dark:hover:text-blue-400 flex items-center gap-1"
                   >
-                    Portal Guidelines ↗
+                    {t('portalGuidelines')}
                   </a>
 
                   <button
@@ -444,10 +453,10 @@ export default function Dashboard() {
                     className={`px-4 py-2 rounded-lg text-xs font-bold transition-all shadow-sm ${
                       isApplied
                         ? 'bg-emerald-600 text-white cursor-default'
-                        : 'bg-gov-navy hover:bg-[#001f42] dark:bg-blue-600 dark:hover:bg-blue-700 text-white'
+                        : 'bg-[#0B3B60] hover:bg-[#082b47] dark:bg-blue-600 dark:hover:bg-blue-700 text-white'
                     }`}
                   >
-                    {isApplied ? '✓ Application Submitted' : 'Apply on JanSamarth'}
+                    {isApplied ? t('applicationSubmitted') : t('applyJanSamarth')}
                   </button>
                 </div>
               </div>
@@ -459,33 +468,33 @@ export default function Dashboard() {
       {/* 5. Eligibility Roadmap Progress & Quick Actions Hub */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
         {/* Left 2 Cols: Eligibility Roadmap Progress */}
-        <div className="lg:col-span-2 p-4 md:p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+        <div className="lg:col-span-2 p-5 md:p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                <span>🗺️</span> National MSME Clearance Roadmap
+                <span>🗺️</span> {t('nationalRoadmap')}
               </h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400">
-                Step-by-step single-window clearance for subsidy disbursement
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                {t('roadmapSubtitle')}
               </p>
             </div>
             <Link
               to="/eligibility-roadmap"
-              className="text-xs font-bold text-gov-navy dark:text-blue-400 hover:underline"
+              className="text-xs font-bold text-[#0B3B60] dark:text-blue-400 hover:underline"
             >
-              Full Details →
+              {t('fullDetails')}
             </Link>
           </div>
 
           {/* Progress Bar */}
           <div className="space-y-1.5">
-            <div className="flex justify-between text-xs font-semibold text-slate-600 dark:text-slate-300">
-              <span>Milestone Completion</span>
-              <span>{stats.roadmapCompleted} of {stats.roadmapTotal} Stages Done</span>
+            <div className="flex justify-between text-xs font-semibold text-slate-700 dark:text-slate-300">
+              <span>{t('milestoneCompletion')}</span>
+              <span>{stats.roadmapCompleted} of {stats.roadmapTotal} {t('stagesDone')}</span>
             </div>
             <div className="w-full h-2.5 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
               <div
-                className="h-full rounded-full bg-gradient-to-r from-gov-navy to-emerald-500 dark:from-blue-600 dark:to-emerald-400 transition-all duration-500"
+                className="h-full rounded-full bg-gradient-to-r from-[#0B3B60] to-emerald-500 dark:from-blue-600 dark:to-emerald-400 transition-all duration-500"
                 style={{ width: `${(stats.roadmapCompleted / stats.roadmapTotal) * 100}%` }}
               ></div>
             </div>
@@ -493,90 +502,90 @@ export default function Dashboard() {
 
           {/* Step Timeline */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-2">
-            <div className="p-3 rounded-lg bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/40">
-              <div className="text-[10px] font-bold text-emerald-700 dark:text-emerald-400 uppercase">
-                Step 1: Udyam ID
+            <div className="p-3 rounded-lg bg-emerald-50/70 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/40">
+              <div className="text-[10px] font-bold text-emerald-800 dark:text-emerald-400 uppercase">
+                {t('step1Title')}
               </div>
               <div className="text-xs font-bold text-slate-900 dark:text-white mt-0.5">
-                Active & Verified ✅
+                {t('step1Desc')}
               </div>
             </div>
 
-            <div className="p-3 rounded-lg bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/40">
-              <div className="text-[10px] font-bold text-emerald-700 dark:text-emerald-400 uppercase">
-                Step 2: DigiLocker KYC
+            <div className="p-3 rounded-lg bg-emerald-50/70 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/40">
+              <div className="text-[10px] font-bold text-emerald-800 dark:text-emerald-400 uppercase">
+                {t('step2Title')}
               </div>
               <div className="text-xs font-bold text-slate-900 dark:text-white mt-0.5">
-                PAN & Aadhaar Linked ✅
+                {t('step2Desc')}
               </div>
             </div>
 
-            <div className="p-3 rounded-lg bg-blue-50/60 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800/40">
-              <div className="text-[10px] font-bold text-blue-700 dark:text-blue-400 uppercase">
-                Step 3: Stacking Engine
+            <div className="p-3 rounded-lg bg-blue-50/70 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800/40">
+              <div className="text-[10px] font-bold text-[#0B3B60] dark:text-blue-400 uppercase">
+                {t('step3Title')}
               </div>
               <div className="text-xs font-bold text-slate-900 dark:text-white mt-0.5">
-                Dual Subsidy Ready ⚡
+                {t('step3Desc')}
               </div>
             </div>
           </div>
         </div>
 
         {/* Right 1 Col: Quick India Stack Actions */}
-        <div className="p-4 md:p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4">
+        <div className="p-5 md:p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4">
           <div>
             <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
-              <span>⚡</span> India Stack Quick Actions
+              <span>⚡</span> {t('quickActions')}
             </h3>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-              Direct access to SIH verification services
+              {t('quickActionsSubtitle')}
             </p>
           </div>
 
           <div className="space-y-2">
             <Link
               to="/scheme-matching"
-              className="w-full flex items-center justify-between p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition text-xs font-semibold text-slate-700 dark:text-slate-200 text-decoration-none"
+              className="w-full flex items-center justify-between p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition text-xs font-bold text-slate-700 dark:text-slate-200 text-decoration-none"
             >
               <span className="flex items-center gap-2">
-                <span>🎯</span> AI Scheme Matcher
+                <span>🎯</span> {t('aiSchemeMatcher')}
               </span>
               <span>→</span>
             </Link>
 
             <Link
               to="/documents"
-              className="w-full flex items-center justify-between p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition text-xs font-semibold text-slate-700 dark:text-slate-200 text-decoration-none"
+              className="w-full flex items-center justify-between p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition text-xs font-bold text-slate-700 dark:text-slate-200 text-decoration-none"
             >
               <span className="flex items-center gap-2">
-                <span>📄</span> Upload to DigiLocker
+                <span>📄</span> {t('uploadDigiLocker')}
               </span>
               <span>→</span>
             </Link>
 
             <Link
               to="/credit-score"
-              className="w-full flex items-center justify-between p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition text-xs font-semibold text-slate-700 dark:text-slate-200 text-decoration-none"
+              className="w-full flex items-center justify-between p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition text-xs font-bold text-slate-700 dark:text-slate-200 text-decoration-none"
             >
               <span className="flex items-center gap-2">
-                <span>💳</span> MSME Credit Scorecard
+                <span>💳</span> {t('creditScorecard')}
               </span>
               <span>→</span>
             </Link>
 
             <Link
               to="/scheme-stacking"
-              className="w-full flex items-center justify-between p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition text-xs font-semibold text-slate-700 dark:text-slate-200 text-decoration-none"
+              className="w-full flex items-center justify-between p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition text-xs font-bold text-slate-700 dark:text-slate-200 text-decoration-none"
             >
               <span className="flex items-center gap-2">
-                <span>⚡</span> Subsidy Stacking Calculator
+                <span>⚡</span> {t('stackingCalculator')}
               </span>
               <span>→</span>
             </Link>
           </div>
 
-          <div className="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 text-[11px] text-slate-500 dark:text-slate-400">
-            💡 <span className="font-semibold">Tip for Judges:</span> Click the microphone in Sahayak Voice Copilot to search hands-free in Hindi, Tamil, or English!
+          <div className="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 text-[11px] text-slate-600 dark:text-slate-400 leading-snug">
+            💡 <span className="font-bold text-slate-800 dark:text-slate-200">{t('judgeTip')}</span>
           </div>
         </div>
       </div>

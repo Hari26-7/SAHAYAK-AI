@@ -9,8 +9,8 @@ export default {
     extend: {
       colors: {
         gov: {
-          navy: '#002855',
-          darkNavy: '#001a38',
+          navy: '#0B3B60',
+          darkNavy: '#082b47',
           blue: '#004080',
           lightBlue: '#eef5fc',
           saffron: '#FF9933',
@@ -24,11 +24,11 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['Inter', '"Noto Sans Devanagari"', '"Noto Sans Tamil"', 'Roboto', 'system-ui', '-apple-system', 'sans-serif'],
       },
       boxShadow: {
-        gov: '0 2px 8px -1px rgba(0, 40, 85, 0.08), 0 1px 3px -1px rgba(0, 40, 85, 0.04)',
-        'gov-lg': '0 10px 25px -3px rgba(0, 40, 85, 0.1), 0 4px 6px -2px rgba(0, 40, 85, 0.05)',
+        gov: '0 2px 8px -1px rgba(11, 59, 96, 0.08), 0 1px 3px -1px rgba(11, 59, 96, 0.04)',
+        'gov-lg': '0 10px 25px -3px rgba(11, 59, 96, 0.1), 0 4px 6px -2px rgba(11, 59, 96, 0.05)',
       }
     },
   },

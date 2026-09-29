@@ -28,7 +28,7 @@ export default function Login() {
     <div className="auth-container min-h-screen flex items-center justify-center p-4">
       <div className="auth-card w-full max-w-md bg-white dark:bg-slate-900 rounded-2xl shadow-xl p-8 border border-slate-200 dark:border-slate-800">
         <div className="auth-logo text-center mb-6">
-          <div className="w-12 h-12 mx-auto mb-3 rounded-2xl bg-gradient-to-br from-[#002855] to-blue-700 text-white flex items-center justify-center font-extrabold text-2xl shadow-md">
+          <div className="w-12 h-12 mx-auto mb-3 rounded-2xl bg-gradient-to-br from-[#0B3B60] to-blue-700 text-white flex items-center justify-center font-extrabold text-2xl shadow-md">
             <span className="text-amber-300 font-serif">स</span>
           </div>
           <h1 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">
