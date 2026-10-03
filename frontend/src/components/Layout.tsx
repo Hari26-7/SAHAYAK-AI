@@ -89,13 +89,13 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 transition-colors duration-200">
+    <div className="min-h-screen flex flex-col w-full bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 transition-colors duration-200">
       {/* 1. Tricolor Top Accent Strip (Saffron, White, Green) */}
       <div className="h-1.5 w-full bg-gradient-to-r from-[#FF9933] via-white to-[#138808]"></div>
 
-      {/* 2. Top Gov Header (Official National Ministry Bar in Deep Navy #0B3B60) */}
-      <div className="bg-[#0B3B60] text-white border-b border-[#082b47] text-xs py-1.5 px-3 sm:px-4 md:px-8 shadow-sm">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 overflow-hidden">
+      {/* 2. Top Gov Header - Flush Edge-to-Edge */}
+      <div className="w-full bg-[#0B3B60] text-white border-b border-[#082b47] text-xs py-1.5 px-4 sm:px-6 md:px-8 shadow-sm">
+        <div className="w-full flex items-center justify-between gap-2 overflow-hidden">
           {/* Official Emblem & Formal Ministry Titles */}
           <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/10 border border-white/20 p-1 flex items-center justify-center shrink-0 shadow-sm">
@@ -160,9 +160,9 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
         </div>
       </div>
 
-      {/* 3. Main Application Header - Upgraded with Glassmorphism */}
-      <header className="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-700/50 shadow-sm transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-3 flex items-center justify-between gap-3">
+      {/* 3. Main Application Header - Flush Edge-to-Edge with Glassmorphism */}
+      <header className="sticky top-0 z-40 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-700/50 shadow-sm transition-all duration-300">
+        <div className="w-full px-4 sm:px-6 md:px-8 py-3 flex items-center justify-between gap-3">
           {/* Logo & Portal Identity */}
           <Link to="/dashboard" className="flex items-center gap-2.5 sm:gap-3 text-decoration-none group min-w-0 shrink-0 transition-transform duration-300 hover:scale-102">
             <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-gradient-to-br from-[#0B3B60] via-blue-700 to-indigo-700 dark:from-blue-600 dark:to-indigo-600 text-white flex items-center justify-center font-extrabold text-base sm:text-lg shadow-md shadow-blue-900/20 group-hover:shadow-indigo-500/30 transition-all shrink-0">
@@ -296,9 +296,9 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
         </div>
       </header>
 
-      {/* 4. Main Body with Official Deep Navy Desktop Sidebar & High-Readability Canvas */}
-      <div className="flex-1 flex max-w-7xl w-full mx-auto">
-        {/* Desktop Sidebar Navigation */}
+      {/* 4. Main Body with Zero-Margin Flush Desktop Sidebar & Edge-to-Edge Canvas */}
+      <div className="flex-1 flex w-full">
+        {/* Desktop Sidebar Navigation: ZERO LEFT MARGIN, TOUCHES VIEWPORT LEFT EDGE */}
         <aside className="w-64 shrink-0 hidden md:flex flex-col py-6 px-4 border-r border-[#082b47] dark:border-slate-800 bg-[#0B3B60] dark:bg-slate-900 text-white shadow-sm transition-colors duration-200">
           <div className="sticky top-24 space-y-6">
             {/* Quick Status Box */}
@@ -370,11 +370,13 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 
         {/* Main Content Area */}
         <main className="flex-1 min-w-0 p-5 sm:p-6 md:p-8 pb-24 md:pb-8 bg-slate-50 dark:bg-slate-950">
-          {children}
+          <div className="max-w-7xl mx-auto w-full">
+            {children}
+          </div>
         </main>
       </div>
 
-      {/* 5. Mobile Bottom Navigation Bar - Upgraded with Glassmorphism */}
+      {/* 5. Mobile Bottom Navigation Bar - Flush Edge-to-Edge */}
       <nav className="fixed bottom-0 left-0 right-0 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-t border-slate-200/50 dark:border-slate-700/50 grid grid-cols-6 py-2 px-1 md:hidden z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.06)] transition-all duration-300">
         {unifiedNavItems.map((item) => {
           const isActive = isItemActive(item.path);
@@ -399,9 +401,9 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
         })}
       </nav>
 
-      {/* 6. Official Indian Gov Portal Footer */}
-      <footer className="mt-auto border-t border-slate-200/60 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md text-xs py-6 px-4 md:px-8 text-slate-500 dark:text-slate-400">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      {/* 6. Official Indian Gov Portal Footer - Flush Edge-to-Edge */}
+      <footer className="mt-auto w-full border-t border-slate-200/60 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md text-xs py-6 px-4 md:px-8 text-slate-500 dark:text-slate-400">
+        <div className="w-full flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="font-bold text-slate-700 dark:text-slate-300">
               {t('footerModel')}
