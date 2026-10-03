@@ -81,6 +81,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 
   // Secondary navigational shortcuts for desktop sidebar
   const secondaryNavItems = [
+    { label: 'MSME Connect (B2B Hub)', path: '/msme-connect', icon: '🤝' },
     { label: t('eligibilityRoadmap'), path: '/eligibility-roadmap', icon: '🗺️' },
     { label: t('applications'), path: '/applications', icon: '📁' },
     { label: t('notifications'), path: '/notifications', icon: '🔔' },
@@ -95,7 +96,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
       {/* 2. Top Gov Header (Official National Ministry Bar in Deep Navy #0B3B60) */}
       <div className="bg-[#0B3B60] text-white border-b border-[#082b47] text-xs py-1.5 px-3 sm:px-4 md:px-8 shadow-sm">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 overflow-hidden">
-          {/* Official Emblem & Formal Ministry Titles strictly conforming to national portal standards */}
+          {/* Official Emblem & Formal Ministry Titles */}
           <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/10 border border-white/20 p-1 flex items-center justify-center shrink-0 shadow-sm">
               <svg viewBox="0 0 100 100" className="w-5 h-5 sm:w-6 sm:h-6 fill-amber-300">
@@ -118,11 +119,11 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 
           {/* Accessibility, SIH Tag & GIGW 3.0 Indicators */}
           <div className="flex items-center gap-2 sm:gap-3 text-[11px] text-slate-200 shrink-0">
-            <div className="hidden sm:flex items-center gap-1.5 bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded border border-amber-400/30 font-semibold text-[10px]">
+            <div className="hidden sm:flex items-center gap-1.5 bg-amber-500/20 text-amber-300 px-2.5 py-0.5 rounded-full border border-amber-400/30 font-semibold text-[10px] shadow-sm">
               <span>🇮🇳</span> {t('sihBadge')}
             </div>
 
-            <div className="hidden sm:flex items-center bg-black/30 rounded border border-white/20 px-1.5 py-0.5 gap-1">
+            <div className="hidden sm:flex items-center bg-black/30 rounded-lg border border-white/20 px-2 py-0.5 gap-1.5 shadow-inner">
               <button
                 onClick={() => adjustFontSize(-1)}
                 className="hover:text-amber-300 px-1 font-bold text-white transition-colors"
@@ -159,38 +160,38 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
         </div>
       </div>
 
-      {/* 3. Main Application Header - Cleanly responsive across all viewports */}
-      <header className="sticky top-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm transition-colors duration-200">
-        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-8 py-2.5 flex items-center justify-between gap-2">
+      {/* 3. Main Application Header - Upgraded with Glassmorphism */}
+      <header className="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-700/50 shadow-sm transition-all duration-300">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-3 flex items-center justify-between gap-3">
           {/* Logo & Portal Identity */}
-          <Link to="/dashboard" className="flex items-center gap-2 sm:gap-2.5 text-decoration-none group min-w-0 shrink-0">
-            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-[#0B3B60] to-blue-700 dark:from-blue-600 dark:to-indigo-600 text-white flex items-center justify-center font-extrabold text-base sm:text-lg shadow-md group-hover:shadow-blue-500/30 transition-all shrink-0">
+          <Link to="/dashboard" className="flex items-center gap-2.5 sm:gap-3 text-decoration-none group min-w-0 shrink-0 transition-transform duration-300 hover:scale-102">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-gradient-to-br from-[#0B3B60] via-blue-700 to-indigo-700 dark:from-blue-600 dark:to-indigo-600 text-white flex items-center justify-center font-extrabold text-base sm:text-lg shadow-md shadow-blue-900/20 group-hover:shadow-indigo-500/30 transition-all shrink-0">
               <span className="text-amber-300 font-serif">स</span>
             </div>
             <div className="min-w-0">
               <div className="flex items-center gap-1.5">
-                <span className="text-sm sm:text-base md:text-lg font-black tracking-tight text-[#0B3B60] dark:text-blue-400 truncate">
+                <span className="text-base sm:text-lg md:text-xl font-black tracking-tight text-[#0B3B60] dark:text-blue-400 truncate">
                   SAHAYAK AI
                 </span>
-                <span className="hidden sm:inline-block text-[9px] font-bold px-1.5 py-0.5 rounded bg-blue-100 text-[#0B3B60] dark:bg-blue-900/60 dark:text-blue-200 border border-blue-200 dark:border-blue-700">
+                <span className="hidden sm:inline-block text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-blue-100 text-[#0B3B60] dark:bg-blue-900/60 dark:text-blue-200 border border-blue-200 dark:border-blue-700">
                   {t('nationalPortal')}
                 </span>
               </div>
-              <div className="text-[10px] text-slate-500 dark:text-slate-400 font-medium hidden md:block truncate">
+              <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium hidden md:block truncate">
                 {t('portalSubtitle')}
               </div>
             </div>
           </Link>
 
           {/* Action Center: Voice Assistant, Theme Toggle, Language Switcher, Google Sheet Badge & User */}
-          <div className="flex items-center justify-end gap-1.5 sm:gap-2 shrink-0">
+          <div className="flex items-center justify-end gap-2 sm:gap-2.5 shrink-0">
             {/* Header Voice Assistant Controls */}
             <HeaderVoiceControls />
 
             {/* Language Switcher */}
-            <div className="flex bg-slate-100 dark:bg-slate-800 p-0.5 rounded-lg border border-slate-200 dark:border-slate-700 shrink-0 shadow-inner">
+            <div className="flex bg-slate-100/90 dark:bg-slate-800/90 p-0.5 rounded-xl border border-slate-200/60 dark:border-slate-700/60 shrink-0 shadow-inner">
               <button
-                className={`px-1.5 sm:px-2 py-0.5 text-[10px] sm:text-xs font-bold rounded-md transition-all ${
+                className={`px-2 sm:px-2.5 py-1 text-[10px] sm:text-xs font-bold rounded-lg transition-all duration-300 ${
                   language === 'en'
                     ? 'bg-[#0B3B60] text-white dark:bg-blue-600 shadow-sm'
                     : 'text-slate-600 dark:text-slate-300 hover:text-[#0B3B60]'
@@ -201,7 +202,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
                 EN
               </button>
               <button
-                className={`px-1.5 sm:px-2 py-0.5 text-[10px] sm:text-xs font-bold rounded-md transition-all ${
+                className={`px-2 sm:px-2.5 py-1 text-[10px] sm:text-xs font-bold rounded-lg transition-all duration-300 ${
                   language === 'ta'
                     ? 'bg-[#0B3B60] text-white dark:bg-blue-600 shadow-sm'
                     : 'text-slate-600 dark:text-slate-300 hover:text-[#0B3B60]'
@@ -212,7 +213,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
                 தமிழ்
               </button>
               <button
-                className={`px-1.5 sm:px-2 py-0.5 text-[10px] sm:text-xs font-bold rounded-md transition-all ${
+                className={`px-2 sm:px-2.5 py-1 text-[10px] sm:text-xs font-bold rounded-lg transition-all duration-300 ${
                   language === 'hi'
                     ? 'bg-[#0B3B60] text-white dark:bg-blue-600 shadow-sm'
                     : 'text-slate-600 dark:text-slate-300 hover:text-[#0B3B60]'
@@ -227,7 +228,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
             {/* Theme Toggle Button (Light / Dark) */}
             <button
               onClick={toggleTheme}
-              className="p-1.5 sm:p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-amber-300 hover:border-[#0B3B60] dark:hover:border-blue-400 transition-all shadow-sm shrink-0"
+              className="p-2 rounded-xl border border-slate-200/60 dark:border-slate-700/60 bg-white/80 dark:bg-slate-800/80 text-slate-700 dark:text-amber-300 hover:border-[#0B3B60] dark:hover:border-blue-400 transition-all duration-300 ease-out hover:-translate-y-0.5 shadow-sm shrink-0"
               title={theme === 'dark' ? 'Switch to Official Light Mode' : 'Switch to Slate Dark Mode'}
               aria-label="Toggle Theme"
             >
@@ -243,7 +244,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
               href="https://docs.google.com/spreadsheets/d/1rfT9LvjYD1FJQyqsVASVshZllne8lt1lEODQTgLqoIY/edit?usp=sharing"
               target="_blank"
               rel="noreferrer"
-              className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700/60 hover:bg-emerald-100 transition shrink-0"
+              className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-300/80 dark:border-emerald-700/60 hover:bg-emerald-100 transition-all duration-300 ease-out hover:-translate-y-0.5 shrink-0 shadow-xs"
               title={t('inspectLiveSheets')}
             >
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -252,20 +253,20 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 
             {/* User Profile / Auth Action */}
             {user ? (
-              <div className="flex items-center gap-1 sm:gap-2 pl-1 border-l border-slate-200 dark:border-slate-800 shrink-0">
+              <div className="flex items-center gap-1.5 sm:gap-2 pl-2 border-l border-slate-200/60 dark:border-slate-800 shrink-0">
                 <Link
                   to="/profile"
-                  className="flex items-center gap-1.5 p-1 sm:px-2 sm:py-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition text-decoration-none"
+                  className="flex items-center gap-2 p-1 sm:px-2.5 sm:py-1.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-300 ease-out hover:-translate-y-0.5 text-decoration-none"
                   title="Profile"
                 >
-                  <div className="w-7 h-7 rounded-full bg-blue-100 text-[#0B3B60] dark:bg-blue-900/60 dark:text-blue-300 font-bold text-xs flex items-center justify-center border border-blue-300 dark:border-blue-700">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-600 text-white font-black text-xs flex items-center justify-center shadow-sm">
                     {(profile?.full_name || 'H').charAt(0)}
                   </div>
                   <div className="hidden xl:block text-left">
-                    <div className="text-xs font-bold text-slate-800 dark:text-slate-200 leading-tight">
+                    <div className="text-xs font-extrabold text-slate-800 dark:text-slate-200 leading-tight">
                       {profile?.full_name || 'Hari Haran'}
                     </div>
-                    <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1">
+                    <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1">
                       <span>✓</span> {t('udyam')}
                     </div>
                   </div>
@@ -276,7 +277,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
                     await signOut();
                     navigate('/login');
                   }}
-                  className="px-2 py-1 text-xs font-semibold rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition"
+                  className="px-2.5 py-1.5 text-xs font-bold rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60 transition-all duration-300 ease-out hover:-translate-y-0.5"
                   title="Sign Out from Portal"
                 >
                   <span className="hidden sm:inline">{t('logout')}</span>
@@ -286,7 +287,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
             ) : (
               <Link
                 to="/login"
-                className="px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs font-bold rounded-lg bg-[#0B3B60] hover:bg-[#082b47] dark:bg-blue-600 dark:hover:bg-blue-700 text-white shadow-sm transition shrink-0"
+                className="px-3.5 py-1.5 text-xs font-bold rounded-xl bg-gradient-to-r from-[#0B3B60] to-blue-700 hover:from-[#082b47] hover:to-blue-800 dark:from-blue-600 dark:to-indigo-600 dark:hover:from-blue-700 dark:hover:to-indigo-700 text-white shadow-md shadow-blue-900/20 transition-all duration-300 ease-out hover:-translate-y-0.5 shrink-0"
               >
                 {t('signIn')}
               </Link>
@@ -297,14 +298,14 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 
       {/* 4. Main Body with Official Deep Navy Desktop Sidebar & High-Readability Canvas */}
       <div className="flex-1 flex max-w-7xl w-full mx-auto">
-        {/* Desktop Sidebar Navigation: Official Deep Navy (#0B3B60) styling with WCAG AA Contrast */}
-        <aside className="w-64 shrink-0 hidden md:flex flex-col py-6 px-3 border-r border-[#082b47] dark:border-slate-800 bg-[#0B3B60] dark:bg-slate-900 text-white shadow-sm transition-colors duration-200">
-          <div className="sticky top-24 space-y-5">
+        {/* Desktop Sidebar Navigation */}
+        <aside className="w-64 shrink-0 hidden md:flex flex-col py-6 px-4 border-r border-[#082b47] dark:border-slate-800 bg-[#0B3B60] dark:bg-slate-900 text-white shadow-sm transition-colors duration-200">
+          <div className="sticky top-24 space-y-6">
             {/* Quick Status Box */}
-            <div className="p-3 rounded-xl bg-[#082b47] dark:bg-slate-800/90 border border-blue-400/20 dark:border-slate-700 shadow-sm">
-              <div className="flex items-center justify-between text-[11px] font-bold text-blue-200 dark:text-blue-300 mb-1">
+            <div className="p-4 rounded-2xl bg-white/5 dark:bg-slate-800/80 border border-white/10 dark:border-slate-700/60 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] transition-all duration-300">
+              <div className="flex items-center justify-between text-[11px] font-bold text-blue-200 dark:text-blue-300 mb-1.5">
                 <span>{t('msmeSingleWindow')}</span>
-                <span className="text-[10px] px-1.5 py-0.5 bg-emerald-500/25 text-emerald-300 border border-emerald-400/30 rounded font-bold">
+                <span className="text-[10px] px-2 py-0.5 bg-emerald-500/25 text-emerald-300 border border-emerald-400/30 rounded-full font-bold">
                   {t('active')}
                 </span>
               </div>
@@ -315,19 +316,19 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 
             {/* Core Synchronized Modules */}
             <div>
-              <div className="text-[10px] font-bold uppercase tracking-wider text-blue-200/70 dark:text-slate-500 px-3 mb-1.5">
+              <div className="text-[10px] font-extrabold uppercase tracking-wider text-blue-200/70 dark:text-slate-500 px-3 mb-2">
                 {t('coreModules')}
               </div>
-              <nav className="space-y-1">
+              <nav className="space-y-1.5">
                 {unifiedNavItems.map((item) => {
                   const isActive = isItemActive(item.path);
                   return (
                     <Link
                       key={item.path}
                       to={item.path}
-                      className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-bold transition-all ${
+                      className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all duration-300 ease-out hover:-translate-y-0.5 ${
                         isActive
-                          ? 'bg-white text-[#0B3B60] dark:bg-blue-600 dark:text-white shadow-md'
+                          ? 'bg-white text-[#0B3B60] dark:bg-blue-600 dark:text-white shadow-md shadow-black/10'
                           : 'text-blue-100/90 hover:text-white hover:bg-white/10 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200'
                       }`}
                     >
@@ -340,20 +341,20 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
             </div>
 
             {/* Secondary Services & Account */}
-            <div className="pt-2 border-t border-blue-400/20 dark:border-slate-800">
-              <div className="text-[10px] font-bold uppercase tracking-wider text-blue-200/70 dark:text-slate-500 px-3 mb-1.5">
+            <div className="pt-3 border-t border-blue-400/20 dark:border-slate-800">
+              <div className="text-[10px] font-extrabold uppercase tracking-wider text-blue-200/70 dark:text-slate-500 px-3 mb-2">
                 {t('processAndAccount')}
               </div>
-              <nav className="space-y-1">
+              <nav className="space-y-1.5">
                 {secondaryNavItems.map((item) => {
                   const isActive = isItemActive(item.path);
                   return (
                     <Link
                       key={item.path}
                       to={item.path}
-                      className={`flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold transition-all ${
+                      className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all duration-300 ease-out hover:-translate-y-0.5 ${
                         isActive
-                          ? 'bg-white text-[#0B3B60] dark:bg-blue-600 dark:text-white shadow-md'
+                          ? 'bg-white text-[#0B3B60] dark:bg-blue-600 dark:text-white shadow-md shadow-black/10'
                           : 'text-blue-100/90 hover:text-white hover:bg-white/10 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200'
                       }`}
                     >
@@ -367,14 +368,14 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
           </div>
         </aside>
 
-        {/* Main Content Area - high-readability clean canvas with pb-20 md:pb-6 to prevent mobile overlap */}
-        <main className="flex-1 min-w-0 p-4 sm:p-6 md:p-8 pb-20 md:pb-6 bg-slate-50 dark:bg-slate-950">
+        {/* Main Content Area */}
+        <main className="flex-1 min-w-0 p-5 sm:p-6 md:p-8 pb-24 md:pb-8 bg-slate-50 dark:bg-slate-950">
           {children}
         </main>
       </div>
 
-      {/* 5. Mobile Bottom Navigation Bar - Exactly synchronized & fully localized */}
-      <nav className="fixed bottom-0 left-0 right-0 w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 grid grid-cols-6 py-2 px-1 md:hidden z-50 shadow-lg">
+      {/* 5. Mobile Bottom Navigation Bar - Upgraded with Glassmorphism */}
+      <nav className="fixed bottom-0 left-0 right-0 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-t border-slate-200/50 dark:border-slate-700/50 grid grid-cols-6 py-2 px-1 md:hidden z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.06)] transition-all duration-300">
         {unifiedNavItems.map((item) => {
           const isActive = isItemActive(item.path);
           return (
@@ -383,9 +384,9 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
               to={item.path}
               title={item.label}
               aria-label={item.label}
-              className={`flex flex-col items-center justify-center py-1 px-0.5 rounded-lg transition-all text-center min-w-0 ${
+              className={`flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl transition-all duration-300 ease-out text-center min-w-0 ${
                 isActive
-                  ? 'text-[#0B3B60] dark:text-blue-400 font-bold bg-blue-50/70 dark:bg-blue-950/50'
+                  ? 'text-[#0B3B60] dark:text-blue-400 font-extrabold bg-blue-100/60 dark:bg-blue-950/60 shadow-xs scale-105'
                   : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
               }`}
             >
@@ -399,7 +400,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
       </nav>
 
       {/* 6. Official Indian Gov Portal Footer */}
-      <footer className="mt-auto border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-xs py-6 px-4 md:px-8 text-slate-500 dark:text-slate-400">
+      <footer className="mt-auto border-t border-slate-200/60 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md text-xs py-6 px-4 md:px-8 text-slate-500 dark:text-slate-400">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="font-bold text-slate-700 dark:text-slate-300">
@@ -409,13 +410,13 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
             <div>{t('footerMinistry')}</div>
           </div>
           <div className="flex flex-wrap items-center gap-4 text-[11px]">
-            <a href="https://msme.gov.in" target="_blank" rel="noreferrer" className="hover:underline">
+            <a href="https://msme.gov.in" target="_blank" rel="noreferrer" className="hover:underline transition-colors hover:text-[#0B3B60] dark:hover:text-blue-400">
               {t('officialMsmePortal')}
             </a>
-            <a href="https://udyamregistration.gov.in" target="_blank" rel="noreferrer" className="hover:underline">
+            <a href="https://udyamregistration.gov.in" target="_blank" rel="noreferrer" className="hover:underline transition-colors hover:text-[#0B3B60] dark:hover:text-blue-400">
               {t('udyamRegistration')}
             </a>
-            <a href="https://www.jansamarth.in" target="_blank" rel="noreferrer" className="hover:underline">
+            <a href="https://www.jansamarth.in" target="_blank" rel="noreferrer" className="hover:underline transition-colors hover:text-[#0B3B60] dark:hover:text-blue-400">
               {t('janSamarthPortal')}
             </a>
             <span className="text-slate-400 dark:text-slate-600">|</span>

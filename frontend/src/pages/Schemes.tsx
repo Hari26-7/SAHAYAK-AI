@@ -58,40 +58,65 @@ export default function Schemes() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[50vh]">
-        <div className="w-10 h-10 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-12 h-12 border-4 border-blue-600/20 border-t-blue-600 rounded-full animate-spin"></div>
       </div>
     );
   }
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Ministry of MSME Schemes
-          </h1>
-          <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-            Official central and state government credit-linked subsidies, grants, and incentives
-          </p>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300">
-            {filtered.length} Active Schemes Available
-          </span>
+    <div className="animate-in fade-in duration-500 slide-in-from-bottom-4 space-y-8">
+      {/* Header Banner */}
+      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 dark:border-slate-700/60 p-6 md:p-8 transition-all duration-300">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold px-3 py-1 rounded-full shadow-md shadow-indigo-500/30 text-xs">
+                National Repository
+              </span>
+              <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
+                Government of India MSME Schemes
+              </span>
+            </div>
+            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+              Ministry of MSME Schemes
+            </h1>
+            <p className="text-sm text-slate-500 dark:text-slate-400 max-w-3xl leading-relaxed">
+              Official central and state government credit-linked subsidies, grants, collateral-free credit, and green incentives.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-4 bg-slate-50 dark:bg-slate-900/60 p-4 rounded-xl border border-slate-100 dark:border-slate-700/60 shrink-0">
+            <div>
+              <div className="text-4xl font-extrabold tracking-tight text-[#0B3B60] dark:text-white">
+                {filtered.length}
+              </div>
+              <div className="text-xs font-semibold text-slate-500 dark:text-slate-400 mt-0.5">
+                Active Schemes
+              </div>
+            </div>
+            <div className="h-10 w-px bg-slate-200 dark:bg-slate-700"></div>
+            <div>
+              <div className="text-4xl font-extrabold tracking-tight text-emerald-600 dark:text-emerald-400">
+                ₹50 Lakh
+              </div>
+              <div className="text-xs font-semibold text-slate-500 dark:text-slate-400 mt-0.5">
+                Max Grant
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-700">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+      <div className="p-6 md:p-8 rounded-2xl bg-white dark:bg-slate-800 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] border border-slate-100 dark:border-slate-700/60 transition-all duration-300">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="sm:col-span-2 relative">
-            <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+            <span className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 text-base">
               🔍
             </span>
             <input
               type="text"
-              className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 transition"
+              className="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/80 dark:bg-slate-900/80 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all shadow-inner"
               placeholder="Search by scheme name, subsidy, keyword, or ministry..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
@@ -99,7 +124,7 @@ export default function Schemes() {
           </div>
           <div>
             <select
-              className="w-full py-2.5 px-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 transition"
+              className="w-full py-3 px-3.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/80 dark:bg-slate-900/80 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all"
               value={categoryFilter}
               onChange={(e) => setCategoryFilter(e.target.value)}
             >
@@ -116,19 +141,19 @@ export default function Schemes() {
 
       {/* CSS Grid Scheme Cards */}
       {filtered.length === 0 ? (
-        <div className="p-12 text-center rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+        <div className="p-12 text-center rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
           <div className="text-4xl mb-3">🔍</div>
           <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">No schemes found matching your search</h3>
           <p className="text-sm text-slate-500 mt-1">Try modifying your query or category filters.</p>
           <button
             onClick={() => { setSearch(''); setCategoryFilter(''); }}
-            className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg text-xs font-semibold hover:bg-blue-700 transition"
+            className="mt-4 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl text-xs font-bold hover:shadow-lg transition-all"
           >
             Reset Filters
           </button>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {filtered.map((scheme) => {
             const matchScore = scheme.matchPercentage || scheme.match_score || 95;
             const ministryName = scheme.ministry || 'Ministry of MSME';
@@ -136,22 +161,22 @@ export default function Schemes() {
             return (
               <div
                 key={scheme.id}
-                className="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700 p-4 md:p-6 flex flex-col justify-between hover:shadow-lg transition-all"
+                className="bg-white dark:bg-slate-800 rounded-2xl shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 dark:border-slate-700/60 p-6 md:p-8 flex flex-col justify-between transition-all duration-300 ease-out hover:-translate-y-1 group"
               >
                 <div>
-                  {/* Visual Badges: Match Percentage and Ministry Name */}
-                  <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                    <span className="bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300 px-3 py-1 rounded-full text-xs font-semibold">
+                  {/* Visual Badges: Glowing AI Pill & Ministry Name */}
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-3.5">
+                    <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400">
                       {ministryName}
                     </span>
-                    <span className="bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300 px-3 py-1 rounded-full text-xs font-bold">
+                    <span className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold px-3 py-1 rounded-full shadow-md shadow-indigo-500/30 text-xs">
                       {matchScore}% Match
                     </span>
                   </div>
 
                   {/* Title & Category */}
-                  <div className="mb-2">
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white leading-tight">
+                  <div className="mb-3">
+                    <h3 className="text-xl font-extrabold text-slate-900 dark:text-white leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                       {scheme.name}
                     </h3>
                     {scheme.category && (
@@ -167,11 +192,11 @@ export default function Schemes() {
                   </p>
 
                   {/* Subsidy / Benefits Highlight Box */}
-                  <div className="p-3 rounded-lg bg-blue-50/70 dark:bg-slate-900/60 border border-blue-100 dark:border-slate-700 mb-4">
-                    <div className="text-[11px] font-bold text-blue-900 dark:text-blue-300 uppercase tracking-wider">
+                  <div className="p-4 rounded-xl bg-amber-50/80 dark:bg-slate-900/60 border border-amber-200/80 dark:border-slate-700 mb-4">
+                    <div className="text-[11px] font-extrabold text-amber-900 dark:text-amber-300 uppercase tracking-wider">
                       Maximum Subsidy & Benefits:
                     </div>
-                    <div className="text-xs font-semibold text-slate-800 dark:text-slate-200 mt-0.5">
+                    <div className="text-xs font-bold text-slate-900 dark:text-slate-100 mt-1">
                       {scheme.maxSubsidy || scheme.benefits || 'Up to 35% Capital Subsidy + Collateral-Free Credit'}
                     </div>
                   </div>
@@ -179,12 +204,12 @@ export default function Schemes() {
                   {/* Eligibility Highlights */}
                   {scheme.keyEligibility && scheme.keyEligibility.length > 0 && (
                     <div className="mb-4">
-                      <div className="text-[11px] font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
+                      <div className="text-[11px] font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
                         Key Eligibility:
                       </div>
-                      <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-1">
+                      <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-1.5">
                         {scheme.keyEligibility.slice(0, 3).map((item: string, i: number) => (
-                          <li key={i} className="flex items-start gap-1.5">
+                          <li key={i} className="flex items-start gap-2">
                             <span className="text-emerald-500 font-bold">✓</span>
                             <span>{item}</span>
                           </li>
@@ -195,25 +220,25 @@ export default function Schemes() {
                 </div>
 
                 {/* Styled Buttons */}
-                <div className="pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between gap-3">
+                <div className="pt-4 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between gap-3 mt-4">
                   {scheme.portalUrl ? (
                     <a
                       href={scheme.portalUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400"
+                      className="text-xs font-bold text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                     >
                       Official Portal ↗
                     </a>
                   ) : (
-                    <span className="text-[11px] text-slate-400">JanSamarth Integrated</span>
+                    <span className="text-[11px] text-slate-400 font-medium">JanSamarth Integrated</span>
                   )}
 
                   <button
                     onClick={() => navigate('/applications?scheme=' + scheme.id)}
-                    className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg mt-4 transition-colors text-xs shadow-sm"
+                    className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-2.5 px-5 rounded-xl transition-all duration-300 ease-out hover:-translate-y-1 active:translate-y-0 text-xs shadow-md shadow-indigo-500/30"
                   >
-                    Apply Now
+                    Apply Now →
                   </button>
                 </div>
               </div>

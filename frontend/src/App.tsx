@@ -21,6 +21,7 @@ import Profile from './pages/Profile';
 import LanguageSelection from './pages/LanguageSelection';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import MSMEConnectPage from './pages/MSMEConnectPage';
 
 export default function App() {
   return (
@@ -86,6 +87,15 @@ export default function App() {
               element={
                 <Layout>
                   <SchemeStacking />
+                </Layout>
+              }
+            />
+
+            <Route
+              path="/msme-connect"
+              element={
+                <Layout>
+                  <MSMEConnectPage />
                 </Layout>
               }
             />

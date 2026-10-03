@@ -259,53 +259,82 @@ export default function SchemeStacking() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto space-y-6">
-      {/* 1. Header with Official Portal Breadcrumb */}
-      <div>
-        <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-1">
-          Ministry of MSME • Financial Engineering Engine
+    <div className="animate-in fade-in duration-500 slide-in-from-bottom-4 max-w-6xl mx-auto space-y-8">
+      {/* 1. Header with Official Portal Breadcrumb & AI Badge */}
+      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 dark:border-slate-700/60 p-6 md:p-8 transition-all duration-300">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold px-3 py-1 rounded-full shadow-md shadow-indigo-500/30 text-xs">
+                Convergence AI
+              </span>
+              <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
+                Ministry of MSME • Financial Engineering Engine
+              </span>
+            </div>
+            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+              Multi-Scheme Stacking Intelligence
+            </h1>
+            <p className="text-sm text-slate-500 dark:text-slate-400 max-w-3xl leading-relaxed">
+              Simulate multi-scheme combinations to verify dual-subsidy compatibility, capital grant stacking, and regulatory compliance under Ministry of MSME guidelines.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-4 bg-slate-50 dark:bg-slate-900/60 p-4 rounded-xl border border-slate-100 dark:border-slate-700/60 shrink-0">
+            <div>
+              <div className="text-4xl font-extrabold tracking-tight text-[#0B3B60] dark:text-white">
+                {selectedIds.length}
+              </div>
+              <div className="text-xs font-semibold text-slate-500 dark:text-slate-400 mt-0.5">
+                Stacked Schemes
+              </div>
+            </div>
+            <div className="h-10 w-px bg-slate-200 dark:bg-slate-700"></div>
+            <div>
+              <div className="text-4xl font-extrabold tracking-tight text-emerald-600 dark:text-emerald-400">
+                ₹5.5 Cr
+              </div>
+              <div className="text-xs font-semibold text-slate-500 dark:text-slate-400 mt-0.5">
+                Max Potential
+              </div>
+            </div>
+          </div>
         </div>
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-          ⚡ Multi-Scheme Stacking Intelligence
-        </h1>
-        <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-          Simulate multi-scheme combinations to verify dual-subsidy compatibility, capital grant stacking, and regulatory compliance under Ministry of MSME guidelines.
-        </p>
       </div>
 
       {/* 2. Fast-Track Preset Combinations for SIH Demo & Judges */}
-      <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-700 space-y-2.5">
+      <div className="p-5 md:p-6 rounded-2xl bg-white dark:bg-slate-800 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] border border-slate-100 dark:border-slate-700/60 space-y-3 transition-all duration-300">
         <div className="flex items-center justify-between text-xs">
-          <span className="font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-            <span>✨</span> Recommended Stacking Combinations (Click to test):
+          <span className="font-extrabold text-slate-700 dark:text-slate-300 flex items-center gap-2">
+            <span className="text-base">✨</span> Recommended Stacking Combinations (Click to test):
           </span>
-          <span className="text-[11px] text-slate-500 dark:text-slate-400">
+          <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400">
             {selectedIds.length} Schemes Selected
           </span>
         </div>
 
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2.5">
           <button
             onClick={() => handleSelectPreset(['pmegp-001', 'cgtmse-002'])}
-            className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-slate-700 hover:border-blue-400 shadow-sm transition"
+            className="px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-50 dark:bg-slate-700/70 text-blue-700 dark:text-blue-300 border border-blue-200/80 dark:border-slate-600 hover:border-blue-400 shadow-2xs transition-all duration-300 ease-out hover:-translate-y-0.5"
           >
             🏆 PMEGP + CGTMSE (Optimal Mfg Stack)
           </button>
           <button
             onClick={() => handleSelectPreset(['pmegp-001', 'zed-006'])}
-            className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white dark:bg-slate-800 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-slate-700 hover:border-purple-400 shadow-sm transition"
+            className="px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-50 dark:bg-slate-700/70 text-purple-700 dark:text-purple-300 border border-purple-200/80 dark:border-slate-600 hover:border-purple-400 shadow-2xs transition-all duration-300 ease-out hover:-translate-y-0.5"
           >
             🌱 PMEGP + ZED (Green Subsidy Stack)
           </button>
           <button
             onClick={() => handleSelectPreset(['pmfme-003', 'cgtmse-002'])}
-            className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white dark:bg-slate-800 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-slate-700 hover:border-emerald-400 shadow-sm transition"
+            className="px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-50 dark:bg-slate-700/70 text-emerald-700 dark:text-emerald-300 border border-emerald-200/80 dark:border-slate-600 hover:border-emerald-400 shadow-2xs transition-all duration-300 ease-out hover:-translate-y-0.5"
           >
             🌾 PMFME + CGTMSE (Food Processing Stack)
           </button>
           <button
             onClick={() => handleSelectPreset(['pmegp-001', 'mudra-004'])}
-            className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white dark:bg-slate-800 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-slate-700 hover:border-amber-400 shadow-sm transition"
+            className="px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-50 dark:bg-slate-700/70 text-amber-700 dark:text-amber-300 border border-amber-200/80 dark:border-slate-600 hover:border-amber-400 shadow-2xs transition-all duration-300 ease-out hover:-translate-y-0.5"
           >
             ⚠️ PMEGP + MUDRA (Conflict Detection Demo)
           </button>
@@ -313,20 +342,20 @@ export default function SchemeStacking() {
       </div>
 
       {/* 3. Interactive Selectable Scheme Cards Grid (2-Column Layout) */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 p-4 md:p-6 space-y-4">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
+      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 dark:border-slate-700/60 p-6 md:p-8 space-y-5 transition-all duration-300">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-700/60 pb-4">
           <div>
-            <h2 className="text-base font-bold text-slate-900 dark:text-white">
+            <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">
               Select Schemes to Analyze Stacking Compatibility
             </h2>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
               Select 2 or more schemes below to simulate grant synergy, loan guarantees, and compliance check.
             </p>
           </div>
           <div className="flex items-center gap-2">
             <button
               onClick={() => setSelectedIds([])}
-              className="text-xs text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 font-semibold"
+              className="text-xs text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 font-bold transition-colors"
             >
               Clear All
             </button>
@@ -334,7 +363,7 @@ export default function SchemeStacking() {
         </div>
 
         {/* 2-Column Grid of Selectable Row Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {schemes.map((scheme) => {
             const isChecked = selectedIds.includes(scheme.id);
 
