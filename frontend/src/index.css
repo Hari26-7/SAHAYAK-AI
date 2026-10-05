@@ -24,9 +24,9 @@
   --color-neutral-800: #1e293b;
   --color-neutral-900: #0f172a;
   --font-family: 'Inter', 'Noto Sans Devanagari', 'Noto Sans Tamil', 'Roboto', system-ui, -apple-system, sans-serif;
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
 }
 
 * {
@@ -44,39 +44,42 @@ body {
 /* Light Mode Defaults (Official India Gov Portal Aesthetic) */
 html:not(.dark) body {
   background-color: #f8fafc;
-  color: #1e293b;
+  color: #0f172a;
 }
 
 html:not(.dark) .app-header {
   background: #ffffff;
   border-bottom: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px rgba(0, 40, 85, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 html:not(.dark) .app-sidebar {
-  background: #ffffff;
-  border-right: 1px solid #e2e8f0;
+  background: #0B3B60;
+  border-right: 1px solid #082b47;
 }
 
 html:not(.dark) .sidebar-link {
-  color: #334155;
+  color: #cbd5e1;
+  border-left: 4px solid transparent;
+  border-radius: 0;
 }
 
 html:not(.dark) .sidebar-link:hover {
-  color: #0B3B60;
-  background: #f1f5f9;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
 }
 
 html:not(.dark) .sidebar-link.active {
   color: #ffffff;
-  background: #0B3B60;
-  box-shadow: 0 2px 6px rgba(11, 59, 96, 0.2);
+  background: #082b47;
+  border-left: 4px solid #3b82f6;
+  box-shadow: none;
 }
 
 html:not(.dark) .stat-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px 0 rgba(11, 59, 96, 0.06), 0 1px 2px -1px rgba(11, 59, 96, 0.04);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 html:not(.dark) .stat-value {
@@ -143,33 +146,38 @@ html.dark body {
 }
 
 html.dark .app-header {
-  background: rgba(15, 23, 42, 0.95);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0f172a;
+  border-bottom: 1px solid #1e293b;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 html.dark .app-sidebar {
-  background: rgba(15, 23, 42, 0.7);
-  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  background: #090d16;
+  border-right: 1px solid #1e293b;
 }
 
 html.dark .sidebar-link {
   color: #94a3b8;
+  border-left: 4px solid transparent;
+  border-radius: 0;
 }
 
 html.dark .sidebar-link:hover {
-  color: #f1f5f9;
-  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 html.dark .sidebar-link.active {
   color: #ffffff;
-  background: #2563eb;
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.35);
+  background: #1e293b;
+  border-left: 4px solid #3b82f6;
+  box-shadow: none;
 }
 
 html.dark .stat-card {
-  background: rgba(30, 41, 59, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 html.dark .stat-value {
@@ -236,33 +244,39 @@ html.dark .lang-pill.active {
 }
 
 .app-header {
-  backdrop-filter: blur(12px);
-  padding: 12px 28px;
+  background: #ffffff;
+  padding: 12px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: sticky;
   top: 0;
   z-index: 100;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+html.dark .app-header {
+  background: #0f172a;
+  border-bottom: 1px solid #1e293b;
 }
 
 .header-logo-icon {
-  width: 42px;
-  height: 42px;
-  background: linear-gradient(135deg, #0B3B60, #00509d);
+  width: 40px;
+  height: 40px;
+  background: #0B3B60;
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 800;
-  font-size: 20px;
+  font-size: 18px;
   color: #fff;
-  box-shadow: 0 2px 10px rgba(11, 59, 96, 0.3);
+  border: 1px solid #082b47;
 }
 
 .lang-switcher {
   display: flex;
-  padding: 3px;
+  padding: 2px;
   border-radius: var(--radius-sm);
 }
 
@@ -273,45 +287,35 @@ html.dark .lang-pill.active {
   border: none;
   background: transparent;
   cursor: pointer;
-  border-radius: 6px;
-  transition: all 0.2s;
+  border-radius: 4px;
+  transition: all 0.15s;
 }
 
 .sheet-live-badge {
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(16, 185, 129, 0.12);
-  border: 1px solid rgba(16, 185, 129, 0.35);
-  color: #059669;
-  font-size: 12px;
+  gap: 6px;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #065f46;
+  font-size: 11px;
   font-weight: 600;
-  padding: 6px 14px;
-  border-radius: 9999px;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
   text-decoration: none;
-  transition: all 0.2s;
 }
 
 html.dark .sheet-live-badge {
-  color: #34d399;
-}
-
-.sheet-live-badge:hover {
-  background: rgba(16, 185, 129, 0.22);
+  background: rgba(6, 95, 70, 0.2);
+  border-color: rgba(5, 150, 105, 0.4);
+  color: #6ee7b7;
 }
 
 .live-dot {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   background: #10b981;
   border-radius: 50%;
-  box-shadow: 0 0 8px #10b981;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.9); }
 }
 
 .app-body {
@@ -320,34 +324,33 @@ html.dark .sheet-live-badge {
 }
 
 .app-sidebar {
-  width: 260px;
-  padding: 20px 12px;
+  width: 256px;
+  padding: 16px 0;
   flex-shrink: 0;
 }
 
 .sidebar-nav {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
   position: sticky;
-  top: 110px;
+  top: 90px;
 }
 
 .sidebar-link {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 14px;
-  border-radius: var(--radius-sm);
+  padding: 10px 16px;
   text-decoration: none;
-  font-size: 13.5px;
-  font-weight: 600;
-  transition: all 0.2s;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background-color 0.15s;
 }
 
 .app-main-content {
   flex: 1;
-  padding: 28px 36px 60px;
+  padding: 24px;
   max-width: 1280px;
   min-width: 0;
 }
@@ -356,8 +359,8 @@ html.dark .sheet-live-badge {
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 18px;
-  margin-bottom: 28px;
+  gap: 24px;
+  margin-bottom: 24px;
 }
 
 .stat-card {
@@ -366,11 +369,11 @@ html.dark .sheet-live-badge {
   display: flex;
   align-items: center;
   gap: 16px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid #e2e8f0;
 }
 
 .stat-card:hover {
-  transform: translateY(-2px);
+  border-color: #cbd5e1;
 }
 
 .stat-icon {
@@ -817,43 +820,35 @@ html.dark .empty-state {
 }
 
 /* ============================================================
-   SIH Hackathon Winning UI/UX Overhaul Utilities
+   Bespoke Enterprise Government Portal (GIGW 3.0 Standard)
    ============================================================ */
-@keyframes fadeInSlideUp {
-  0% {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.enterprise-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
-.animate-in,
-.page-fade-in {
-  animation: fadeInSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+html.dark .enterprise-card {
+  background: #0f172a;
+  border-color: #1e293b;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
 }
 
-.slide-in-from-bottom-4 {
-  animation: fadeInSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.table-header {
+  background-color: #f8fafc;
+  color: #475569;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #e2e8f0;
 }
 
-/* Glassmorphism helpers */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+html.dark .table-header {
+  background-color: #1e293b;
+  color: #94a3b8;
+  border-bottom: 1px solid #334155;
 }
 
-.dark .glass-panel {
-  background: rgba(15, 23, 42, 0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-/* Custom Soft Multi-Layer Shadow Token */
-.shadow-fintech {
-  box-shadow: 0 2px 10px -3px rgba(6, 81, 237, 0.1), 0 8px 30px rgba(0, 0, 0, 0.04);
-}
 

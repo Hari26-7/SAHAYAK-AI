@@ -309,7 +309,7 @@ export default function Documents() {
             </p>
           </div>
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-semibold bg-emerald-50 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700">
               <span>🔒</span> DigiLocker Connected
             </span>
           </div>
@@ -321,7 +321,7 @@ export default function Documents() {
         {/* ======================================================== */}
         {/* LEFT COLUMN: 1. Official Document Upload */}
         {/* ======================================================== */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-4 md:p-6 lg:p-8 flex flex-col justify-between h-full space-y-6">
+        <div className="bg-white dark:bg-slate-900 rounded-md shadow-sm border border-slate-200 dark:border-slate-800 p-4 md:p-6 lg:p-8 flex flex-col justify-between h-full space-y-6">
           <div>
             {/* Header */}
             <div className="border-b border-slate-100 dark:border-slate-700/80 pb-4 mb-5">
@@ -345,7 +345,7 @@ export default function Documents() {
               </label>
 
               <select
-                className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-600 transition"
+                className="w-full px-3 py-2 rounded-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition"
                 value={selectedType}
                 onChange={(e) => setSelectedType(e.target.value)}
               >
@@ -366,10 +366,10 @@ export default function Documents() {
               onDragLeave={() => setIsDragging(false)}
               onDrop={handleDrop}
               onClick={() => fileInputRef.current?.click()}
-              className={`border-2 border-dashed rounded-xl p-8 flex flex-col items-center justify-center transition-all cursor-pointer text-center ${
+              className={`border-2 border-dashed rounded-md p-8 flex flex-col items-center justify-center transition cursor-pointer text-center ${
                 isDragging
-                  ? 'border-blue-500 bg-blue-100/60 dark:bg-blue-950/40'
-                  : 'border-blue-300 bg-blue-50 hover:bg-blue-100/60 dark:border-slate-600 dark:bg-slate-900/50 dark:hover:bg-slate-900/80'
+                  ? 'border-blue-600 bg-blue-50/40 dark:bg-blue-950/20'
+                  : 'border-slate-300 bg-slate-50/50 hover:bg-slate-100/60 dark:border-slate-700 dark:bg-slate-800/40 dark:hover:bg-slate-800/70'
               }`}
             >
               <input
@@ -381,13 +381,13 @@ export default function Documents() {
                 disabled={uploading}
               />
 
-              <div className="w-14 h-14 rounded-2xl bg-white dark:bg-slate-800 text-blue-600 dark:text-blue-400 flex items-center justify-center text-2xl shadow-sm mb-3">
+              <div className="w-12 h-12 rounded-md bg-white dark:bg-slate-800 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl border border-slate-200 dark:border-slate-700 shadow-sm mb-3">
                 {uploading ? '⏳' : '📥'}
               </div>
 
               {uploading ? (
                 <div>
-                  <p className="text-sm font-bold text-blue-600 dark:text-blue-400 animate-pulse">
+                  <p className="text-sm font-bold text-blue-700 dark:text-blue-400">
                     Uploading & Encrypting Document...
                   </p>
                   <p className="text-xs text-slate-500 mt-1">Generating SHA-256 DigiLocker timestamp</p>
@@ -417,27 +417,27 @@ export default function Documents() {
         {/* ======================================================== */}
         {/* RIGHT COLUMN: 2. Live Face Authentication */}
         {/* ======================================================== */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-4 md:p-6 lg:p-8 flex flex-col justify-between h-full space-y-6">
+        <div className="bg-white dark:bg-slate-900 rounded-md shadow-sm border border-slate-200 dark:border-slate-800 p-4 md:p-6 lg:p-8 flex flex-col justify-between h-full space-y-6">
           <div>
             {/* Header */}
-            <div className="border-b border-slate-100 dark:border-slate-700/80 pb-4 mb-5">
+            <div className="border-b border-slate-200 dark:border-slate-800 pb-4 mb-5">
               <div className="flex items-center justify-between">
-                <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <h2 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2 uppercase tracking-wide">
                   <span>👤</span> 2. Live Face Authentication
                 </h2>
                 {verificationResult.status === 'verified' && (
-                  <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-950/60 px-2.5 py-1 rounded-full border border-emerald-300 dark:border-emerald-700">
+                  <span className="text-[11px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded border border-emerald-300 dark:border-emerald-700">
                     ✓ Verified
                   </span>
                 )}
               </div>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+              <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">
                 Verify your identity against your official documents to instantly unlock scheme applications.
               </p>
             </div>
 
-            {/* Sleek Dark Container Representing Camera Feed */}
-            <div className="w-full h-64 bg-slate-900 rounded-xl flex items-center justify-center mb-6 overflow-hidden relative shadow-inner">
+            {/* Container Representing Camera Feed */}
+            <div className="w-full h-64 bg-slate-900 rounded-md flex items-center justify-center mb-6 overflow-hidden relative border border-slate-800">
               <canvas ref={canvasRef} className="hidden" />
 
               {/* Subdued scanning / status overlay */}
@@ -451,16 +451,16 @@ export default function Documents() {
                     className="w-full h-full object-cover"
                   />
 
-                  {/* Biometric Scanning Reticle */}
+                  {/* Biometric Reticle */}
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <div className="w-44 h-44 rounded-full border-2 border-dashed border-emerald-400 animate-pulse flex items-center justify-center">
-                      <div className="w-40 h-40 rounded-full border border-emerald-300/40"></div>
+                    <div className="w-44 h-44 rounded-md border-2 border-dashed border-emerald-400 flex items-center justify-center">
+                      <div className="w-40 h-40 rounded-md border border-emerald-300/40"></div>
                     </div>
                   </div>
 
-                  {/* Scanning beam animation */}
+                  {/* Scanning indicator */}
                   {isScanning && (
-                    <div className="absolute inset-x-0 h-1 bg-gradient-to-r from-transparent via-emerald-400 to-transparent animate-bounce"></div>
+                    <div className="absolute inset-x-0 top-1/2 h-0.5 bg-emerald-400"></div>
                   )}
                 </div>
               ) : isScanning ? (
@@ -559,13 +559,13 @@ export default function Documents() {
       {/* ======================================================== */}
       {/* 3. Encrypted Vault Records Table */}
       {/* ======================================================== */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-4 md:p-6 lg:p-8 space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-700/80 pb-4">
+      <div className="bg-white dark:bg-slate-900 rounded-md shadow-sm border border-slate-200 dark:border-slate-800 p-4 md:p-6 lg:p-8 space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
           <div>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <h2 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2 uppercase tracking-wide">
               <span>🗄️</span> Encrypted Document Records
             </h2>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+            <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
               Permanently retained in DigiLocker vault for single-click attachment to MSME scheme applications.
             </p>
           </div>
@@ -577,42 +577,42 @@ export default function Documents() {
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
             <thead>
-              <tr className="border-b border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 uppercase tracking-wider text-[11px]">
-                <th className="pb-3 font-bold">Document Category</th>
-                <th className="pb-3 font-bold">File Name</th>
-                <th className="pb-3 font-bold">Verification Status</th>
-                <th className="pb-3 font-bold">Timestamp</th>
-                <th className="pb-3 font-bold text-right">Actions</th>
+              <tr className="border-b border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 uppercase tracking-wider text-[11px] bg-slate-50 dark:bg-slate-800">
+                <th className="py-2.5 px-3 font-bold">Document Category</th>
+                <th className="py-2.5 px-3 font-bold">File Name</th>
+                <th className="py-2.5 px-3 font-bold">Verification Status</th>
+                <th className="py-2.5 px-3 font-bold">Timestamp</th>
+                <th className="py-2.5 px-3 font-bold text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 dark:divide-slate-700/60">
+            <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
               {documents.map((doc) => (
-                <tr key={doc.id} className="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                  <td className="py-3.5 font-bold text-slate-900 dark:text-white">
+                <tr key={doc.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+                  <td className="py-3 px-3 font-semibold text-slate-900 dark:text-white">
                     {doc.document_type}
                   </td>
-                  <td className="py-3.5 text-slate-600 dark:text-slate-300 font-mono text-[11px]">
+                  <td className="py-3 px-3 text-slate-600 dark:text-slate-300 font-mono text-[11px]">
                     {doc.document_name}
                   </td>
-                  <td className="py-3.5">
-                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700">
+                  <td className="py-3 px-3">
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700">
                       <span>✓</span> Verified (DigiLocker)
                     </span>
                   </td>
-                  <td className="py-3.5 text-slate-500 dark:text-slate-400">
+                  <td className="py-3 px-3 text-slate-500 dark:text-slate-400">
                     {new Date(doc.uploaded_at).toLocaleDateString()}
                   </td>
-                  <td className="py-3.5 text-right">
+                  <td className="py-3 px-3 text-right">
                     <div className="flex items-center justify-end gap-2">
                       <button
                         onClick={() => setPreviewDoc(doc)}
-                        className="px-2.5 py-1 rounded text-[11px] font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 transition"
+                        className="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-white hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-300 dark:border-slate-700 transition-colors"
                       >
                         Inspect
                       </button>
                       <button
                         onClick={() => handleDelete(doc.id)}
-                        className="px-2.5 py-1 rounded text-[11px] font-semibold text-red-600 hover:bg-red-50 dark:hover:bg-red-950/40 transition"
+                        className="px-2.5 py-1 rounded-md text-[11px] font-semibold text-red-700 hover:bg-red-50 dark:hover:bg-red-950/40 border border-red-200 dark:border-red-900/50 transition-colors"
                       >
                         Remove
                       </button>
@@ -625,23 +625,23 @@ export default function Documents() {
         </div>
       </div>
 
-      {/* Modal Preview */}
+      {/* Modal Preview - Solid Overlay without backdrop blur */}
       {previewDoc && (
         <div
-          className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in"
+          className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4 animate-in fade-in"
           onClick={() => setPreviewDoc(null)}
         >
           <div
-            className="w-full max-w-md bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 p-6 space-y-4"
+            className="w-full max-w-md bg-white dark:bg-slate-900 rounded-md shadow-lg border border-slate-300 dark:border-slate-700 p-6 space-y-4"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-700 pb-3">
+            <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
               <h3 className="text-sm font-bold text-slate-900 dark:text-white">
                 {previewDoc.document_name}
               </h3>
               <button
                 onClick={() => setPreviewDoc(null)}
-                className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 font-bold"
+                className="text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 font-bold"
               >
                 ✕
               </button>

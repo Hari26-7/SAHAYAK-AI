@@ -64,19 +64,19 @@ export default function CreditScore() {
   const getScoreBadge = (score: number) => {
     if (score > 750) {
       return (
-        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700">
+        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-emerald-50 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700">
           <span>✓</span> Excellent (&gt;750)
         </span>
       );
     } else if (score >= 650) {
       return (
-        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border border-blue-300 dark:border-blue-700">
+        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-blue-50 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border border-blue-300 dark:border-blue-700">
           <span>●</span> Good (650–750)
         </span>
       );
     } else {
       return (
-        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-red-100 text-red-800 dark:bg-red-950/60 dark:text-red-300 border border-red-300 dark:border-red-700">
+        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-red-50 text-red-800 dark:bg-red-950/60 dark:text-red-300 border border-red-300 dark:border-red-700">
           <span>!</span> Needs Improvement (&lt;650)
         </span>
       );
@@ -87,7 +87,7 @@ export default function CreditScore() {
   const getCreditTierBadge = (score: number) => {
     if (score >= 750) {
       return (
-        <div className="p-3 rounded-xl bg-emerald-50 dark:bg-slate-900/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-between">
+        <div className="p-3 rounded-md bg-emerald-50 dark:bg-slate-900/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-between">
           <div>
             <div className="text-xs font-bold text-emerald-800 dark:text-emerald-300">
               Prime Tier — Excellent Credit Profile
@@ -96,12 +96,12 @@ export default function CreditScore() {
               Eligible for instant sanction & lowest concession rates (PMEGP, Stand-Up India, CGTMSE)
             </div>
           </div>
-          <span className="text-lg">🏆</span>
+          <span className="text-lg">✓</span>
         </div>
       );
     } else if (score >= 650) {
       return (
-        <div className="p-3 rounded-xl bg-blue-50 dark:bg-slate-900/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-between">
+        <div className="p-3 rounded-md bg-blue-50 dark:bg-slate-900/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-between">
           <div>
             <div className="text-xs font-bold text-blue-800 dark:text-blue-300">
               Moderate Tier — Eligible for Collateral-Free Schemes
@@ -115,7 +115,7 @@ export default function CreditScore() {
       );
     } else if (score >= 550) {
       return (
-        <div className="p-3 rounded-xl bg-amber-50 dark:bg-slate-900/60 border border-amber-200 dark:border-amber-800/60 flex items-center justify-between">
+        <div className="p-3 rounded-md bg-amber-50 dark:bg-slate-900/60 border border-amber-200 dark:border-amber-800/60 flex items-center justify-between">
           <div>
             <div className="text-xs font-bold text-amber-800 dark:text-amber-300">
               Fair Tier — Conditional Approval Track
@@ -129,7 +129,7 @@ export default function CreditScore() {
       );
     } else {
       return (
-        <div className="p-3 rounded-xl bg-red-50 dark:bg-slate-900/60 border border-red-200 dark:border-red-800/60 flex items-center justify-between">
+        <div className="p-3 rounded-md bg-red-50 dark:bg-slate-900/60 border border-red-200 dark:border-red-800/60 flex items-center justify-between">
           <div>
             <div className="text-xs font-bold text-red-800 dark:text-red-300">
               Needs Attention — Remedial Counseling
@@ -213,7 +213,7 @@ export default function CreditScore() {
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Card 1: Credit Information */}
-        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 md:p-6 shadow-sm mb-6 space-y-6">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-md p-4 md:p-6 shadow-sm mb-6 space-y-6">
           <div className="border-b border-slate-100 dark:border-slate-700/80 pb-3 flex items-center justify-between">
             <div>
               <h2 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -317,7 +317,7 @@ export default function CreditScore() {
         </div>
 
         {/* Card 2: Financial Details & Turnover */}
-        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 md:p-6 shadow-sm mb-6 space-y-6">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-md p-4 md:p-6 shadow-sm mb-6 space-y-6">
           <div className="border-b border-slate-100 dark:border-slate-700/80 pb-3">
             <h2 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <span>📈</span> Annual Turnover & Operational Cash Flows

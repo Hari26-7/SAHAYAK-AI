@@ -25,22 +25,22 @@ export default function Login() {
   };
 
   return (
-    <div className="auth-container min-h-screen flex items-center justify-center p-4">
-      <div className="auth-card w-full max-w-md bg-white dark:bg-slate-900 rounded-2xl shadow-xl p-8 border border-slate-200 dark:border-slate-800">
-        <div className="auth-logo text-center mb-6">
-          <div className="w-12 h-12 mx-auto mb-3 rounded-2xl bg-gradient-to-br from-[#0B3B60] to-blue-700 text-white flex items-center justify-center font-extrabold text-2xl shadow-md">
+    <div className="auth-container min-h-screen flex items-center justify-center p-4 bg-slate-50 dark:bg-slate-950">
+      <div className="w-full max-w-md bg-white dark:bg-slate-900 rounded-md shadow-sm p-8 border border-slate-300 dark:border-slate-800">
+        <div className="text-center mb-6">
+          <div className="w-12 h-12 mx-auto mb-3 rounded-md bg-[#0B3B60] text-white flex items-center justify-center font-bold text-2xl border border-[#082b47]">
             <span className="text-amber-300 font-serif">स</span>
           </div>
-          <h1 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">
+          <h1 className="text-xl font-bold text-slate-900 dark:text-white uppercase tracking-wide">
             MSME Sahayak AI
           </h1>
-          <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-            Sign in to access national MSME schemes & copilot
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+            Government of India • Ministry of Micro, Small & Medium Enterprises
           </p>
         </div>
 
         {error && (
-          <div className="p-3 mb-4 rounded-lg bg-red-50 dark:bg-red-950/50 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-400 text-sm">
+          <div className="p-3 mb-4 rounded-md bg-red-50 dark:bg-red-950/50 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-400 text-xs font-semibold">
             {error}
           </div>
         )}
@@ -52,7 +52,7 @@ export default function Login() {
             </label>
             <input
               type="email"
-              className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+              className="w-full px-3 py-2 rounded-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 text-sm transition"
               placeholder="entrepreneur@msme.gov.in"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -67,7 +67,7 @@ export default function Login() {
             </label>
             <input
               type="password"
-              className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+              className="w-full px-3 py-2 rounded-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 text-sm transition"
               placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -78,18 +78,18 @@ export default function Login() {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-all shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-2"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-2 text-sm shadow-sm"
             disabled={loading}
           >
             {loading ? 'Signing in...' : 'Sign In'}
           </button>
         </form>
 
-        <div className="mt-6 text-center">
-          <p className="text-sm text-slate-500">
+        <div className="mt-6 text-center border-t border-slate-200 dark:border-slate-800 pt-4">
+          <p className="text-xs text-slate-600 dark:text-slate-400">
             Don't have an account?{' '}
             <Link to="/register">
-              <span className="text-blue-600 font-medium cursor-pointer hover:underline">
+              <span className="text-blue-700 dark:text-blue-400 font-semibold hover:underline">
                 Register here
               </span>
             </Link>

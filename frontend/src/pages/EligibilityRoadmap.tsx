@@ -140,7 +140,7 @@ export default function EligibilityRoadmap() {
       </div>
 
       {/* Progress Card */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700 p-4 md:p-6">
+      <div className="bg-white dark:bg-slate-900 rounded-md shadow-sm border border-slate-200 dark:border-slate-800 p-5 md:p-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
           <div>
             <div className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
@@ -155,37 +155,37 @@ export default function EligibilityRoadmap() {
               <span className="text-2xl font-black text-blue-600 dark:text-blue-400">
                 {progressPercent}%
               </span>
-              <div className="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
-                {progressPercent >= 60 ? '⚡ Priority Track' : 'In Verification'}
+              <div className="text-[11px] font-semibold text-emerald-700 dark:text-emerald-400">
+                {progressPercent >= 60 ? 'Priority Track' : 'In Verification'}
               </div>
             </div>
           </div>
         </div>
 
         {/* Progress Bar */}
-        <div className="w-full h-3 rounded-full bg-slate-100 dark:bg-slate-700 overflow-hidden">
+        <div className="w-full h-2 rounded-sm bg-slate-200 dark:bg-slate-700 overflow-hidden">
           <div
-            className="h-full rounded-full bg-gradient-to-r from-blue-600 to-emerald-500 transition-all duration-500"
+            className="h-full rounded-sm bg-blue-600 transition-all duration-300"
             style={{ width: `${progressPercent}%` }}
           ></div>
         </div>
       </div>
 
       {/* Vertical Stepper Component */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700 p-4 md:p-6">
-        <div className="relative border-l-2 border-blue-200 dark:border-blue-800 ml-4 space-y-8">
+      <div className="bg-white dark:bg-slate-900 rounded-md shadow-sm border border-slate-200 dark:border-slate-800 p-4 md:p-6">
+        <div className="relative border-l-2 border-slate-200 dark:border-slate-700 ml-4 space-y-6">
           {steps.map((step) => {
             const isCompleted = step.status === 'completed';
             const isInProgress = step.status === 'in_progress';
             const isPending = step.status === 'pending';
 
             return (
-              <div key={step.id} className="relative pl-6 sm:pl-8 group">
-                {/* Circular Node that sits on the border */}
+              <div key={step.id} className="relative pl-6 sm:pl-8">
+                {/* Node that sits on the border */}
                 {isCompleted && (
                   <div
                     onClick={() => handleToggleStatus(step)}
-                    className="absolute -left-3 bg-green-600 h-6 w-6 rounded-full border-4 border-white dark:border-slate-800 flex items-center justify-center text-white text-[10px] font-black cursor-pointer shadow-md transform hover:scale-125 transition-all"
+                    className="absolute -left-2.5 bg-emerald-600 h-5 w-5 rounded-full border-2 border-white dark:border-slate-900 flex items-center justify-center text-white text-[9px] font-bold cursor-pointer"
                     title="Completed - Click to toggle"
                   >
                     ✓
@@ -195,17 +195,17 @@ export default function EligibilityRoadmap() {
                 {isInProgress && (
                   <div
                     onClick={() => handleToggleStatus(step)}
-                    className="absolute -left-3 bg-blue-600 h-6 w-6 rounded-full border-4 border-white dark:border-slate-800 flex items-center justify-center text-white text-[10px] font-black cursor-pointer shadow-md animate-pulse transform hover:scale-125 transition-all"
+                    className="absolute -left-2.5 bg-blue-600 h-5 w-5 rounded-full border-2 border-white dark:border-slate-900 flex items-center justify-center text-white text-[9px] font-bold cursor-pointer"
                     title="In Progress - Click to toggle"
                   >
-                    ⚡
+                    ●
                   </div>
                 )}
 
                 {isPending && (
                   <div
                     onClick={() => handleToggleStatus(step)}
-                    className="absolute -left-3 bg-gray-400 h-6 w-6 rounded-full border-4 border-white dark:border-slate-800 flex items-center justify-center text-white text-[10px] font-black cursor-pointer shadow-sm transform hover:scale-125 transition-all"
+                    className="absolute -left-2.5 bg-slate-400 h-5 w-5 rounded-full border-2 border-white dark:border-slate-900 flex items-center justify-center text-white text-[9px] font-bold cursor-pointer"
                     title="Pending - Click to toggle"
                   >
                     ○
@@ -213,34 +213,34 @@ export default function EligibilityRoadmap() {
                 )}
 
                 {/* Step Content Card */}
-                <div className="p-4 sm:p-5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700/80 hover:border-blue-300 dark:hover:border-blue-700 transition-all">
+                <div className="p-4 rounded-md bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                     <div className="flex items-center gap-2">
                       <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                         Step {step.step_number}
                       </span>
                       <span className="text-slate-300 dark:text-slate-600">•</span>
-                      <h3 className="text-base font-bold text-slate-900 dark:text-white">
+                      <h3 className="text-sm font-bold text-slate-900 dark:text-white">
                         {step.title}
                       </h3>
                     </div>
 
-                    {/* Status Badge Visual Mapping */}
+                    {/* Status Badge */}
                     <div className="flex items-center gap-2">
                       {isCompleted && (
-                        <span className="inline-flex items-center gap-1 bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300 px-3 py-1 rounded-full text-xs font-bold">
+                        <span className="inline-flex items-center gap-1 bg-emerald-50 text-emerald-800 border border-emerald-300 dark:bg-emerald-950/40 dark:text-emerald-300 dark:border-emerald-800 px-2 py-0.5 rounded text-xs font-semibold">
                           <span>✓</span> Completed
                         </span>
                       )}
 
                       {isInProgress && (
-                        <span className="inline-flex items-center gap-1 bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300 px-3 py-1 rounded-full text-xs font-bold animate-pulse">
-                          <span>⚡</span> In Progress
+                        <span className="inline-flex items-center gap-1 bg-blue-50 text-blue-800 border border-blue-300 dark:bg-blue-950/40 dark:text-blue-300 dark:border-blue-800 px-2 py-0.5 rounded text-xs font-semibold">
+                          <span>●</span> In Progress
                         </span>
                       )}
 
                       {isPending && (
-                        <span className="inline-flex items-center gap-1 bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-xs font-semibold">
+                        <span className="inline-flex items-center gap-1 bg-slate-100 text-slate-700 border border-slate-300 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700 px-2 py-0.5 rounded text-xs font-semibold">
                           <span>○</span> Pending
                         </span>
                       )}

@@ -148,44 +148,47 @@ export default function Dashboard() {
     );
   }
 
+  const [expandedSchemeId, setExpandedSchemeId] = useState<string | null>(null);
+
+  const toggleExpandScheme = (id: string) => {
+    setExpandedSchemeId((prev) => (prev === id ? null : id));
+  };
+
   const roadmapPercentage = Math.round((stats.roadmapCompleted / stats.roadmapTotal) * 100);
 
   return (
-    <div className="animate-in fade-in duration-500 slide-in-from-bottom-4 space-y-8">
+    <div className="space-y-6">
       {/* 1. Official Government Citizen Header & Enterprise Profile Banner */}
-      <div className="relative overflow-hidden rounded-2xl bg-white dark:bg-slate-800 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 dark:border-slate-700/60 p-6 md:p-8 transition-all duration-300 ease-out hover:-translate-y-1">
-        {/* Subtle decorative background gradient */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-100/40 dark:from-blue-900/20 via-indigo-50/20 to-transparent rounded-full pointer-events-none -mr-20 -mt-20"></div>
-
-        <div className="relative flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+      <div className="rounded-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
           <div className="space-y-3">
-            {/* National Portal Breadcrumb Tag with Glowing Gradient Accent */}
+            {/* National Portal Breadcrumb Tag */}
             <div className="flex items-center gap-2">
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold px-3 py-1 rounded-full shadow-md shadow-indigo-500/30 text-[10px] uppercase tracking-wider">
+              <span className="bg-blue-50 dark:bg-blue-950 text-[#0B3B60] dark:text-blue-300 font-semibold px-2 py-0.5 rounded text-[11px] border border-blue-200 dark:border-blue-800 uppercase tracking-wider">
                 GIGW 3.0 Verified
               </span>
-              <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
+              <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
                 {t('ministryOfMsme')} • {t('govtOfIndia')}
               </span>
             </div>
 
             {/* Welcome Greeting */}
-            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
               {t('welcome')}, {entrepreneurName}!
             </h1>
 
             {/* Enterprise Credentials Badge Bar */}
             <div className="flex flex-wrap items-center gap-2 pt-1">
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-700/70 text-slate-800 dark:text-slate-200 border border-slate-200/80 dark:border-slate-600/80 shadow-xs">
-                🏢 <span className="font-bold">{businessName}</span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-medium bg-slate-50 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700">
+                🏢 <span className="font-semibold">{businessName}</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60 shadow-xs">
-                <span className="font-bold text-emerald-600">✓</span> {t('udyam')}: <span className="font-mono font-bold">UDYAM-TN-02-0049281</span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-medium bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
+                <span className="font-bold text-emerald-700">✓</span> {t('udyam')}: <span className="font-mono font-semibold">UDYAM-TN-02-0049281</span>
               </span>
-              <span className="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-blue-50 dark:bg-blue-950/40 text-[#0B3B60] dark:text-blue-300 border border-blue-200 dark:border-blue-800/60 shadow-xs">
+              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-md text-xs font-medium bg-blue-50 dark:bg-blue-950/40 text-[#0B3B60] dark:text-blue-300 border border-blue-200 dark:border-blue-800">
                 {t('microManufacturing')}
               </span>
-              <span className="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-purple-50 dark:purple-950/40 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60 shadow-xs">
+              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-md text-xs font-medium bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700">
                 🔒 {t('digiLockerKycVerified')}
               </span>
             </div>
@@ -193,16 +196,16 @@ export default function Dashboard() {
             {/* Visual Progress: Profile Completeness */}
             <div className="pt-2 max-w-md">
               <div className="flex items-center justify-between text-xs mb-1.5">
-                <span className="font-bold text-slate-700 dark:text-slate-300">
+                <span className="font-medium text-slate-700 dark:text-slate-300">
                   Udyam Citizen Profile Readiness
                 </span>
-                <span className="font-extrabold text-[#0B3B60] dark:text-blue-400">
+                <span className="font-bold text-[#0B3B60] dark:text-blue-400">
                   {stats.profileCompleted}%
                 </span>
               </div>
-              <div className="h-2.5 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+              <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded-sm overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-full transition-all duration-700 ease-out"
+                  className="h-full bg-emerald-600 rounded-sm transition-all duration-300"
                   style={{ width: `${stats.profileCompleted}%` }}
                 ></div>
               </div>
@@ -211,15 +214,15 @@ export default function Dashboard() {
 
           {/* Right Action: National MSME Single Window Clearance Status */}
           <div className="flex flex-col sm:flex-row lg:flex-col items-start lg:items-end gap-3 shrink-0">
-            <div className="p-4 rounded-2xl bg-slate-50/90 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-700/80 text-left lg:text-right shadow-xs">
-              <div className="text-[10px] font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+            <div className="p-4 rounded-md bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-left lg:text-right">
+              <div className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                 {t('prioritySectorLending')}
               </div>
-              <div className="text-xl font-extrabold tracking-tight text-[#0B3B60] dark:text-blue-400 mt-1">
+              <div className="text-lg font-bold tracking-tight text-[#0B3B60] dark:text-blue-400 mt-0.5">
                 {t('tier1Priority')}
               </div>
-              <div className="text-xs text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1.5 justify-start lg:justify-end mt-1">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <div className="text-xs text-emerald-700 dark:text-emerald-400 font-semibold flex items-center gap-1.5 justify-start lg:justify-end mt-1">
+                <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
                 <span>{t('capitalSubsidyEligible')}</span>
               </div>
             </div>
@@ -227,26 +230,26 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* 2. Key Metrics Stats Cards - Elevated with Multi-Layer Soft Shadows & Micro-Interactions */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      {/* 2. Key Metrics Stats Cards - Strict 8-pt Grid System & Flat Enterprise Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {/* Card 1: Matched Schemes */}
         <Link
           to="/schemes"
-          className="group block bg-white dark:bg-slate-800 rounded-2xl shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 dark:border-slate-700/60 p-6 md:p-8 transition-all duration-300 ease-out hover:-translate-y-1 text-decoration-none"
+          className="group block bg-white dark:bg-slate-900 rounded-md border border-slate-200 dark:border-slate-800 p-6 shadow-sm hover:border-slate-300 dark:hover:border-slate-700 transition-colors text-decoration-none"
         >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+            <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
               {t('matchedSchemes')}
             </span>
-            <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-900/40 text-[#0B3B60] dark:text-blue-300 flex items-center justify-center font-bold text-xl group-hover:scale-110 transition-transform duration-300 shadow-sm">
+            <div className="w-10 h-10 rounded-md bg-blue-50 dark:bg-blue-950 text-[#0B3B60] dark:text-blue-300 border border-blue-100 dark:border-blue-900 flex items-center justify-center font-bold text-lg">
               📜
             </div>
           </div>
-          <div className="mt-4">
-            <div className="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          <div className="mt-3">
+            <div className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
               {stats.schemes}
             </div>
-            <p className="text-xs text-emerald-600 dark:text-emerald-400 font-bold mt-2 flex items-center gap-1">
+            <p className="text-xs text-emerald-700 dark:text-emerald-400 font-medium mt-1.5 flex items-center gap-1">
               <span>✓</span> {t('verifiedNationalSchemes')}
             </p>
           </div>
@@ -255,21 +258,21 @@ export default function Dashboard() {
         {/* Card 2: Active Applications */}
         <Link
           to="/applications"
-          className="group block bg-white dark:bg-slate-800 rounded-2xl shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 dark:border-slate-700/60 p-6 md:p-8 transition-all duration-300 ease-out hover:-translate-y-1 text-decoration-none"
+          className="group block bg-white dark:bg-slate-900 rounded-md border border-slate-200 dark:border-slate-800 p-6 shadow-sm hover:border-slate-300 dark:hover:border-slate-700 transition-colors text-decoration-none"
         >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+            <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
               {t('activeApplications')}
             </span>
-            <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 flex items-center justify-center font-bold text-xl group-hover:scale-110 transition-transform duration-300 shadow-sm">
+            <div className="w-10 h-10 rounded-md bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 border border-emerald-100 dark:border-emerald-900 flex items-center justify-center font-bold text-lg">
               📁
             </div>
           </div>
-          <div className="mt-4">
-            <div className="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          <div className="mt-3">
+            <div className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
               {stats.applications}
             </div>
-            <p className="text-xs text-blue-600 dark:text-blue-400 font-bold mt-2">
+            <p className="text-xs text-blue-700 dark:text-blue-400 font-medium mt-1.5">
               {t('underReview')}
             </p>
           </div>
@@ -278,21 +281,21 @@ export default function Dashboard() {
         {/* Card 3: DigiLocker Records */}
         <Link
           to="/documents"
-          className="group block bg-white dark:bg-slate-800 rounded-2xl shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 dark:border-slate-700/60 p-6 md:p-8 transition-all duration-300 ease-out hover:-translate-y-1 text-decoration-none"
+          className="group block bg-white dark:bg-slate-900 rounded-md border border-slate-200 dark:border-slate-800 p-6 shadow-sm hover:border-slate-300 dark:hover:border-slate-700 transition-colors text-decoration-none"
         >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+            <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
               {t('digiLockerRecords')}
             </span>
-            <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 flex items-center justify-center font-bold text-xl group-hover:scale-110 transition-transform duration-300 shadow-sm">
+            <div className="w-10 h-10 rounded-md bg-amber-50 dark:bg-amber-950 text-amber-700 dark:text-amber-300 border border-amber-100 dark:border-amber-900 flex items-center justify-center font-bold text-lg">
               📄
             </div>
           </div>
-          <div className="mt-4">
-            <div className="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          <div className="mt-3">
+            <div className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
               {stats.documents}
             </div>
-            <p className="text-xs text-amber-600 dark:text-amber-400 font-bold mt-2">
+            <p className="text-xs text-amber-700 dark:text-amber-400 font-medium mt-1.5">
               {t('documentsSynced')}
             </p>
           </div>
@@ -301,55 +304,55 @@ export default function Dashboard() {
         {/* Card 4: Roadmap Step Progress with Visual Progress Bar */}
         <Link
           to="/eligibility-roadmap"
-          className="group block bg-white dark:bg-slate-800 rounded-2xl shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 dark:border-slate-700/60 p-6 md:p-8 transition-all duration-300 ease-out hover:-translate-y-1 text-decoration-none"
+          className="group block bg-white dark:bg-slate-900 rounded-md border border-slate-200 dark:border-slate-800 p-6 shadow-sm hover:border-slate-300 dark:hover:border-slate-700 transition-colors text-decoration-none"
         >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+            <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
               {t('clearanceReadiness')}
             </span>
-            <div className="w-12 h-12 rounded-2xl bg-purple-50 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 flex items-center justify-center font-bold text-xl group-hover:scale-110 transition-transform duration-300 shadow-sm">
+            <div className="w-10 h-10 rounded-md bg-purple-50 dark:bg-purple-950 text-purple-700 dark:text-purple-300 border border-purple-100 dark:border-purple-900 flex items-center justify-center font-bold text-lg">
               ⚡
             </div>
           </div>
-          <div className="mt-4">
-            <div className="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          <div className="mt-3">
+            <div className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
               {roadmapPercentage}%
             </div>
-            {/* Visual Animated Horizontal Progress Bar */}
-            <div className="mt-2.5 h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+            {/* Visual Horizontal Progress Bar */}
+            <div className="mt-2 h-2 bg-slate-200 dark:bg-slate-700 rounded-sm overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full transition-all duration-700"
+                className="h-full bg-blue-600 rounded-sm"
                 style={{ width: `${roadmapPercentage}%` }}
               ></div>
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-2">
+            <p className="text-xs text-slate-500 dark:text-slate-400 font-medium mt-1.5">
               {stats.roadmapCompleted} of {stats.roadmapTotal} {t('stagesCompleted')}
             </p>
           </div>
         </Link>
       </div>
 
-      {/* 3. Interactive Voice Search Bar & Scheme Filter Section */}
-      <div className="p-6 md:p-8 rounded-2xl bg-white dark:bg-slate-800 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 dark:border-slate-700/60 space-y-5 transition-all duration-300">
+      {/* 3. Interactive Search Bar & Scheme Filter Section */}
+      <div className="p-6 rounded-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <h2 className="text-xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <span>🎯</span> {t('schemesNavigator')}
             </h2>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
               {t('searchSubtitle')}
             </p>
           </div>
 
           {/* Voice Search Feedback Pill */}
           {searchQuery && (
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 text-xs">
-              <span className="text-amber-700 dark:text-amber-400 font-semibold">
+            <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-800 text-xs">
+              <span className="text-amber-800 dark:text-amber-300 font-semibold">
                 {t('filter')}: "{searchQuery}"
               </span>
               <button
                 onClick={() => setSearchQuery('')}
-                className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-xs font-bold"
+                className="text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 font-bold"
               >
                 ✕ {t('clear')}
               </button>
@@ -357,9 +360,9 @@ export default function Dashboard() {
           )}
         </div>
 
-        {/* Search Input Box */}
+        {/* Traditional Enterprise Input Box */}
         <div className="relative">
-          <span className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 text-base">
+          <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 text-sm">
             🔍
           </span>
           <input
@@ -367,25 +370,25 @@ export default function Dashboard() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder={t('searchPlaceholder')}
-            className="w-full pl-11 pr-32 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/80 dark:bg-slate-900/80 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:ring-blue-500 transition-all shadow-inner"
+            className="w-full pl-10 pr-28 py-2.5 rounded-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors"
           />
           <div className="absolute inset-y-0 right-0 pr-2.5 flex items-center">
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold px-3 py-1 rounded-full shadow-md shadow-indigo-500/30 text-[10px]">
-              {t('voiceEnabled')}
+            <span className="text-slate-500 dark:text-slate-400 text-xs font-medium px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800">
+              🎙️ {t('voiceEnabled')}
             </span>
           </div>
         </div>
 
-        {/* Category Pills */}
-        <div className="flex flex-wrap gap-2.5 pt-1">
+        {/* Category Filter Controls */}
+        <div className="flex flex-wrap gap-2 pt-1">
           {categoryOptions.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setSelectedCategory(cat.id)}
-              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all duration-300 ease-out hover:-translate-y-0.5 ${
+              className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors border ${
                 selectedCategory === cat.id
-                  ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-indigo-500/30'
-                  : 'bg-slate-100 dark:bg-slate-700/70 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
+                  ? 'bg-blue-600 border-blue-600 text-white'
+                  : 'bg-white dark:bg-slate-800 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-750'
               }`}
             >
               {t(cat.labelKey)}
@@ -394,116 +397,149 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* 4. Expanded Schemes Catalog Grid */}
-      <div className="space-y-5">
+      {/* 4. Structured Data Presentation: Enterprise Data Table for Schemes */}
+      <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <div className="text-sm font-bold text-slate-800 dark:text-slate-200">
-            {t('showingSchemes')} <span className="font-extrabold text-[#0B3B60] dark:text-blue-400">{filteredSchemes.length}</span> of {MOCK_GOV_SCHEMES.length} {t('recommendedSchemes')}
+          <div className="text-xs font-semibold text-slate-700 dark:text-slate-300">
+            {t('showingSchemes')} <span className="font-bold text-[#0B3B60] dark:text-blue-400">{filteredSchemes.length}</span> of {MOCK_GOV_SCHEMES.length} {t('recommendedSchemes')}
           </div>
           <Link
             to="/scheme-matching"
-            className="text-xs font-extrabold text-[#0B3B60] dark:text-blue-400 hover:underline flex items-center gap-1.5 transition-colors"
+            className="text-xs font-semibold text-blue-700 dark:text-blue-400 hover:underline flex items-center gap-1"
           >
             <span>✨</span> {t('runAiMatcher')} →
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          {filteredSchemes.map((scheme) => {
-            const isApplied = appliedSchemes[scheme.id];
+        {/* Structured Data Table with Horizontal Dividers (divide-y divide-slate-200) */}
+        <div className="bg-white dark:bg-slate-900 rounded-md border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse text-sm">
+              <thead>
+                <tr className="bg-slate-50 dark:bg-slate-800/60 border-b border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 text-xs uppercase font-semibold">
+                  <th className="py-3 px-4">Scheme Code & Title</th>
+                  <th className="py-3 px-4">Category</th>
+                  <th className="py-3 px-4">Maximum Benefit</th>
+                  <th className="py-3 px-4">Synergy Fit</th>
+                  <th className="py-3 px-4 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
+                {filteredSchemes.map((scheme) => {
+                  const isApplied = appliedSchemes[scheme.id];
+                  const isExpanded = expandedSchemeId === scheme.id;
 
-            return (
-              <div
-                key={scheme.id}
-                className="bg-white dark:bg-slate-800 rounded-2xl shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 dark:border-slate-700/60 p-6 md:p-8 flex flex-col justify-between transition-all duration-300 ease-out hover:-translate-y-1 relative overflow-hidden group"
-              >
-                {/* AI Glowing Gradient Pill for Match Score */}
-                <div className="flex items-center justify-between gap-2 mb-3">
-                  <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-blue-100 text-[#0B3B60] dark:bg-blue-900/60 dark:text-blue-300 border border-blue-200 dark:border-blue-700">
-                      {scheme.shortCode}
-                    </span>
-                    <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium truncate max-w-[180px]">
-                      {scheme.nodalAgency}
-                    </span>
-                  </div>
-                  <span className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold px-3 py-1 rounded-full shadow-md shadow-indigo-500/30 text-xs shrink-0">
-                    {scheme.matchPercentage}% {t('match')}
-                  </span>
-                </div>
+                  return (
+                    <React.Fragment key={scheme.id}>
+                      <tr className="hover:bg-slate-50/75 dark:hover:bg-slate-800/40 transition-colors">
+                        <td className="py-3.5 px-4">
+                          <div className="flex items-start gap-2.5">
+                            <span className="font-mono text-xs font-bold text-[#0B3B60] dark:text-blue-400 bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded border border-slate-300 dark:border-slate-700 shrink-0">
+                              {scheme.shortCode}
+                            </span>
+                            <div>
+                              <div className="font-semibold text-slate-900 dark:text-white leading-tight">
+                                {getSchemeTitle(scheme)}
+                              </div>
+                              <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+                                {scheme.nodalAgency}
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td className="py-3.5 px-4">
+                          <span className="inline-block px-2 py-0.5 rounded text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                            {scheme.category}
+                          </span>
+                        </td>
+                        <td className="py-3.5 px-4">
+                          <div className="text-xs font-semibold text-slate-900 dark:text-white">
+                            {scheme.maxSubsidy}
+                          </div>
+                        </td>
+                        <td className="py-3.5 px-4">
+                          <div className="w-28">
+                            <div className="flex items-center justify-between text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                              <span>{scheme.matchPercentage}%</span>
+                            </div>
+                            <div className="h-1.5 bg-slate-200 dark:bg-slate-700 rounded-sm overflow-hidden">
+                              <div
+                                className="h-full bg-blue-600 rounded-sm"
+                                style={{ width: `${scheme.matchPercentage}%` }}
+                              ></div>
+                            </div>
+                          </div>
+                        </td>
+                        <td className="py-3.5 px-4 text-right">
+                          <div className="inline-flex items-center gap-2">
+                            <button
+                              onClick={() => toggleExpandScheme(scheme.id)}
+                              className="px-2.5 py-1 text-xs font-medium rounded-md border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                            >
+                              {isExpanded ? 'Hide' : 'Details'}
+                            </button>
+                            <button
+                              onClick={() => handleApplyClick(scheme.id, scheme.name)}
+                              className={`px-3 py-1 rounded-md text-xs font-semibold transition-colors ${
+                                isApplied
+                                  ? 'bg-emerald-700 text-white cursor-default'
+                                  : 'bg-blue-600 hover:bg-blue-700 text-white'
+                              }`}
+                            >
+                              {isApplied ? t('applicationSubmitted') : t('applyJanSamarth')}
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
 
-                <div>
-                  {/* Scheme Title in Active Language */}
-                  <h3 className="text-lg font-extrabold text-slate-900 dark:text-white leading-snug mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                    {getSchemeTitle(scheme)}
-                  </h3>
+                      {/* Expandable Details Row */}
+                      {isExpanded && (
+                        <tr className="bg-slate-50/60 dark:bg-slate-800/20">
+                          <td colSpan={5} className="p-4 border-t border-slate-100 dark:border-slate-800">
+                            <div className="space-y-3 max-w-4xl text-xs">
+                              <div>
+                                <span className="font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider text-[11px]">
+                                  Description:
+                                </span>
+                                <p className="text-slate-600 dark:text-slate-400 mt-0.5 leading-relaxed">
+                                  {scheme.description}
+                                </p>
+                              </div>
 
-                  {/* Compatibility Progress Bar */}
-                  <div className="mb-3.5">
-                    <div className="h-1.5 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full transition-all duration-700"
-                        style={{ width: `${scheme.matchPercentage}%` }}
-                      ></div>
-                    </div>
-                  </div>
+                              <div>
+                                <span className="font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider text-[11px]">
+                                  {t('keyEligibility')}:
+                                </span>
+                                <ul className="mt-1 space-y-1 pl-1 text-slate-600 dark:text-slate-400">
+                                  {scheme.keyEligibility.map((item, idx) => (
+                                    <li key={idx} className="flex items-start gap-2">
+                                      <span className="text-emerald-600 font-bold">✓</span>
+                                      <span>{item}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
 
-                  {/* Description */}
-                  <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                    {scheme.description}
-                  </p>
-
-                  {/* Maximum Subsidy / Financial Benefit Box */}
-                  <div className="p-3.5 rounded-xl bg-amber-50/90 dark:bg-amber-950/30 border border-amber-200/90 dark:border-amber-800/50 mb-4 shadow-xs">
-                    <div className="text-[10px] font-extrabold uppercase text-amber-800 dark:text-amber-300">
-                      {t('maximumSubsidyBenefit')}
-                    </div>
-                    <div className="text-xs font-bold text-amber-950 dark:text-amber-100 mt-1">
-                      {scheme.maxSubsidy}
-                    </div>
-                  </div>
-
-                  {/* Key Eligibility Criteria */}
-                  <div className="space-y-1.5 mb-4">
-                    <div className="text-[11px] font-bold text-slate-700 dark:text-slate-400 uppercase tracking-wider">
-                      {t('keyEligibility')}
-                    </div>
-                    <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-1 pl-0.5">
-                      {scheme.keyEligibility.slice(0, 3).map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <span className="text-emerald-500 font-bold">✓</span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                {/* Card Action Footer */}
-                <div className="pt-4 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between gap-3">
-                  <a
-                    href={scheme.portalUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-xs font-bold text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-1 transition-colors"
-                  >
-                    {t('portalGuidelines')} ↗
-                  </a>
-
-                  <button
-                    onClick={() => handleApplyClick(scheme.id, scheme.name)}
-                    className={`px-4 py-2 rounded-xl text-xs font-bold transition-all duration-300 ease-out hover:-translate-y-1 active:translate-y-0 shadow-md ${
-                      isApplied
-                        ? 'bg-emerald-600 text-white shadow-emerald-500/20 cursor-default'
-                        : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-indigo-500/30'
-                    }`}
-                  >
-                    {isApplied ? t('applicationSubmitted') : t('applyJanSamarth')}
-                  </button>
-                </div>
-              </div>
-            );
-          })}
+                              <div className="pt-1">
+                                <a
+                                  href={scheme.portalUrl}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className="text-blue-700 dark:text-blue-400 font-semibold hover:underline inline-flex items-center gap-1"
+                                >
+                                  {t('portalGuidelines')} ↗
+                                </a>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      )}
+                    </React.Fragment>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
@@ -511,65 +547,65 @@ export default function Dashboard() {
       <MSMEConnect compact />
 
       {/* 6. Eligibility Roadmap Progress & Quick Actions Hub */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Left 2 Cols: Eligibility Roadmap Progress */}
-        <div className="lg:col-span-2 p-6 md:p-8 rounded-2xl bg-white dark:bg-slate-800 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 dark:border-slate-700/60 space-y-5 transition-all duration-300">
+        <div className="lg:col-span-2 p-6 rounded-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-lg font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+              <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
                 <span>🗺️</span> {t('nationalRoadmap')}
               </h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
                 {t('roadmapSubtitle')}
               </p>
             </div>
             <Link
               to="/eligibility-roadmap"
-              className="text-xs font-extrabold text-blue-600 dark:text-blue-400 hover:underline"
+              className="text-xs font-semibold text-blue-700 dark:text-blue-400 hover:underline"
             >
               {t('fullDetails')} →
             </Link>
           </div>
 
           {/* Progress Bar */}
-          <div className="space-y-2">
-            <div className="flex justify-between text-xs font-bold text-slate-700 dark:text-slate-300">
+          <div className="space-y-1.5">
+            <div className="flex justify-between text-xs font-medium text-slate-700 dark:text-slate-300">
               <span>{t('milestoneCompletion')}</span>
-              <span className="text-[#0B3B60] dark:text-blue-400">{stats.roadmapCompleted} of {stats.roadmapTotal} {t('stagesDone')} ({roadmapPercentage}%)</span>
+              <span className="text-[#0B3B60] dark:text-blue-400 font-bold">{stats.roadmapCompleted} of {stats.roadmapTotal} {t('stagesDone')} ({roadmapPercentage}%)</span>
             </div>
-            <div className="w-full h-3 rounded-full bg-slate-100 dark:bg-slate-700 overflow-hidden">
+            <div className="w-full h-2 rounded-sm bg-slate-200 dark:bg-slate-700 overflow-hidden">
               <div
-                className="h-full rounded-full bg-gradient-to-r from-blue-600 to-emerald-500 transition-all duration-700"
+                className="h-full rounded-sm bg-blue-600 transition-all duration-300"
                 style={{ width: `${roadmapPercentage}%` }}
               ></div>
             </div>
           </div>
 
           {/* Step Timeline */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-2">
-            <div className="p-3.5 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/40">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+            <div className="p-3 rounded-md bg-emerald-50/70 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/40">
               <div className="text-[10px] font-bold text-emerald-800 dark:text-emerald-400 uppercase">
                 {t('step1Title')}
               </div>
-              <div className="text-xs font-bold text-slate-900 dark:text-white mt-1">
+              <div className="text-xs font-medium text-slate-900 dark:text-white mt-1">
                 {t('step1Desc')}
               </div>
             </div>
 
-            <div className="p-3.5 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/40">
+            <div className="p-3 rounded-md bg-emerald-50/70 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/40">
               <div className="text-[10px] font-bold text-emerald-800 dark:text-emerald-400 uppercase">
                 {t('step2Title')}
               </div>
-              <div className="text-xs font-bold text-slate-900 dark:text-white mt-1">
+              <div className="text-xs font-medium text-slate-900 dark:text-white mt-1">
                 {t('step2Desc')}
               </div>
             </div>
 
-            <div className="p-3.5 rounded-xl bg-blue-50/70 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800/40">
+            <div className="p-3 rounded-md bg-blue-50/70 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800/40">
               <div className="text-[10px] font-bold text-[#0B3B60] dark:text-blue-400 uppercase">
                 {t('step3Title')}
               </div>
-              <div className="text-xs font-bold text-slate-900 dark:text-white mt-1">
+              <div className="text-xs font-medium text-slate-900 dark:text-white mt-1">
                 {t('step3Desc')}
               </div>
             </div>
@@ -577,20 +613,20 @@ export default function Dashboard() {
         </div>
 
         {/* Right 1 Col: Quick India Stack Actions */}
-        <div className="p-6 md:p-8 rounded-2xl bg-white dark:bg-slate-800 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 dark:border-slate-700/60 flex flex-col justify-between space-y-5 transition-all duration-300">
+        <div className="p-6 rounded-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4">
           <div>
-            <h3 className="text-lg font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+            <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <span>⚡</span> {t('quickActions')}
             </h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
               {t('quickActionsSubtitle')}
             </p>
           </div>
 
-          <div className="space-y-2.5">
+          <div className="space-y-2">
             <Link
               to="/scheme-matching"
-              className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-750 transition-all duration-300 ease-out hover:-translate-y-0.5 text-xs font-bold text-slate-700 dark:text-slate-200 text-decoration-none shadow-xs"
+              className="w-full flex items-center justify-between p-2.5 rounded-md border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-xs font-semibold text-slate-700 dark:text-slate-200 text-decoration-none"
             >
               <span className="flex items-center gap-2">
                 <span>🎯</span> {t('aiSchemeMatcher')}
@@ -600,7 +636,7 @@ export default function Dashboard() {
 
             <Link
               to="/documents"
-              className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-750 transition-all duration-300 ease-out hover:-translate-y-0.5 text-xs font-bold text-slate-700 dark:text-slate-200 text-decoration-none shadow-xs"
+              className="w-full flex items-center justify-between p-2.5 rounded-md border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-xs font-semibold text-slate-700 dark:text-slate-200 text-decoration-none"
             >
               <span className="flex items-center gap-2">
                 <span>📄</span> {t('uploadDigiLocker')}
@@ -610,7 +646,7 @@ export default function Dashboard() {
 
             <Link
               to="/credit-score"
-              className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-750 transition-all duration-300 ease-out hover:-translate-y-0.5 text-xs font-bold text-slate-700 dark:text-slate-200 text-decoration-none shadow-xs"
+              className="w-full flex items-center justify-between p-2.5 rounded-md border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-xs font-semibold text-slate-700 dark:text-slate-200 text-decoration-none"
             >
               <span className="flex items-center gap-2">
                 <span>💳</span> {t('creditScorecard')}
@@ -620,7 +656,7 @@ export default function Dashboard() {
 
             <Link
               to="/msme-connect"
-              className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-750 transition-all duration-300 ease-out hover:-translate-y-0.5 text-xs font-bold text-slate-700 dark:text-slate-200 text-decoration-none shadow-xs"
+              className="w-full flex items-center justify-between p-2.5 rounded-md border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-xs font-semibold text-slate-700 dark:text-slate-200 text-decoration-none"
             >
               <span className="flex items-center gap-2">
                 <span>🤝</span> MSME Connect (B2B Hub)
@@ -629,11 +665,12 @@ export default function Dashboard() {
             </Link>
           </div>
 
-          <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700/80 text-[11px] text-slate-600 dark:text-slate-400 leading-snug">
-            💡 <span className="font-bold text-slate-800 dark:text-slate-200">{t('judgeTip')}</span>
+          <div className="p-3 rounded-md bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-[11px] text-slate-600 dark:text-slate-400 leading-snug">
+            💡 <span className="font-semibold text-slate-800 dark:text-slate-200">{t('judgeTip')}</span>
           </div>
         </div>
       </div>
     </div>
   );
 }
+
